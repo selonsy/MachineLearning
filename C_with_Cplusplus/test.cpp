@@ -16,7 +16,7 @@ void rev_str(char *s,int len)
 int main()
 {
     char s[]= "uvxyz";
-    rev_str(s,5);
+    rev_str(s,5); 
     cout << s << endl;
 }
 
