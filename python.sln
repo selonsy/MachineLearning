@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.489
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "Python2.7", "Python2.7\Python2.7.pyproj", "{21BFBE2F-A749-4704-87D8-628F24FD8B5B}"
+EndProject
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "Python3.7", "Python3.7\Python3.7.pyproj", "{6403F327-4B52-4070-9C17-DF51A91585FA}"
+EndProject
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "Python3.6", "Python3.6\Python3.6.pyproj", "{47B00A34-4CC8-4E0D-89AA-AFF82DF4769D}"
+EndProject
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "tensorflow4mnist", "tensorflow4mnist\tensorflow4mnist.pyproj", "{325699FC-F6A2-4B08-8EDF-F6972EB71F91}"
+EndProject
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "kaggle", "kaggle\kaggle.pyproj", "{CED0F330-F4BE-4998-B776-987A0317724A}"
+EndProject
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "aim2offer", "aim2offer\aim2offer.pyproj", "{E5EE1779-4F42-47C7-B4B1-D0F087306D11}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{21BFBE2F-A749-4704-87D8-628F24FD8B5B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{21BFBE2F-A749-4704-87D8-628F24FD8B5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6403F327-4B52-4070-9C17-DF51A91585FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6403F327-4B52-4070-9C17-DF51A91585FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{47B00A34-4CC8-4E0D-89AA-AFF82DF4769D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47B00A34-4CC8-4E0D-89AA-AFF82DF4769D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{325699FC-F6A2-4B08-8EDF-F6972EB71F91}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{325699FC-F6A2-4B08-8EDF-F6972EB71F91}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CED0F330-F4BE-4998-B776-987A0317724A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CED0F330-F4BE-4998-B776-987A0317724A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5EE1779-4F42-47C7-B4B1-D0F087306D11}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5EE1779-4F42-47C7-B4B1-D0F087306D11}.Release|Any CPU.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {623C5E45-A5BB-4CA8-BA54-B68211162D34}
+	EndGlobalSection
+EndGlobal

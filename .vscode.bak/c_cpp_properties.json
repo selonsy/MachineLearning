@@ -1,0 +1,41 @@
+{
+    "configurations": [
+        {
+            "name": "Win32",
+            "includePath": [
+                "${workspaceRoot}",
+                "D:/Devenv/mingw/lib/gcc/mingw32/5.3.0/include/c++",
+                "D:/Devenv/mingw/lib/gcc/mingw32/5.3.0/include/c++/mingw32",
+                "D:/Devenv/mingw/lib/gcc/mingw32/5.3.0/include/c++/backward",
+                "D:/Devenv/mingw/lib/gcc/mingw32/5.3.0/include",
+                "D:/Devenv/mingw/lib/gcc/mingw32/5.3.0/include/c++/tr1",
+                "D:/Devenv/mingw/mingw32/include",
+                "D:/Devenv/mingw/x86_64-w64-mingw32/include"
+            ],
+            "defines": [
+                "_DEBUG",
+                "UNICODE",
+                "__GNUC__=6",
+                "__cdecl=__attribute__((__cdecl__))"
+            ],
+            "intelliSenseMode": "msvc-x64",
+            "browse": {
+                "path": [
+                    "${workspaceRoot}",
+                    "D:/Devenv/mingw/lib/gcc/mingw32/5.3.0/include/c++",
+                    "D:/Devenv/mingw/lib/gcc/mingw32/5.3.0/include/c++/mingw32",
+                    "D:/Devenv/mingw/lib/gcc/mingw32/5.3.0/include/c++/backward",
+                    "D:/Devenv/mingw/lib/gcc/mingw32/5.3.0/include",
+                    "D:/Devenv/mingw/lib/gcc/mingw32/5.3.0/include/c++/tr1",
+                    "D:/Devenv/mingw/mingw32/include"
+                ]
+            },
+            "limitSymbolsToIncludedHeaders": true,
+            "databaseFilename": "",
+            "compilerPath": "D:/Program Files/VisualStudio2017/VC/Tools/MSVC/14.15.26726/bin/Hostx64/x64/cl.exe",
+            "cStandard": "c11",
+            "cppStandard": "c++17"
+        }
+    ],
+    "version": 4
+}

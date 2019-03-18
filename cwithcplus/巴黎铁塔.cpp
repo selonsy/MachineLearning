@@ -1,4 +1,5 @@
-#define _CRT_SECURE_NO_WARNINGS
+//#define _CRT_SECURE_NO_WARNINGS
+#include "pch.h"
 #include<iostream>
 #include<algorithm>
 #include<vector>
@@ -10,9 +11,7 @@
 #include<list>
 using namespace std;
 
-
 static string s;
-
 
 int main()
 {

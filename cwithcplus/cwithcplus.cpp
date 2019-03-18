@@ -1,12 +1,13 @@
-﻿// C_with_Cplusplus.cpp : 此文件包含 "main" 函数。程序执行将在此处开始并结束。
+﻿// cwithcplus.cpp : 此文件包含 "main" 函数。程序执行将在此处开始并结束。
 //
 
 #include "pch.h"
 #include <iostream>
 
-int main()
+int mainA()
 {
-    std::cout << "Hello World!\n"; 
+    std::cout << "Hello World!\n";
+	return 0;
 }
 
 // 运行程序: Ctrl + F5 或调试 >“开始执行(不调试)”菜单

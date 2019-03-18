@@ -23,7 +23,10 @@
     <ClCompile Include="pch.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="C_with_Cplusplus.cpp">
+    <ClCompile Include="cwithcplus.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="巴黎铁塔.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

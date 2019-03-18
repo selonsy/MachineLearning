@@ -66,3 +66,4 @@ class getresultlist(object):
 
 s = input()
 print(getresultlist().get_ori_list(s))
+
