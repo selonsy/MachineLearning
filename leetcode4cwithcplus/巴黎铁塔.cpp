@@ -13,7 +13,7 @@ using namespace std;
 
 static string s;
 
-int main()
+int mainA()
 {
 	ios::sync_with_stdio(false);
 	cin >> s;

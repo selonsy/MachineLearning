@@ -18,6 +18,15 @@
     <ClInclude Include="pch.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="head.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="lib.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="temp.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
@@ -26,7 +35,16 @@
     <ClCompile Include="cwithcplus.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="巴黎铁塔.cpp">
+    <ClCompile Include="lib.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="main.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="sort.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="temp.c">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
