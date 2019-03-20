@@ -27,6 +27,11 @@
     <Compile Include="Base\python链表.py" />
     <Compile Include="剑指offer\二维数组中的查找.py" />
     <Compile Include="剑指offer\替换空格.py" />
+    <Compile Include="华为\Hadoop资源管理器.py" />
+    <Compile Include="华为\蛇形字符串.py" />
+    <Compile Include="华为\字符串加减法计算.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="网易游戏\二维数组横竖斜最大和.py" />
     <Compile Include="网易游戏\充电桩最优化.py" />
     <Compile Include="网易游戏\卡片抛弃顺序.py" />
@@ -45,6 +50,8 @@
     <Folder Include="algorithmSumUp\reduceAndConquer\" />
     <Folder Include="algorithmSumUp\tree\" />
     <Folder Include="Base\" />
+    <Folder Include="LeetCode\" />
+    <Folder Include="华为\" />
     <Folder Include="剑指offer\" />
     <Folder Include="网易游戏\" />
   </ItemGroup>
