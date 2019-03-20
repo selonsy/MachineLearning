@@ -11,6 +11,7 @@
     <OutputPath>.</OutputPath>
     <Name>aim2offer</Name>
     <RootNamespace>aim2offer</RootNamespace>
+    <InterpreterId>Global|PythonCore|3.7</InterpreterId>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -63,6 +64,9 @@
     <Content Include="algorithmSumUp\reduceAndConquer\addNum.c" />
     <Content Include="algorithmSumUp\reduceAndConquer\hanoi.c" />
     <Content Include="algorithmSumUp\tree\treeHeight.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <InterpreterReference Include="Global|PythonCore|3.7" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in

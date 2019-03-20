@@ -10,43 +10,43 @@ X是自变量，Y是因变量。
 import numpy as np
 import sys, math
 def solve(xArr, yArr):
-        '''
-        Solve multiple linear regression based on least square algorithm
+    '''
+    Solve multiple linear regression based on least square algorithm
     
-        Inputs:
-        - X： A 2-D array of shape (num_of_examples, dimension_of_x + 1)
-        - Y: A 1-D array of shape (num_of_examples,)
+    Inputs:
+    - X： A 2-D array of shape (num_of_examples, dimension_of_x + 1)
+    - Y: A 1-D array of shape (num_of_examples,)
     
-        Returns:
-        - coefficents: A 1-D array of shape (dimension_of_x + 1,).
-        '''
-        xMat=np.mat(xArr)
-        yMat=np.mat(yArr).T
-        xTx=xMat.T*xMat
-        if np.linalg.det(xTx)==0.0:
+    Returns:
+    - coefficents: A 1-D array of shape (dimension_of_x + 1,).
+    '''
+    xMat=np.mat(xArr)
+    yMat=np.mat(yArr).T
+    xTx=xMat.T*xMat
+    if np.linalg.det(xTx)==0.0:
             
-            return
-        ws=xTx.I*(xMat.T*yMat)
-        return ws
-        # return []
+        return
+    ws=xTx.I*(xMat.T*yMat)
+    return ws
+    # return []
 
 if __name__ == '__main__':    
     X = []
     Y = []
 
     while True:
-            line = sys.stdin.readline().strip('\r\n')        
-            if line == '':
-                    break            
-            nums = line.split(',')
-            nums = [float(n) for n in nums]            
-            X.append([1.0] + nums[:-1])
-            Y.append(nums[-1])    
+        line = sys.stdin.readline().strip('\r\n')        
+        if line == '':
+                break            
+        nums = line.split(',')
+        nums = [float(n) for n in nums]            
+        X.append([1.0] + nums[:-1])
+        Y.append(nums[-1])    
     coefs = solve(X, Y)    
     formatted_coefs = []
     for coef in coefs:
-            coef = math.floor(coef * 100)/100
-            formatted_coefs.append('%.2f' % coef)            
+        coef = math.floor(coef * 100)/100
+        formatted_coefs.append('%.2f' % coef)            
     print(','.join(formatted_coefs))            
 
 # 1.0,1.0,3.5
