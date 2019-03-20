@@ -23,13 +23,13 @@
 def arr_max_sum(arr,n,d):
     # 先用一种很傻比的方式直接遍历四种情况
 
-    # 第一种：横向
-    for i in range(n):
-        max = arr[i][0]
-        for j in range(n-d+1):
-            k=0
-            m=
-            while k<d and :
+    ## 第一种：横向
+    #for i in range(n):
+    #    max = arr[i][0]
+    #    for j in range(n-d+1):
+    #        k=0
+    #        m=
+    #        while k<d and :
 
 
     return 1
