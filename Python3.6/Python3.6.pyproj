@@ -22,11 +22,36 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="async_await.py" />
+    <Compile Include="chrome_driver.py" />
+    <Compile Include="codewars\codewars.py" />
+    <Compile Include="crawler_qq.py" />
+    <Compile Include="encode.py" />
+    <Compile Include="file_io.py" />
+    <Compile Include="main.py" />
     <Compile Include="Python3.6.py" />
+    <Compile Include="word_cloud.py" />
+    <Compile Include="yield_from.py" />
     <Compile Include="生成二维数组并初始化.py" />
   </ItemGroup>
   <ItemGroup>
     <InterpreterReference Include="Global|PythonCore|3.6" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="assets\" />
+    <Folder Include="codewars\" />
+    <Folder Include="output\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="assets\hit-stopwords.txt" />
+    <Content Include="assets\qq_word.txt" />
+    <Content Include="assets\qq_word_pure.txt" />
+    <Content Include="assets\qq_word_zw.txt" />
+    <Content Include="assets\qq_word_zw_pure.txt" />
+    <Content Include="assets\wechat_log.txt" />
+    <Content Include="assets\同义词表.txt" />
+    <Content Include="output\qq_word_sjl.png" />
+    <Content Include="output\qq_word_zw.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in
