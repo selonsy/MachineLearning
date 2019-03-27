@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>47b00a34-4cc8-4e0d-89aa-aff82df4769d</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>Python3.6.py</StartupFile>
+    <StartupFile>词云\WordCloud.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -22,6 +22,7 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="词云\WordCloud.py" />
     <Compile Include="Python3.6.py" />
     <Compile Include="临时待整理\async_await.py" />
     <Compile Include="临时待整理\chrome_driver.py" />
@@ -36,7 +37,7 @@
     <Compile Include="临时待整理\Pytorch_Test.py" />
     <Compile Include="临时待整理\Tensorflow_Test.py" />
     <Compile Include="临时待整理\Test_Caffe.py" />
-    <Compile Include="临时待整理\word_cloud.py" />
+    <Compile Include="词云\word_cloud.py" />
     <Compile Include="临时待整理\yield_from.py" />
     <Compile Include="临时待整理\生成二维数组并初始化.py" />
     <Compile Include="逻辑斯特回归.py" />
@@ -45,22 +46,22 @@
     <InterpreterReference Include="Global|PythonCore|3.6" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="词云\" />
     <Folder Include="临时待整理\" />
-    <Folder Include="临时待整理\assets\" />
-    <Folder Include="临时待整理\output\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="临时待整理\assets\hit-stopwords.txt" />
-    <Content Include="临时待整理\assets\qq_word.txt" />
-    <Content Include="临时待整理\assets\qq_word_pure.txt" />
-    <Content Include="临时待整理\assets\qq_word_zw.txt" />
-    <Content Include="临时待整理\assets\qq_word_zw_pure.txt" />
-    <Content Include="临时待整理\assets\wechat_log.txt" />
-    <Content Include="临时待整理\assets\同义词表.txt" />
+    <Content Include="requirements-old.txt" />
+    <Content Include="requirements.txt" />
+    <Content Include="词云\hit-stopwords.txt" />
+    <Content Include="词云\qq_word.txt" />
+    <Content Include="词云\qq_word_pure.txt" />
+    <Content Include="词云\wechat_log.txt" />
+    <Content Include="词云\word_cloud_pic.jpg" />
+    <Content Include="词云\同义词表.txt" />
     <Content Include="临时待整理\model.pkl" />
     <Content Include="临时待整理\model_529.pkl" />
-    <Content Include="临时待整理\output\qq_word_sjl.png" />
-    <Content Include="临时待整理\output\qq_word_zw.png" />
+    <Content Include="词云\qq_word_sjl.png" />
+    <Content Include="词云\qq_word_zw.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in
