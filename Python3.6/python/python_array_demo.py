@@ -2,6 +2,7 @@
 # python 3.6
 # author:selonsy
 # 用代码的形式来学习语法，持续更新 
+# 目录：list/set/tuple/dic
 
 '''
 list
@@ -16,12 +17,16 @@ students.append('f')
 students.insert(0,'z')
 # ['z', 'a', 'b', 'c', 'd', 'e', 'f']
 # 往索引为0的位置插入元素，其余依次后移
+students.extend(['x'])          # 将一个列表中每个元素分别添加到另一个列表中，只接受一个参数；
+                                # 相当于是将list B 连接到list A上
+students_temp = students + ['k','l'] # 两个list相加，效果类似于extend，但是会创建新的list对象
+                                     # 需要消耗额外的内存，list较大时，考虑用extend。
 x = students.pop()              # f,删除list末尾元素并返还
 x = students.pop(1)             # a,删除list指定位置的元素并返还
 # ['z', 'b', 'c', 'd', 'e']
 del students[1]                 # 删除list指定位置的元素，不返还
 # ['z', 'c', 'd', 'e']
-students.remove('c')            # 删除具有指定值的元素(仅匹配第一个)
+students.remove('c')            # 删除具有指定值的元素(仅匹配第一个)，不返还
 # ['z', 'd', 'e']
 students[0] = 'e'               # 替换某个位置的元素
 # ['e', 'd', 'e']
@@ -66,6 +71,8 @@ x = students.get('c')              # 96，get获取指定key的value
 x = students.get('d')              # None,key不存在返回None
 x = students.get('d',-1)           # -1,不存在返回自己指定的值
 x = students.pop('b')              # 删除一个key并返回其值
+students.clear()                   # 清空词典所有条目
+del students                       # 删除词典
 
 
 '''

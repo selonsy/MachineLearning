@@ -22,6 +22,7 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="python\python_array_demo.py" />
     <Compile Include="Pytorch\1.py" />
     <Compile Include="Pytorch\2.py" />
     <Compile Include="Pytorch\autograd.py" />
@@ -63,6 +64,7 @@
     <InterpreterReference Include="Global|PythonCore|3.6" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="python\" />
     <Folder Include="Tensorflow4mnist\" />
     <Folder Include="Pytorch\" />
     <Folder Include="Tensorflow4mnist\make_data_set\" />
