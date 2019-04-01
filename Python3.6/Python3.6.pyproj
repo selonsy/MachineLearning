@@ -502,6 +502,7 @@
     <Content Include="Tensorflow4mnist\mnist\test_images\1.png" />
     <Content Include="Tensorflow4mnist\mnist\test_images\4.png" />
     <Content Include="Tensorflow4mnist\README.md" />
+    <Content Include="词云\zhu.png" />
     <Content Include="词云\hit-stopwords.txt" />
     <Content Include="词云\qq_word.txt" />
     <Content Include="词云\qq_word_pure.txt" />
