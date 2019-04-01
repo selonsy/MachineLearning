@@ -1,0 +1,4785 @@
+{
+  "num_videos": 8,
+  "data_str": "Data/VID/train/",
+  "videos": {
+    "ILSVRC2015_train_00001000": [
+      {
+        "0": [
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001000\\000000.00.crop.x.jpg",
+            "bbox": [
+              0.0,
+              81.0,
+              889.0,
+              638.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001000\\000001.00.crop.x.jpg",
+            "bbox": [
+              0.0,
+              80.0,
+              891.0,
+              637.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001000\\000002.00.crop.x.jpg",
+            "bbox": [
+              0.0,
+              80.0,
+              893.0,
+              637.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001000\\000003.00.crop.x.jpg",
+            "bbox": [
+              0.0,
+              78.0,
+              895.0,
+              639.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001000\\000004.00.crop.x.jpg",
+            "bbox": [
+              0.0,
+              78.0,
+              898.0,
+              639.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001000\\000005.00.crop.x.jpg",
+            "bbox": [
+              0.0,
+              76.0,
+              891.0,
+              641.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001000\\000006.00.crop.x.jpg",
+            "bbox": [
+              0.0,
+              76.0,
+              893.0,
+              641.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001000\\000007.00.crop.x.jpg",
+            "bbox": [
+              0.0,
+              74.0,
+              895.0,
+              641.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001000\\000008.00.crop.x.jpg",
+            "bbox": [
+              0.0,
+              74.0,
+              897.0,
+              641.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001000\\000009.00.crop.x.jpg",
+            "bbox": [
+              0.0,
+              74.0,
+              893.0,
+              643.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001000\\000010.00.crop.x.jpg",
+            "bbox": [
+              0.0,
+              72.0,
+              895.0,
+              645.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001000\\000011.00.crop.x.jpg",
+            "bbox": [
+              0.0,
+              74.0,
+              889.0,
+              645.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001000\\000012.00.crop.x.jpg",
+            "bbox": [
+              0.0,
+              72.0,
+              893.0,
+              647.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001000\\000013.00.crop.x.jpg",
+            "bbox": [
+              0.0,
+              72.0,
+              897.0,
+              647.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001000\\000014.00.crop.x.jpg",
+            "bbox": [
+              0.0,
+              74.0,
+              893.0,
+              643.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001000\\000015.00.crop.x.jpg",
+            "bbox": [
+              0.0,
+              72.0,
+              897.0,
+              645.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001000\\000016.00.crop.x.jpg",
+            "bbox": [
+              0.0,
+              72.0,
+              900.0,
+              645.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001000\\000017.00.crop.x.jpg",
+            "bbox": [
+              0.0,
+              72.0,
+              891.0,
+              647.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001000\\000018.00.crop.x.jpg",
+            "bbox": [
+              0.0,
+              71.0,
+              897.0,
+              648.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001000\\000019.00.crop.x.jpg",
+            "bbox": [
+              0.0,
+              69.0,
+              902.0,
+              650.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001000\\000020.00.crop.x.jpg",
+            "bbox": [
+              0.0,
+              71.0,
+              897.0,
+              648.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001000\\000021.00.crop.x.jpg",
+            "bbox": [
+              0.0,
+              69.0,
+              902.0,
+              648.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001000\\000022.00.crop.x.jpg",
+            "bbox": [
+              0.0,
+              71.0,
+              893.0,
+              648.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001000\\000023.00.crop.x.jpg",
+            "bbox": [
+              0.0,
+              69.0,
+              900.0,
+              650.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001000\\000024.00.crop.x.jpg",
+            "bbox": [
+              0.0,
+              65.0,
+              909.0,
+              652.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001000\\000025.00.crop.x.jpg",
+            "bbox": [
+              0.0,
+              64.0,
+              918.0,
+              653.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001000\\000026.00.crop.x.jpg",
+            "bbox": [
+              0.0,
+              62.0,
+              927.0,
+              655.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001000\\000027.00.crop.x.jpg",
+            "bbox": [
+              0.0,
+              60.0,
+              934.0,
+              657.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001000\\000028.00.crop.x.jpg",
+            "bbox": [
+              0.0,
+              58.0,
+              943.0,
+              659.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001000\\000029.00.crop.x.jpg",
+            "bbox": [
+              0.0,
+              56.0,
+              952.0,
+              661.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001000\\000030.00.crop.x.jpg",
+            "bbox": [
+              0.0,
+              55.0,
+              961.0,
+              662.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001000\\000031.00.crop.x.jpg",
+            "bbox": [
+              0.0,
+              53.0,
+              962.0,
+              664.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001000\\000032.00.crop.x.jpg",
+            "bbox": [
+              0.0,
+              53.0,
+              977.0,
+              662.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001000\\000033.00.crop.x.jpg",
+            "bbox": [
+              0.0,
+              51.0,
+              977.0,
+              664.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001000\\000034.00.crop.x.jpg",
+            "bbox": [
+              0.0,
+              51.0,
+              987.0,
+              664.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001000\\000035.00.crop.x.jpg",
+            "bbox": [
+              0.0,
+              49.0,
+              985.0,
+              666.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001000\\000036.00.crop.x.jpg",
+            "bbox": [
+              0.0,
+              49.0,
+              985.0,
+              666.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001000\\000037.00.crop.x.jpg",
+            "bbox": [
+              0.0,
+              48.0,
+              985.0,
+              669.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001000\\000038.00.crop.x.jpg",
+            "bbox": [
+              0.0,
+              48.0,
+              985.0,
+              669.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001000\\000039.00.crop.x.jpg",
+            "bbox": [
+              0.0,
+              46.0,
+              985.0,
+              671.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001000\\000040.00.crop.x.jpg",
+            "bbox": [
+              0.0,
+              46.0,
+              985.0,
+              673.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001000\\000041.00.crop.x.jpg",
+            "bbox": [
+              0.0,
+              46.0,
+              982.0,
+              673.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001000\\000042.00.crop.x.jpg",
+            "bbox": [
+              0.0,
+              46.0,
+              980.0,
+              673.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001000\\000043.00.crop.x.jpg",
+            "bbox": [
+              0.0,
+              46.0,
+              978.0,
+              673.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001000\\000044.00.crop.x.jpg",
+            "bbox": [
+              0.0,
+              46.0,
+              977.0,
+              673.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001000\\000045.00.crop.x.jpg",
+            "bbox": [
+              0.0,
+              46.0,
+              975.0,
+              673.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001000\\000046.00.crop.x.jpg",
+            "bbox": [
+              0.0,
+              46.0,
+              973.0,
+              673.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001000\\000047.00.crop.x.jpg",
+            "bbox": [
+              0.0,
+              48.0,
+              971.0,
+              671.0
+            ]
+          }
+        ]
+      }
+    ],
+    "ILSVRC2015_train_00001001": [
+      {
+        "0": [
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001001\\000000.00.crop.x.jpg",
+            "bbox": [
+              638.0,
+              423.0,
+              406.0,
+              235.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001001\\000001.00.crop.x.jpg",
+            "bbox": [
+              637.0,
+              423.0,
+              406.0,
+              240.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001001\\000002.00.crop.x.jpg",
+            "bbox": [
+              637.0,
+              423.0,
+              405.0,
+              246.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001001\\000003.00.crop.x.jpg",
+            "bbox": [
+              636.0,
+              423.0,
+              405.0,
+              251.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001001\\000004.00.crop.x.jpg",
+            "bbox": [
+              636.0,
+              423.0,
+              405.0,
+              257.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001001\\000005.00.crop.x.jpg",
+            "bbox": [
+              632.0,
+              423.0,
+              405.0,
+              242.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001001\\000006.00.crop.x.jpg",
+            "bbox": [
+              629.0,
+              423.0,
+              405.0,
+              240.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001001\\000007.00.crop.x.jpg",
+            "bbox": [
+              627.0,
+              423.0,
+              405.0,
+              238.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001001\\000008.00.crop.x.jpg",
+            "bbox": [
+              624.0,
+              423.0,
+              405.0,
+              236.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001001\\000009.00.crop.x.jpg",
+            "bbox": [
+              622.0,
+              423.0,
+              405.0,
+              235.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001001\\000010.00.crop.x.jpg",
+            "bbox": [
+              620.0,
+              423.0,
+              404.0,
+              233.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001001\\000011.00.crop.x.jpg",
+            "bbox": [
+              617.0,
+              423.0,
+              405.0,
+              231.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001001\\000012.00.crop.x.jpg",
+            "bbox": [
+              615.0,
+              423.0,
+              404.0,
+              230.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001001\\000013.00.crop.x.jpg",
+            "bbox": [
+              612.0,
+              423.0,
+              405.0,
+              228.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001001\\000014.00.crop.x.jpg",
+            "bbox": [
+              610.0,
+              423.0,
+              404.0,
+              226.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001001\\000015.00.crop.x.jpg",
+            "bbox": [
+              608.0,
+              423.0,
+              404.0,
+              225.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001001\\000016.00.crop.x.jpg",
+            "bbox": [
+              606.0,
+              424.0,
+              417.0,
+              227.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001001\\000017.00.crop.x.jpg",
+            "bbox": [
+              599.0,
+              423.0,
+              413.0,
+              223.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001001\\000018.00.crop.x.jpg",
+            "bbox": [
+              581.0,
+              423.0,
+              470.0,
+              221.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001001\\000019.00.crop.x.jpg",
+            "bbox": [
+              586.0,
+              419.0,
+              472.0,
+              230.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001001\\000020.00.crop.x.jpg",
+            "bbox": [
+              584.0,
+              417.0,
+              469.0,
+              227.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001001\\000021.00.crop.x.jpg",
+            "bbox": [
+              583.0,
+              416.0,
+              465.0,
+              223.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001001\\000022.00.crop.x.jpg",
+            "bbox": [
+              581.0,
+              414.0,
+              468.0,
+              219.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001001\\000023.00.crop.x.jpg",
+            "bbox": [
+              579.0,
+              413.0,
+              462.0,
+              216.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001001\\000024.00.crop.x.jpg",
+            "bbox": [
+              577.0,
+              412.0,
+              457.0,
+              214.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001001\\000025.00.crop.x.jpg",
+            "bbox": [
+              575.0,
+              411.0,
+              451.0,
+              211.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001001\\000026.00.crop.x.jpg",
+            "bbox": [
+              574.0,
+              410.0,
+              445.0,
+              209.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001001\\000027.00.crop.x.jpg",
+            "bbox": [
+              572.0,
+              409.0,
+              439.0,
+              207.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001001\\000028.00.crop.x.jpg",
+            "bbox": [
+              570.0,
+              408.0,
+              433.0,
+              206.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001001\\000029.00.crop.x.jpg",
+            "bbox": [
+              570.0,
+              398.0,
+              392.0,
+              214.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001001\\000030.00.crop.x.jpg",
+            "bbox": [
+              568.0,
+              394.0,
+              391.0,
+              216.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001001\\000031.00.crop.x.jpg",
+            "bbox": [
+              565.0,
+              394.0,
+              387.0,
+              222.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001001\\000032.00.crop.x.jpg",
+            "bbox": [
+              562.0,
+              390.0,
+              390.0,
+              231.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001001\\000033.00.crop.x.jpg",
+            "bbox": [
+              560.0,
+              387.0,
+              393.0,
+              239.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001001\\000034.00.crop.x.jpg",
+            "bbox": [
+              557.0,
+              383.0,
+              390.0,
+              249.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001001\\000035.00.crop.x.jpg",
+            "bbox": [
+              555.0,
+              379.0,
+              386.0,
+              259.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001001\\000036.00.crop.x.jpg",
+            "bbox": [
+              553.0,
+              376.0,
+              382.0,
+              268.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001001\\000037.00.crop.x.jpg",
+            "bbox": [
+              551.0,
+              372.0,
+              378.0,
+              278.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001001\\000038.00.crop.x.jpg",
+            "bbox": [
+              549.0,
+              369.0,
+              374.0,
+              288.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001001\\000039.00.crop.x.jpg",
+            "bbox": [
+              547.0,
+              373.0,
+              371.0,
+              292.0
+            ]
+          }
+        ],
+        "1": [
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001001\\000000.01.crop.x.jpg",
+            "bbox": [
+              885.0,
+              232.0,
+              216.0,
+              231.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001001\\000001.01.crop.x.jpg",
+            "bbox": [
+              892.0,
+              231.0,
+              211.0,
+              226.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001001\\000002.01.crop.x.jpg",
+            "bbox": [
+              892.0,
+              229.0,
+              214.0,
+              223.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001001\\000003.01.crop.x.jpg",
+            "bbox": [
+              896.0,
+              227.0,
+              213.0,
+              221.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001001\\000004.01.crop.x.jpg",
+            "bbox": [
+              900.0,
+              225.0,
+              212.0,
+              220.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001001\\000005.01.crop.x.jpg",
+            "bbox": [
+              904.0,
+              223.0,
+              211.0,
+              219.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001001\\000006.01.crop.x.jpg",
+            "bbox": [
+              908.0,
+              221.0,
+              210.0,
+              218.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001001\\000007.01.crop.x.jpg",
+            "bbox": [
+              912.0,
+              220.0,
+              210.0,
+              216.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001001\\000008.01.crop.x.jpg",
+            "bbox": [
+              910.0,
+              218.0,
+              212.0,
+              214.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001001\\000009.01.crop.x.jpg",
+            "bbox": [
+              908.0,
+              217.0,
+              215.0,
+              211.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001001\\000010.01.crop.x.jpg",
+            "bbox": [
+              906.0,
+              215.0,
+              218.0,
+              210.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001001\\000011.01.crop.x.jpg",
+            "bbox": [
+              904.0,
+              214.0,
+              221.0,
+              207.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001001\\000012.01.crop.x.jpg",
+            "bbox": [
+              903.0,
+              213.0,
+              223.0,
+              205.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001001\\000013.01.crop.x.jpg",
+            "bbox": [
+              901.0,
+              213.0,
+              239.0,
+              207.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001001\\000014.01.crop.x.jpg",
+            "bbox": [
+              901.0,
+              211.0,
+              255.0,
+              206.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001001\\000015.01.crop.x.jpg",
+            "bbox": [
+              896.0,
+              211.0,
+              280.0,
+              207.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001001\\000016.01.crop.x.jpg",
+            "bbox": [
+              896.0,
+              208.0,
+              287.0,
+              201.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001001\\000017.01.crop.x.jpg",
+            "bbox": [
+              903.0,
+              206.0,
+              271.0,
+              191.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001001\\000018.01.crop.x.jpg",
+            "bbox": [
+              908.0,
+              206.0,
+              257.0,
+              182.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001001\\000019.01.crop.x.jpg",
+            "bbox": [
+              911.0,
+              204.0,
+              253.0,
+              181.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001001\\000020.01.crop.x.jpg",
+            "bbox": [
+              915.0,
+              202.0,
+              248.0,
+              181.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001001\\000021.01.crop.x.jpg",
+            "bbox": [
+              919.0,
+              200.0,
+              243.0,
+              181.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001001\\000022.01.crop.x.jpg",
+            "bbox": [
+              922.0,
+              198.0,
+              240.0,
+              181.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001001\\000023.01.crop.x.jpg",
+            "bbox": [
+              926.0,
+              196.0,
+              235.0,
+              180.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001001\\000024.01.crop.x.jpg",
+            "bbox": [
+              930.0,
+              195.0,
+              230.0,
+              179.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001001\\000025.01.crop.x.jpg",
+            "bbox": [
+              933.0,
+              193.0,
+              226.0,
+              179.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001001\\000026.01.crop.x.jpg",
+            "bbox": [
+              937.0,
+              191.0,
+              222.0,
+              179.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001001\\000027.01.crop.x.jpg",
+            "bbox": [
+              941.0,
+              189.0,
+              217.0,
+              178.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001001\\000028.01.crop.x.jpg",
+            "bbox": [
+              944.0,
+              187.0,
+              213.0,
+              178.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001001\\000029.01.crop.x.jpg",
+            "bbox": [
+              948.0,
+              185.0,
+              208.0,
+              178.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001001\\000030.01.crop.x.jpg",
+            "bbox": [
+              952.0,
+              184.0,
+              204.0,
+              177.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001001\\000031.01.crop.x.jpg",
+            "bbox": [
+              956.0,
+              183.0,
+              198.0,
+              196.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001001\\000032.01.crop.x.jpg",
+            "bbox": [
+              960.0,
+              183.0,
+              193.0,
+              214.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001001\\000033.01.crop.x.jpg",
+            "bbox": [
+              963.0,
+              182.0,
+              188.0,
+              208.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001001\\000034.01.crop.x.jpg",
+            "bbox": [
+              967.0,
+              181.0,
+              182.0,
+              203.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001001\\000035.01.crop.x.jpg",
+            "bbox": [
+              970.0,
+              180.0,
+              177.0,
+              198.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001001\\000036.01.crop.x.jpg",
+            "bbox": [
+              974.0,
+              179.0,
+              171.0,
+              193.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001001\\000037.01.crop.x.jpg",
+            "bbox": [
+              977.0,
+              177.0,
+              170.0,
+              184.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001001\\000038.01.crop.x.jpg",
+            "bbox": [
+              981.0,
+              177.0,
+              168.0,
+              179.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001001\\000039.01.crop.x.jpg",
+            "bbox": [
+              986.0,
+              177.0,
+              165.0,
+              174.0
+            ]
+          }
+        ],
+        "2": [
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001001\\000000.02.crop.x.jpg",
+            "bbox": [
+              876.0,
+              78.0,
+              149.0,
+              100.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001001\\000001.02.crop.x.jpg",
+            "bbox": [
+              876.0,
+              78.0,
+              148.0,
+              100.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001001\\000002.02.crop.x.jpg",
+            "bbox": [
+              876.0,
+              78.0,
+              148.0,
+              100.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001001\\000003.02.crop.x.jpg",
+            "bbox": [
+              876.0,
+              79.0,
+              148.0,
+              100.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001001\\000004.02.crop.x.jpg",
+            "bbox": [
+              876.0,
+              79.0,
+              147.0,
+              100.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001001\\000005.02.crop.x.jpg",
+            "bbox": [
+              876.0,
+              79.0,
+              147.0,
+              100.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001001\\000006.02.crop.x.jpg",
+            "bbox": [
+              876.0,
+              80.0,
+              147.0,
+              100.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001001\\000007.02.crop.x.jpg",
+            "bbox": [
+              876.0,
+              80.0,
+              146.0,
+              100.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001001\\000008.02.crop.x.jpg",
+            "bbox": [
+              877.0,
+              80.0,
+              145.0,
+              100.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001001\\000009.02.crop.x.jpg",
+            "bbox": [
+              877.0,
+              81.0,
+              145.0,
+              100.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001001\\000010.02.crop.x.jpg",
+            "bbox": [
+              877.0,
+              81.0,
+              144.0,
+              100.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001001\\000011.02.crop.x.jpg",
+            "bbox": [
+              877.0,
+              81.0,
+              144.0,
+              100.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001001\\000012.02.crop.x.jpg",
+            "bbox": [
+              877.0,
+              82.0,
+              144.0,
+              100.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001001\\000013.02.crop.x.jpg",
+            "bbox": [
+              877.0,
+              82.0,
+              143.0,
+              100.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001001\\000014.02.crop.x.jpg",
+            "bbox": [
+              877.0,
+              83.0,
+              143.0,
+              99.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001001\\000015.02.crop.x.jpg",
+            "bbox": [
+              877.0,
+              83.0,
+              143.0,
+              100.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001001\\000016.02.crop.x.jpg",
+            "bbox": [
+              878.0,
+              83.0,
+              141.0,
+              100.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001001\\000017.02.crop.x.jpg",
+            "bbox": [
+              878.0,
+              84.0,
+              141.0,
+              99.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001001\\000018.02.crop.x.jpg",
+            "bbox": [
+              878.0,
+              84.0,
+              141.0,
+              100.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001001\\000019.02.crop.x.jpg",
+            "bbox": [
+              878.0,
+              84.0,
+              140.0,
+              100.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001001\\000020.02.crop.x.jpg",
+            "bbox": [
+              878.0,
+              85.0,
+              140.0,
+              99.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001001\\000021.02.crop.x.jpg",
+            "bbox": [
+              878.0,
+              85.0,
+              140.0,
+              100.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001001\\000022.02.crop.x.jpg",
+            "bbox": [
+              878.0,
+              85.0,
+              139.0,
+              100.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001001\\000023.02.crop.x.jpg",
+            "bbox": [
+              878.0,
+              86.0,
+              139.0,
+              99.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001001\\000024.02.crop.x.jpg",
+            "bbox": [
+              879.0,
+              86.0,
+              138.0,
+              100.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001001\\000025.02.crop.x.jpg",
+            "bbox": [
+              879.0,
+              86.0,
+              137.0,
+              100.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001001\\000026.02.crop.x.jpg",
+            "bbox": [
+              879.0,
+              87.0,
+              137.0,
+              99.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001001\\000027.02.crop.x.jpg",
+            "bbox": [
+              879.0,
+              87.0,
+              137.0,
+              100.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001001\\000028.02.crop.x.jpg",
+            "bbox": [
+              879.0,
+              88.0,
+              136.0,
+              99.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001001\\000029.02.crop.x.jpg",
+            "bbox": [
+              879.0,
+              88.0,
+              136.0,
+              99.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001001\\000030.02.crop.x.jpg",
+            "bbox": [
+              879.0,
+              88.0,
+              136.0,
+              100.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001001\\000031.02.crop.x.jpg",
+            "bbox": [
+              879.0,
+              89.0,
+              135.0,
+              99.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001001\\000032.02.crop.x.jpg",
+            "bbox": [
+              880.0,
+              89.0,
+              134.0,
+              99.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001001\\000033.02.crop.x.jpg",
+            "bbox": [
+              880.0,
+              89.0,
+              134.0,
+              100.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001001\\000034.02.crop.x.jpg",
+            "bbox": [
+              880.0,
+              90.0,
+              133.0,
+              99.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001001\\000035.02.crop.x.jpg",
+            "bbox": [
+              880.0,
+              90.0,
+              133.0,
+              99.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001001\\000036.02.crop.x.jpg",
+            "bbox": [
+              880.0,
+              90.0,
+              133.0,
+              100.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001001\\000037.02.crop.x.jpg",
+            "bbox": [
+              880.0,
+              91.0,
+              132.0,
+              99.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001001\\000038.02.crop.x.jpg",
+            "bbox": [
+              880.0,
+              91.0,
+              132.0,
+              99.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001001\\000039.02.crop.x.jpg",
+            "bbox": [
+              881.0,
+              92.0,
+              131.0,
+              99.0
+            ]
+          }
+        ]
+      }
+    ],
+    "ILSVRC2015_train_00001002": [
+      {
+        "0": [
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001002\\000000.00.crop.x.jpg",
+            "bbox": [
+              122.0,
+              71.0,
+              853.0,
+              381.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001002\\000001.00.crop.x.jpg",
+            "bbox": [
+              140.0,
+              78.0,
+              810.0,
+              369.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001002\\000002.00.crop.x.jpg",
+            "bbox": [
+              163.0,
+              78.0,
+              739.0,
+              360.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001002\\000003.00.crop.x.jpg",
+            "bbox": [
+              176.0,
+              78.0,
+              644.0,
+              381.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001002\\000004.00.crop.x.jpg",
+            "bbox": [
+              188.0,
+              78.0,
+              616.0,
+              374.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001002\\000005.00.crop.x.jpg",
+            "bbox": [
+              200.0,
+              78.0,
+              586.0,
+              369.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001002\\000006.00.crop.x.jpg",
+            "bbox": [
+              192.0,
+              83.0,
+              600.0,
+              350.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001002\\000007.00.crop.x.jpg",
+            "bbox": [
+              177.0,
+              83.0,
+              624.0,
+              353.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001002\\000008.00.crop.x.jpg",
+            "bbox": [
+              161.0,
+              83.0,
+              640.0,
+              385.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001002\\000009.00.crop.x.jpg",
+            "bbox": [
+              135.0,
+              83.0,
+              669.0,
+              398.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001002\\000010.00.crop.x.jpg",
+            "bbox": [
+              101.0,
+              87.0,
+              707.0,
+              402.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001002\\000011.00.crop.x.jpg",
+            "bbox": [
+              55.0,
+              90.0,
+              754.0,
+              403.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001002\\000012.00.crop.x.jpg",
+            "bbox": [
+              21.0,
+              99.0,
+              785.0,
+              414.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001002\\000013.00.crop.x.jpg",
+            "bbox": [
+              5.0,
+              106.0,
+              801.0,
+              423.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001002\\000014.00.crop.x.jpg",
+            "bbox": [
+              5.0,
+              110.0,
+              799.0,
+              451.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001002\\000015.00.crop.x.jpg",
+            "bbox": [
+              5.0,
+              110.0,
+              797.0,
+              488.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001002\\000016.00.crop.x.jpg",
+            "bbox": [
+              26.0,
+              117.0,
+              780.0,
+              499.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001002\\000017.00.crop.x.jpg",
+            "bbox": [
+              58.0,
+              122.0,
+              753.0,
+              503.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001002\\000018.00.crop.x.jpg",
+            "bbox": [
+              104.0,
+              126.0,
+              713.0,
+              520.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001002\\000019.00.crop.x.jpg",
+            "bbox": [
+              160.0,
+              122.0,
+              674.0,
+              506.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001002\\000020.00.crop.x.jpg",
+            "bbox": [
+              183.0,
+              120.0,
+              662.0,
+              474.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001002\\000021.00.crop.x.jpg",
+            "bbox": [
+              197.0,
+              110.0,
+              664.0,
+              451.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001002\\000022.00.crop.x.jpg",
+            "bbox": [
+              193.0,
+              108.0,
+              688.0,
+              444.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001002\\000023.00.crop.x.jpg",
+            "bbox": [
+              192.0,
+              108.0,
+              710.0,
+              438.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001002\\000024.00.crop.x.jpg",
+            "bbox": [
+              200.0,
+              104.0,
+              707.0,
+              439.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001002\\000025.00.crop.x.jpg",
+            "bbox": [
+              204.0,
+              113.0,
+              719.0,
+              428.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001002\\000026.00.crop.x.jpg",
+            "bbox": [
+              215.0,
+              113.0,
+              733.0,
+              437.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001002\\000027.00.crop.x.jpg",
+            "bbox": [
+              232.0,
+              108.0,
+              757.0,
+              435.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001002\\000028.00.crop.x.jpg",
+            "bbox": [
+              259.0,
+              113.0,
+              780.0,
+              444.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001002\\000029.00.crop.x.jpg",
+            "bbox": [
+              282.0,
+              120.0,
+              799.0,
+              435.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001002\\000030.00.crop.x.jpg",
+            "bbox": [
+              291.0,
+              120.0,
+              824.0,
+              433.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001002\\000031.00.crop.x.jpg",
+            "bbox": [
+              272.0,
+              126.0,
+              866.0,
+              427.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001002\\000032.00.crop.x.jpg",
+            "bbox": [
+              256.0,
+              131.0,
+              882.0,
+              405.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001002\\000033.00.crop.x.jpg",
+            "bbox": [
+              252.0,
+              136.0,
+              877.0,
+              403.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001002\\000034.00.crop.x.jpg",
+            "bbox": [
+              248.0,
+              147.0,
+              858.0,
+              398.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001002\\000035.00.crop.x.jpg",
+            "bbox": [
+              247.0,
+              147.0,
+              838.0,
+              405.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001002\\000036.00.crop.x.jpg",
+            "bbox": [
+              248.0,
+              149.0,
+              777.0,
+              417.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001002\\000037.00.crop.x.jpg",
+            "bbox": [
+              243.0,
+              163.0,
+              734.0,
+              412.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001002\\000038.00.crop.x.jpg",
+            "bbox": [
+              234.0,
+              167.0,
+              691.0,
+              410.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001002\\000039.00.crop.x.jpg",
+            "bbox": [
+              220.0,
+              170.0,
+              693.0,
+              394.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001002\\000040.00.crop.x.jpg",
+            "bbox": [
+              192.0,
+              179.0,
+              717.0,
+              382.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001002\\000041.00.crop.x.jpg",
+            "bbox": [
+              168.0,
+              186.0,
+              757.0,
+              378.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001002\\000042.00.crop.x.jpg",
+            "bbox": [
+              135.0,
+              190.0,
+              802.0,
+              379.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001002\\000043.00.crop.x.jpg",
+            "bbox": [
+              103.0,
+              193.0,
+              836.0,
+              389.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001002\\000044.00.crop.x.jpg",
+            "bbox": [
+              79.0,
+              201.0,
+              855.0,
+              394.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001002\\000045.00.crop.x.jpg",
+            "bbox": [
+              56.0,
+              209.0,
+              873.0,
+              400.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001002\\000046.00.crop.x.jpg",
+            "bbox": [
+              33.0,
+              209.0,
+              894.0,
+              385.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001002\\000047.00.crop.x.jpg",
+            "bbox": [
+              33.0,
+              211.0,
+              888.0,
+              406.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001002\\000048.00.crop.x.jpg",
+            "bbox": [
+              37.0,
+              213.0,
+              883.0,
+              428.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001002\\000049.00.crop.x.jpg",
+            "bbox": [
+              74.0,
+              222.0,
+              853.0,
+              442.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001002\\000050.00.crop.x.jpg",
+            "bbox": [
+              117.0,
+              224.0,
+              804.0,
+              457.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001002\\000051.00.crop.x.jpg",
+            "bbox": [
+              176.0,
+              225.0,
+              742.0,
+              476.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001002\\000052.00.crop.x.jpg",
+            "bbox": [
+              229.0,
+              227.0,
+              691.0,
+              479.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001002\\000053.00.crop.x.jpg",
+            "bbox": [
+              250.0,
+              229.0,
+              673.0,
+              410.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001002\\000054.00.crop.x.jpg",
+            "bbox": [
+              266.0,
+              231.0,
+              666.0,
+              408.0
+            ]
+          }
+        ]
+      }
+    ],
+    "ILSVRC2015_train_00001003": [
+      {
+        "0": [
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001003\\000000.00.crop.x.jpg",
+            "bbox": [
+              364.0,
+              40.0,
+              915.0,
+              663.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001003\\000001.00.crop.x.jpg",
+            "bbox": [
+              364.0,
+              39.0,
+              915.0,
+              663.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001003\\000002.00.crop.x.jpg",
+            "bbox": [
+              365.0,
+              38.0,
+              914.0,
+              663.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001003\\000003.00.crop.x.jpg",
+            "bbox": [
+              366.0,
+              37.0,
+              913.0,
+              663.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001003\\000004.00.crop.x.jpg",
+            "bbox": [
+              367.0,
+              37.0,
+              912.0,
+              663.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001003\\000005.00.crop.x.jpg",
+            "bbox": [
+              368.0,
+              36.0,
+              911.0,
+              663.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001003\\000006.00.crop.x.jpg",
+            "bbox": [
+              369.0,
+              35.0,
+              910.0,
+              663.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001003\\000007.00.crop.x.jpg",
+            "bbox": [
+              370.0,
+              35.0,
+              909.0,
+              663.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001003\\000008.00.crop.x.jpg",
+            "bbox": [
+              371.0,
+              34.0,
+              908.0,
+              663.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001003\\000009.00.crop.x.jpg",
+            "bbox": [
+              372.0,
+              33.0,
+              907.0,
+              663.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001003\\000010.00.crop.x.jpg",
+            "bbox": [
+              373.0,
+              33.0,
+              906.0,
+              663.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001003\\000011.00.crop.x.jpg",
+            "bbox": [
+              373.0,
+              33.0,
+              906.0,
+              663.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001003\\000012.00.crop.x.jpg",
+            "bbox": [
+              373.0,
+              34.0,
+              906.0,
+              663.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001003\\000013.00.crop.x.jpg",
+            "bbox": [
+              373.0,
+              35.0,
+              906.0,
+              663.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001003\\000014.00.crop.x.jpg",
+            "bbox": [
+              373.0,
+              35.0,
+              906.0,
+              663.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001003\\000015.00.crop.x.jpg",
+            "bbox": [
+              373.0,
+              36.0,
+              906.0,
+              663.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001003\\000016.00.crop.x.jpg",
+            "bbox": [
+              373.0,
+              37.0,
+              906.0,
+              663.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001003\\000017.00.crop.x.jpg",
+            "bbox": [
+              373.0,
+              37.0,
+              906.0,
+              663.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001003\\000018.00.crop.x.jpg",
+            "bbox": [
+              373.0,
+              38.0,
+              906.0,
+              663.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001003\\000019.00.crop.x.jpg",
+            "bbox": [
+              373.0,
+              39.0,
+              906.0,
+              663.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001003\\000020.00.crop.x.jpg",
+            "bbox": [
+              373.0,
+              40.0,
+              906.0,
+              663.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001003\\000021.00.crop.x.jpg",
+            "bbox": [
+              369.0,
+              40.0,
+              910.0,
+              662.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001003\\000022.00.crop.x.jpg",
+            "bbox": [
+              366.0,
+              40.0,
+              913.0,
+              661.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001003\\000023.00.crop.x.jpg",
+            "bbox": [
+              362.0,
+              40.0,
+              917.0,
+              661.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001003\\000024.00.crop.x.jpg",
+            "bbox": [
+              359.0,
+              40.0,
+              920.0,
+              660.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001003\\000025.00.crop.x.jpg",
+            "bbox": [
+              355.0,
+              40.0,
+              924.0,
+              659.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001003\\000026.00.crop.x.jpg",
+            "bbox": [
+              352.0,
+              40.0,
+              927.0,
+              659.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001003\\000027.00.crop.x.jpg",
+            "bbox": [
+              343.0,
+              39.0,
+              934.0,
+              658.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001003\\000028.00.crop.x.jpg",
+            "bbox": [
+              337.0,
+              39.0,
+              941.0,
+              659.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001003\\000029.00.crop.x.jpg",
+            "bbox": [
+              332.0,
+              40.0,
+              947.0,
+              659.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001003\\000030.00.crop.x.jpg",
+            "bbox": [
+              352.0,
+              46.0,
+              927.0,
+              657.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001003\\000031.00.crop.x.jpg",
+            "bbox": [
+              344.0,
+              47.0,
+              935.0,
+              656.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001003\\000032.00.crop.x.jpg",
+            "bbox": [
+              337.0,
+              49.0,
+              942.0,
+              654.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001003\\000033.00.crop.x.jpg",
+            "bbox": [
+              329.0,
+              51.0,
+              950.0,
+              653.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001003\\000034.00.crop.x.jpg",
+            "bbox": [
+              322.0,
+              52.0,
+              957.0,
+              652.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001003\\000035.00.crop.x.jpg",
+            "bbox": [
+              314.0,
+              54.0,
+              965.0,
+              650.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001003\\000036.00.crop.x.jpg",
+            "bbox": [
+              307.0,
+              56.0,
+              972.0,
+              649.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001003\\000037.00.crop.x.jpg",
+            "bbox": [
+              297.0,
+              56.0,
+              982.0,
+              647.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001003\\000038.00.crop.x.jpg",
+            "bbox": [
+              287.0,
+              56.0,
+              992.0,
+              646.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001003\\000039.00.crop.x.jpg",
+            "bbox": [
+              277.0,
+              56.0,
+              1002.0,
+              644.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001003\\000040.00.crop.x.jpg",
+            "bbox": [
+              268.0,
+              56.0,
+              1011.0,
+              643.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001003\\000041.00.crop.x.jpg",
+            "bbox": [
+              263.0,
+              55.0,
+              1015.0,
+              645.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001003\\000042.00.crop.x.jpg",
+            "bbox": [
+              258.0,
+              55.0,
+              1020.0,
+              646.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001003\\000043.00.crop.x.jpg",
+            "bbox": [
+              253.0,
+              55.0,
+              1025.0,
+              647.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001003\\000044.00.crop.x.jpg",
+            "bbox": [
+              248.0,
+              54.0,
+              1030.0,
+              650.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001003\\000045.00.crop.x.jpg",
+            "bbox": [
+              244.0,
+              54.0,
+              1034.0,
+              651.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001003\\000046.00.crop.x.jpg",
+            "bbox": [
+              239.0,
+              54.0,
+              1038.0,
+              652.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001003\\000047.00.crop.x.jpg",
+            "bbox": [
+              234.0,
+              53.0,
+              1043.0,
+              655.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001003\\000048.00.crop.x.jpg",
+            "bbox": [
+              229.0,
+              53.0,
+              1048.0,
+              656.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001003\\000049.00.crop.x.jpg",
+            "bbox": [
+              224.0,
+              53.0,
+              1053.0,
+              657.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001003\\000050.00.crop.x.jpg",
+            "bbox": [
+              220.0,
+              53.0,
+              1057.0,
+              659.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001003\\000051.00.crop.x.jpg",
+            "bbox": [
+              220.0,
+              53.0,
+              1057.0,
+              659.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001003\\000052.00.crop.x.jpg",
+            "bbox": [
+              220.0,
+              53.0,
+              1057.0,
+              659.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001003\\000053.00.crop.x.jpg",
+            "bbox": [
+              220.0,
+              53.0,
+              1057.0,
+              659.0
+            ]
+          }
+        ]
+      }
+    ],
+    "ILSVRC2015_train_00001004": [
+      {
+        "0": [
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001004\\000000.00.crop.x.jpg",
+            "bbox": [
+              334.0,
+              236.0,
+              685.0,
+              399.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001004\\000001.00.crop.x.jpg",
+            "bbox": [
+              336.0,
+              236.0,
+              697.0,
+              396.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001004\\000002.00.crop.x.jpg",
+            "bbox": [
+              348.0,
+              240.0,
+              700.0,
+              395.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001004\\000003.00.crop.x.jpg",
+            "bbox": [
+              350.0,
+              241.0,
+              701.0,
+              396.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001004\\000004.00.crop.x.jpg",
+            "bbox": [
+              357.0,
+              241.0,
+              701.0,
+              407.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001004\\000005.00.crop.x.jpg",
+            "bbox": [
+              360.0,
+              243.0,
+              704.0,
+              405.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001004\\000006.00.crop.x.jpg",
+            "bbox": [
+              350.0,
+              245.0,
+              717.0,
+              413.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001004\\000007.00.crop.x.jpg",
+            "bbox": [
+              339.0,
+              247.0,
+              728.0,
+              406.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001004\\000008.00.crop.x.jpg",
+            "bbox": [
+              328.0,
+              248.0,
+              737.0,
+              401.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001004\\000009.00.crop.x.jpg",
+            "bbox": [
+              311.0,
+              254.0,
+              737.0,
+              397.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001004\\000010.00.crop.x.jpg",
+            "bbox": [
+              300.0,
+              254.0,
+              726.0,
+              394.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001004\\000011.00.crop.x.jpg",
+            "bbox": [
+              295.0,
+              256.0,
+              737.0,
+              395.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001004\\000012.00.crop.x.jpg",
+            "bbox": [
+              302.0,
+              256.0,
+              742.0,
+              406.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001004\\000013.00.crop.x.jpg",
+            "bbox": [
+              311.0,
+              261.0,
+              740.0,
+              410.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001004\\000014.00.crop.x.jpg",
+            "bbox": [
+              318.0,
+              261.0,
+              737.0,
+              426.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001004\\000015.00.crop.x.jpg",
+            "bbox": [
+              328.0,
+              263.0,
+              745.0,
+              434.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001004\\000016.00.crop.x.jpg",
+            "bbox": [
+              339.0,
+              263.0,
+              739.0,
+              438.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001004\\000017.00.crop.x.jpg",
+            "bbox": [
+              344.0,
+              264.0,
+              734.0,
+              437.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001004\\000018.00.crop.x.jpg",
+            "bbox": [
+              350.0,
+              266.0,
+              749.0,
+              437.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001004\\000019.00.crop.x.jpg",
+            "bbox": [
+              355.0,
+              268.0,
+              735.0,
+              449.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001004\\000020.00.crop.x.jpg",
+            "bbox": [
+              362.0,
+              270.0,
+              719.0,
+              436.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001004\\000021.00.crop.x.jpg",
+            "bbox": [
+              366.0,
+              272.0,
+              714.0,
+              434.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001004\\000022.00.crop.x.jpg",
+            "bbox": [
+              364.0,
+              272.0,
+              709.0,
+              436.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001004\\000023.00.crop.x.jpg",
+            "bbox": [
+              375.0,
+              275.0,
+              690.0,
+              430.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001004\\000024.00.crop.x.jpg",
+            "bbox": [
+              398.0,
+              275.0,
+              666.0,
+              419.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001004\\000025.00.crop.x.jpg",
+            "bbox": [
+              419.0,
+              277.0,
+              652.0,
+              410.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001004\\000026.00.crop.x.jpg",
+            "bbox": [
+              432.0,
+              279.0,
+              635.0,
+              401.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001004\\000027.00.crop.x.jpg",
+            "bbox": [
+              444.0,
+              280.0,
+              621.0,
+              393.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001004\\000028.00.crop.x.jpg",
+            "bbox": [
+              460.0,
+              280.0,
+              604.0,
+              398.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001004\\000029.00.crop.x.jpg",
+            "bbox": [
+              471.0,
+              282.0,
+              591.0,
+              382.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001004\\000030.00.crop.x.jpg",
+            "bbox": [
+              483.0,
+              286.0,
+              577.0,
+              365.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001004\\000031.00.crop.x.jpg",
+            "bbox": [
+              474.0,
+              289.0,
+              600.0,
+              360.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001004\\000032.00.crop.x.jpg",
+            "bbox": [
+              460.0,
+              293.0,
+              616.0,
+              355.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001004\\000033.00.crop.x.jpg",
+            "bbox": [
+              456.0,
+              291.0,
+              618.0,
+              351.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001004\\000034.00.crop.x.jpg",
+            "bbox": [
+              453.0,
+              293.0,
+              618.0,
+              348.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001004\\000035.00.crop.x.jpg",
+            "bbox": [
+              460.0,
+              298.0,
+              611.0,
+              343.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001004\\000036.00.crop.x.jpg",
+            "bbox": [
+              444.0,
+              302.0,
+              620.0,
+              339.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001004\\000037.00.crop.x.jpg",
+            "bbox": [
+              442.0,
+              302.0,
+              620.0,
+              337.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001004\\000038.00.crop.x.jpg",
+            "bbox": [
+              440.0,
+              304.0,
+              620.0,
+              335.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001004\\000039.00.crop.x.jpg",
+            "bbox": [
+              439.0,
+              305.0,
+              619.0,
+              334.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001004\\000040.00.crop.x.jpg",
+            "bbox": [
+              437.0,
+              307.0,
+              620.0,
+              332.0
+            ]
+          }
+        ]
+      }
+    ],
+    "ILSVRC2015_train_00001005": [
+      {
+        "0": [
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001005\\000000.00.crop.x.jpg",
+            "bbox": [
+              428.0,
+              5.0,
+              851.0,
+              454.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001005\\000001.00.crop.x.jpg",
+            "bbox": [
+              428.0,
+              4.0,
+              850.0,
+              454.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001005\\000002.00.crop.x.jpg",
+            "bbox": [
+              428.0,
+              4.0,
+              850.0,
+              453.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001005\\000003.00.crop.x.jpg",
+            "bbox": [
+              428.0,
+              4.0,
+              849.0,
+              453.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001005\\000004.00.crop.x.jpg",
+            "bbox": [
+              428.0,
+              4.0,
+              849.0,
+              452.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001005\\000005.00.crop.x.jpg",
+            "bbox": [
+              428.0,
+              3.0,
+              848.0,
+              452.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001005\\000006.00.crop.x.jpg",
+            "bbox": [
+              428.0,
+              3.0,
+              848.0,
+              452.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001005\\000007.00.crop.x.jpg",
+            "bbox": [
+              428.0,
+              3.0,
+              847.0,
+              451.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001005\\000008.00.crop.x.jpg",
+            "bbox": [
+              428.0,
+              3.0,
+              847.0,
+              451.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001005\\000009.00.crop.x.jpg",
+            "bbox": [
+              425.0,
+              3.0,
+              850.0,
+              451.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001005\\000010.00.crop.x.jpg",
+            "bbox": [
+              423.0,
+              3.0,
+              852.0,
+              451.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001005\\000011.00.crop.x.jpg",
+            "bbox": [
+              420.0,
+              3.0,
+              855.0,
+              451.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001005\\000012.00.crop.x.jpg",
+            "bbox": [
+              418.0,
+              3.0,
+              857.0,
+              451.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001005\\000013.00.crop.x.jpg",
+            "bbox": [
+              415.0,
+              3.0,
+              860.0,
+              451.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001005\\000014.00.crop.x.jpg",
+            "bbox": [
+              413.0,
+              3.0,
+              862.0,
+              451.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001005\\000015.00.crop.x.jpg",
+            "bbox": [
+              410.0,
+              3.0,
+              865.0,
+              451.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001005\\000016.00.crop.x.jpg",
+            "bbox": [
+              408.0,
+              3.0,
+              867.0,
+              451.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001005\\000017.00.crop.x.jpg",
+            "bbox": [
+              405.0,
+              3.0,
+              870.0,
+              451.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001005\\000018.00.crop.x.jpg",
+            "bbox": [
+              403.0,
+              3.0,
+              872.0,
+              451.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001005\\000019.00.crop.x.jpg",
+            "bbox": [
+              400.0,
+              3.0,
+              875.0,
+              452.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001005\\000020.00.crop.x.jpg",
+            "bbox": [
+              398.0,
+              3.0,
+              877.0,
+              452.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001005\\000021.00.crop.x.jpg",
+            "bbox": [
+              395.0,
+              3.0,
+              880.0,
+              452.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001005\\000022.00.crop.x.jpg",
+            "bbox": [
+              393.0,
+              3.0,
+              882.0,
+              452.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001005\\000023.00.crop.x.jpg",
+            "bbox": [
+              390.0,
+              3.0,
+              885.0,
+              452.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001005\\000024.00.crop.x.jpg",
+            "bbox": [
+              388.0,
+              3.0,
+              887.0,
+              452.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001005\\000025.00.crop.x.jpg",
+            "bbox": [
+              385.0,
+              3.0,
+              890.0,
+              452.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001005\\000026.00.crop.x.jpg",
+            "bbox": [
+              383.0,
+              3.0,
+              892.0,
+              452.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001005\\000027.00.crop.x.jpg",
+            "bbox": [
+              380.0,
+              3.0,
+              895.0,
+              452.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001005\\000028.00.crop.x.jpg",
+            "bbox": [
+              378.0,
+              3.0,
+              897.0,
+              452.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001005\\000029.00.crop.x.jpg",
+            "bbox": [
+              375.0,
+              3.0,
+              900.0,
+              452.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001005\\000030.00.crop.x.jpg",
+            "bbox": [
+              373.0,
+              3.0,
+              902.0,
+              453.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001005\\000031.00.crop.x.jpg",
+            "bbox": [
+              373.0,
+              3.0,
+              902.0,
+              453.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001005\\000032.00.crop.x.jpg",
+            "bbox": [
+              373.0,
+              3.0,
+              902.0,
+              453.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001005\\000033.00.crop.x.jpg",
+            "bbox": [
+              373.0,
+              3.0,
+              902.0,
+              453.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001005\\000034.00.crop.x.jpg",
+            "bbox": [
+              373.0,
+              3.0,
+              902.0,
+              453.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001005\\000035.00.crop.x.jpg",
+            "bbox": [
+              373.0,
+              3.0,
+              902.0,
+              453.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001005\\000036.00.crop.x.jpg",
+            "bbox": [
+              374.0,
+              3.0,
+              902.0,
+              453.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001005\\000037.00.crop.x.jpg",
+            "bbox": [
+              374.0,
+              3.0,
+              902.0,
+              453.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001005\\000038.00.crop.x.jpg",
+            "bbox": [
+              374.0,
+              3.0,
+              902.0,
+              453.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001005\\000039.00.crop.x.jpg",
+            "bbox": [
+              374.0,
+              3.0,
+              902.0,
+              453.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001005\\000040.00.crop.x.jpg",
+            "bbox": [
+              374.0,
+              3.0,
+              902.0,
+              453.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001005\\000041.00.crop.x.jpg",
+            "bbox": [
+              374.0,
+              3.0,
+              902.0,
+              453.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001005\\000042.00.crop.x.jpg",
+            "bbox": [
+              375.0,
+              3.0,
+              902.0,
+              454.0
+            ]
+          }
+        ]
+      }
+    ],
+    "ILSVRC2015_train_00001006": [
+      {
+        "0": [
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001006\\000000.00.crop.x.jpg",
+            "bbox": [
+              0.0,
+              35.0,
+              1122.0,
+              449.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001006\\000001.00.crop.x.jpg",
+            "bbox": [
+              0.0,
+              35.0,
+              1117.0,
+              451.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001006\\000002.00.crop.x.jpg",
+            "bbox": [
+              0.0,
+              32.0,
+              1117.0,
+              452.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001006\\000003.00.crop.x.jpg",
+            "bbox": [
+              0.0,
+              33.0,
+              1126.0,
+              448.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001006\\000004.00.crop.x.jpg",
+            "bbox": [
+              0.0,
+              37.0,
+              1124.0,
+              444.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001006\\000005.00.crop.x.jpg",
+            "bbox": [
+              0.0,
+              40.0,
+              1124.0,
+              441.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001006\\000006.00.crop.x.jpg",
+            "bbox": [
+              0.0,
+              39.0,
+              1124.0,
+              442.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001006\\000007.00.crop.x.jpg",
+            "bbox": [
+              0.0,
+              40.0,
+              1126.0,
+              444.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001006\\000008.00.crop.x.jpg",
+            "bbox": [
+              0.0,
+              42.0,
+              1128.0,
+              447.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001006\\000009.00.crop.x.jpg",
+            "bbox": [
+              0.0,
+              44.0,
+              1129.0,
+              449.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001006\\000010.00.crop.x.jpg",
+            "bbox": [
+              0.0,
+              46.0,
+              1131.0,
+              449.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001006\\000011.00.crop.x.jpg",
+            "bbox": [
+              0.0,
+              46.0,
+              1137.0,
+              443.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001006\\000012.00.crop.x.jpg",
+            "bbox": [
+              0.0,
+              46.0,
+              1133.0,
+              447.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001006\\000013.00.crop.x.jpg",
+            "bbox": [
+              0.0,
+              48.0,
+              1129.0,
+              452.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001006\\000014.00.crop.x.jpg",
+            "bbox": [
+              0.0,
+              49.0,
+              1133.0,
+              446.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001006\\000015.00.crop.x.jpg",
+            "bbox": [
+              0.0,
+              51.0,
+              1129.0,
+              451.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001006\\000016.00.crop.x.jpg",
+            "bbox": [
+              0.0,
+              53.0,
+              1126.0,
+              444.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001006\\000017.00.crop.x.jpg",
+            "bbox": [
+              0.0,
+              55.0,
+              1122.0,
+              436.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001006\\000018.00.crop.x.jpg",
+            "bbox": [
+              0.0,
+              56.0,
+              1126.0,
+              432.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001006\\000019.00.crop.x.jpg",
+            "bbox": [
+              0.0,
+              58.0,
+              1119.0,
+              426.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001006\\000020.00.crop.x.jpg",
+            "bbox": [
+              0.0,
+              60.0,
+              1113.0,
+              428.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001006\\000021.00.crop.x.jpg",
+            "bbox": [
+              0.0,
+              60.0,
+              1103.0,
+              426.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001006\\000022.00.crop.x.jpg",
+            "bbox": [
+              0.0,
+              60.0,
+              1105.0,
+              424.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001006\\000023.00.crop.x.jpg",
+            "bbox": [
+              0.0,
+              60.0,
+              1087.0,
+              424.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001006\\000024.00.crop.x.jpg",
+            "bbox": [
+              0.0,
+              60.0,
+              1081.0,
+              429.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001006\\000025.00.crop.x.jpg",
+            "bbox": [
+              0.0,
+              60.0,
+              1074.0,
+              428.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001006\\000026.00.crop.x.jpg",
+            "bbox": [
+              0.0,
+              60.0,
+              1058.0,
+              433.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001006\\000027.00.crop.x.jpg",
+            "bbox": [
+              0.0,
+              60.0,
+              1044.0,
+              437.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001006\\000028.00.crop.x.jpg",
+            "bbox": [
+              0.0,
+              62.0,
+              1026.0,
+              429.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001006\\000029.00.crop.x.jpg",
+            "bbox": [
+              0.0,
+              60.0,
+              1003.0,
+              424.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001006\\000030.00.crop.x.jpg",
+            "bbox": [
+              0.0,
+              60.0,
+              929.0,
+              431.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001006\\000031.00.crop.x.jpg",
+            "bbox": [
+              0.0,
+              60.0,
+              911.0,
+              435.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001006\\000032.00.crop.x.jpg",
+            "bbox": [
+              0.0,
+              60.0,
+              894.0,
+              433.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001006\\000033.00.crop.x.jpg",
+            "bbox": [
+              0.0,
+              60.0,
+              877.0,
+              431.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001006\\000034.00.crop.x.jpg",
+            "bbox": [
+              0.0,
+              60.0,
+              820.0,
+              429.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001006\\000035.00.crop.x.jpg",
+            "bbox": [
+              0.0,
+              60.0,
+              806.0,
+              426.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001006\\000036.00.crop.x.jpg",
+            "bbox": [
+              0.0,
+              60.0,
+              797.0,
+              426.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001006\\000037.00.crop.x.jpg",
+            "bbox": [
+              0.0,
+              60.0,
+              790.0,
+              424.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001006\\000038.00.crop.x.jpg",
+            "bbox": [
+              0.0,
+              60.0,
+              772.0,
+              426.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001006\\000039.00.crop.x.jpg",
+            "bbox": [
+              0.0,
+              62.0,
+              767.0,
+              426.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001006\\000040.00.crop.x.jpg",
+            "bbox": [
+              0.0,
+              60.0,
+              763.0,
+              429.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001006\\000041.00.crop.x.jpg",
+            "bbox": [
+              0.0,
+              60.0,
+              758.0,
+              426.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001006\\000042.00.crop.x.jpg",
+            "bbox": [
+              0.0,
+              60.0,
+              754.0,
+              422.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001006\\000043.00.crop.x.jpg",
+            "bbox": [
+              0.0,
+              62.0,
+              763.0,
+              420.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001006\\000044.00.crop.x.jpg",
+            "bbox": [
+              0.0,
+              64.0,
+              772.0,
+              418.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001006\\000045.00.crop.x.jpg",
+            "bbox": [
+              0.0,
+              65.0,
+              790.0,
+              419.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001006\\000046.00.crop.x.jpg",
+            "bbox": [
+              0.0,
+              71.0,
+              820.0,
+              417.0
+            ]
+          }
+        ],
+        "1": [
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001006\\000000.01.crop.x.jpg",
+            "bbox": [
+              947.0,
+              0.0,
+              332.0,
+              301.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001006\\000001.01.crop.x.jpg",
+            "bbox": [
+              945.0,
+              0.0,
+              332.0,
+              299.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001006\\000002.01.crop.x.jpg",
+            "bbox": [
+              949.0,
+              0.0,
+              326.0,
+              301.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001006\\000003.01.crop.x.jpg",
+            "bbox": [
+              947.0,
+              0.0,
+              332.0,
+              299.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001006\\000004.01.crop.x.jpg",
+            "bbox": [
+              945.0,
+              0.0,
+              330.0,
+              303.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001006\\000005.01.crop.x.jpg",
+            "bbox": [
+              949.0,
+              0.0,
+              330.0,
+              299.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001006\\000006.01.crop.x.jpg",
+            "bbox": [
+              944.0,
+              0.0,
+              335.0,
+              297.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001006\\000007.01.crop.x.jpg",
+            "bbox": [
+              945.0,
+              0.0,
+              334.0,
+              299.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001006\\000008.01.crop.x.jpg",
+            "bbox": [
+              922.0,
+              0.0,
+              357.0,
+              297.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001006\\000009.01.crop.x.jpg",
+            "bbox": [
+              899.0,
+              0.0,
+              380.0,
+              297.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001006\\000010.01.crop.x.jpg",
+            "bbox": [
+              888.0,
+              0.0,
+              391.0,
+              303.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001006\\000011.01.crop.x.jpg",
+            "bbox": [
+              880.0,
+              0.0,
+              399.0,
+              306.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001006\\000012.01.crop.x.jpg",
+            "bbox": [
+              860.0,
+              0.0,
+              419.0,
+              310.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001006\\000013.01.crop.x.jpg",
+            "bbox": [
+              844.0,
+              0.0,
+              435.0,
+              315.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001006\\000014.01.crop.x.jpg",
+            "bbox": [
+              837.0,
+              0.0,
+              442.0,
+              321.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001006\\000015.01.crop.x.jpg",
+            "bbox": [
+              832.0,
+              0.0,
+              445.0,
+              322.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001006\\000016.01.crop.x.jpg",
+            "bbox": [
+              826.0,
+              0.0,
+              453.0,
+              324.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001006\\000017.01.crop.x.jpg",
+            "bbox": [
+              821.0,
+              0.0,
+              452.0,
+              326.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001006\\000018.01.crop.x.jpg",
+            "bbox": [
+              822.0,
+              0.0,
+              454.0,
+              319.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001006\\000019.01.crop.x.jpg",
+            "bbox": [
+              823.0,
+              0.0,
+              456.0,
+              312.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001006\\000020.01.crop.x.jpg",
+            "bbox": [
+              814.0,
+              0.0,
+              463.0,
+              315.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001006\\000021.01.crop.x.jpg",
+            "bbox": [
+              817.0,
+              0.0,
+              462.0,
+              312.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001006\\000022.01.crop.x.jpg",
+            "bbox": [
+              819.0,
+              0.0,
+              460.0,
+              305.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001006\\000023.01.crop.x.jpg",
+            "bbox": [
+              821.0,
+              0.0,
+              456.0,
+              319.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001006\\000024.01.crop.x.jpg",
+            "bbox": [
+              823.0,
+              0.0,
+              456.0,
+              324.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001006\\000025.01.crop.x.jpg",
+            "bbox": [
+              824.0,
+              0.0,
+              455.0,
+              322.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001006\\000026.01.crop.x.jpg",
+            "bbox": [
+              827.0,
+              0.0,
+              452.0,
+              329.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001006\\000027.01.crop.x.jpg",
+            "bbox": [
+              830.0,
+              0.0,
+              449.0,
+              337.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001006\\000028.01.crop.x.jpg",
+            "bbox": [
+              832.0,
+              0.0,
+              447.0,
+              351.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001006\\000029.01.crop.x.jpg",
+            "bbox": [
+              823.0,
+              0.0,
+              456.0,
+              351.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001006\\000030.01.crop.x.jpg",
+            "bbox": [
+              832.0,
+              0.0,
+              447.0,
+              367.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001006\\000031.01.crop.x.jpg",
+            "bbox": [
+              840.0,
+              0.0,
+              439.0,
+              385.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001006\\000032.01.crop.x.jpg",
+            "bbox": [
+              840.0,
+              0.0,
+              437.0,
+              401.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001006\\000033.01.crop.x.jpg",
+            "bbox": [
+              846.0,
+              0.0,
+              429.0,
+              409.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001006\\000034.01.crop.x.jpg",
+            "bbox": [
+              840.0,
+              0.0,
+              439.0,
+              420.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001006\\000035.01.crop.x.jpg",
+            "bbox": [
+              855.0,
+              0.0,
+              424.0,
+              418.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001006\\000036.01.crop.x.jpg",
+            "bbox": [
+              851.0,
+              0.0,
+              426.0,
+              422.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001006\\000037.01.crop.x.jpg",
+            "bbox": [
+              844.0,
+              0.0,
+              431.0,
+              427.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001006\\000038.01.crop.x.jpg",
+            "bbox": [
+              856.0,
+              0.0,
+              423.0,
+              420.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001006\\000039.01.crop.x.jpg",
+            "bbox": [
+              848.0,
+              0.0,
+              430.0,
+              422.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001006\\000040.01.crop.x.jpg",
+            "bbox": [
+              840.0,
+              0.0,
+              437.0,
+              424.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001006\\000041.01.crop.x.jpg",
+            "bbox": [
+              846.0,
+              0.0,
+              433.0,
+              418.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001006\\000042.01.crop.x.jpg",
+            "bbox": [
+              846.0,
+              0.0,
+              433.0,
+              413.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001006\\000043.01.crop.x.jpg",
+            "bbox": [
+              846.0,
+              0.0,
+              433.0,
+              409.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001006\\000044.01.crop.x.jpg",
+            "bbox": [
+              855.0,
+              0.0,
+              424.0,
+              409.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001006\\000045.01.crop.x.jpg",
+            "bbox": [
+              855.0,
+              0.0,
+              422.0,
+              415.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001006\\000046.01.crop.x.jpg",
+            "bbox": [
+              848.0,
+              0.0,
+              431.0,
+              404.0
+            ]
+          }
+        ]
+      }
+    ],
+    "ILSVRC2015_train_00001007": [
+      {
+        "0": [
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001007\\000000.00.crop.x.jpg",
+            "bbox": [
+              252.0,
+              103.0,
+              897.0,
+              612.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001007\\000001.00.crop.x.jpg",
+            "bbox": [
+              254.0,
+              98.0,
+              912.0,
+              616.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001007\\000002.00.crop.x.jpg",
+            "bbox": [
+              256.0,
+              93.0,
+              927.0,
+              620.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001007\\000003.00.crop.x.jpg",
+            "bbox": [
+              258.0,
+              88.0,
+              942.0,
+              624.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001007\\000004.00.crop.x.jpg",
+            "bbox": [
+              261.0,
+              83.0,
+              956.0,
+              629.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001007\\000005.00.crop.x.jpg",
+            "bbox": [
+              262.0,
+              80.0,
+              964.0,
+              632.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001007\\000006.00.crop.x.jpg",
+            "bbox": [
+              264.0,
+              78.0,
+              971.0,
+              634.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001007\\000007.00.crop.x.jpg",
+            "bbox": [
+              266.0,
+              76.0,
+              979.0,
+              637.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001007\\000008.00.crop.x.jpg",
+            "bbox": [
+              268.0,
+              74.0,
+              997.0,
+              639.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001007\\000009.00.crop.x.jpg",
+            "bbox": [
+              270.0,
+              83.0,
+              1001.0,
+              633.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001007\\000010.00.crop.x.jpg",
+            "bbox": [
+              272.0,
+              92.0,
+              1005.0,
+              627.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001007\\000011.00.crop.x.jpg",
+            "bbox": [
+              262.0,
+              93.0,
+              1014.0,
+              624.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001007\\000012.00.crop.x.jpg",
+            "bbox": [
+              252.0,
+              94.0,
+              1023.0,
+              621.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001007\\000013.00.crop.x.jpg",
+            "bbox": [
+              248.0,
+              95.0,
+              1026.0,
+              621.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001007\\000014.00.crop.x.jpg",
+            "bbox": [
+              245.0,
+              97.0,
+              1029.0,
+              620.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001007\\000015.00.crop.x.jpg",
+            "bbox": [
+              241.0,
+              99.0,
+              1032.0,
+              619.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001007\\000016.00.crop.x.jpg",
+            "bbox": [
+              238.0,
+              101.0,
+              1035.0,
+              618.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001007\\000017.00.crop.x.jpg",
+            "bbox": [
+              234.0,
+              103.0,
+              1045.0,
+              614.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001007\\000018.00.crop.x.jpg",
+            "bbox": [
+              216.0,
+              104.0,
+              1063.0,
+              613.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001007\\000019.00.crop.x.jpg",
+            "bbox": [
+              220.0,
+              106.0,
+              1058.0,
+              612.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001007\\000020.00.crop.x.jpg",
+            "bbox": [
+              225.0,
+              108.0,
+              1052.0,
+              611.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001007\\000021.00.crop.x.jpg",
+            "bbox": [
+              225.0,
+              110.0,
+              1053.0,
+              608.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001007\\000022.00.crop.x.jpg",
+            "bbox": [
+              225.0,
+              112.0,
+              1054.0,
+              605.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001007\\000023.00.crop.x.jpg",
+            "bbox": [
+              225.0,
+              134.0,
+              1053.0,
+              583.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001007\\000024.00.crop.x.jpg",
+            "bbox": [
+              225.0,
+              156.0,
+              1052.0,
+              561.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001007\\000025.00.crop.x.jpg",
+            "bbox": [
+              225.0,
+              170.0,
+              1052.0,
+              548.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001007\\000026.00.crop.x.jpg",
+            "bbox": [
+              225.0,
+              184.0,
+              1052.0,
+              535.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001007\\000027.00.crop.x.jpg",
+            "bbox": [
+              225.0,
+              194.0,
+              1052.0,
+              524.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001007\\000028.00.crop.x.jpg",
+            "bbox": [
+              225.0,
+              204.0,
+              1053.0,
+              514.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001007\\000029.00.crop.x.jpg",
+            "bbox": [
+              225.0,
+              214.0,
+              1053.0,
+              503.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001007\\000030.00.crop.x.jpg",
+            "bbox": [
+              225.0,
+              225.0,
+              1054.0,
+              492.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001007\\000031.00.crop.x.jpg",
+            "bbox": [
+              241.0,
+              236.0,
+              1009.0,
+              447.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001007\\000032.00.crop.x.jpg",
+            "bbox": [
+              236.0,
+              222.0,
+              1043.0,
+              493.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001007\\000033.00.crop.x.jpg",
+            "bbox": [
+              252.0,
+              259.0,
+              1023.0,
+              460.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001007\\000034.00.crop.x.jpg",
+            "bbox": [
+              248.0,
+              261.0,
+              1031.0,
+              454.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001007\\000035.00.crop.x.jpg",
+            "bbox": [
+              213.0,
+              270.0,
+              1064.0,
+              449.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001007\\000036.00.crop.x.jpg",
+            "bbox": [
+              250.0,
+              298.0,
+              1027.0,
+              421.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001007\\000037.00.crop.x.jpg",
+            "bbox": [
+              270.0,
+              337.0,
+              1007.0,
+              382.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001007\\000038.00.crop.x.jpg",
+            "bbox": [
+              296.0,
+              416.0,
+              981.0,
+              303.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001007\\000039.00.crop.x.jpg",
+            "bbox": [
+              392.0,
+              108.0,
+              885.0,
+              611.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001007\\000040.00.crop.x.jpg",
+            "bbox": [
+              392.0,
+              110.0,
+              640.0,
+              248.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001007\\000041.00.crop.x.jpg",
+            "bbox": [
+              410.0,
+              120.0,
+              620.0,
+              236.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001007\\000042.00.crop.x.jpg",
+            "bbox": [
+              416.0,
+              128.0,
+              612.0,
+              230.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001007\\000043.00.crop.x.jpg",
+            "bbox": [
+              414.0,
+              133.0,
+              612.0,
+              223.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001007\\000044.00.crop.x.jpg",
+            "bbox": [
+              421.0,
+              136.0,
+              637.0,
+              220.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001007\\000045.00.crop.x.jpg",
+            "bbox": [
+              428.0,
+              147.0,
+              623.0,
+              211.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001007\\000046.00.crop.x.jpg",
+            "bbox": [
+              435.0,
+              151.0,
+              629.0,
+              235.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001007\\000047.00.crop.x.jpg",
+            "bbox": [
+              433.0,
+              151.0,
+              634.0,
+              226.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001007\\000048.00.crop.x.jpg",
+            "bbox": [
+              446.0,
+              144.0,
+              611.0,
+              237.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001007\\000049.00.crop.x.jpg",
+            "bbox": [
+              458.0,
+              142.0,
+              572.0,
+              227.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001007\\000050.00.crop.x.jpg",
+            "bbox": [
+              444.0,
+              140.0,
+              639.0,
+              252.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001007\\000051.00.crop.x.jpg",
+            "bbox": [
+              439.0,
+              140.0,
+              641.0,
+              250.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001007\\000052.00.crop.x.jpg",
+            "bbox": [
+              438.0,
+              143.0,
+              640.0,
+              251.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001007\\000053.00.crop.x.jpg",
+            "bbox": [
+              437.0,
+              146.0,
+              640.0,
+              253.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001007\\000054.00.crop.x.jpg",
+            "bbox": [
+              436.0,
+              149.0,
+              639.0,
+              254.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001007\\000055.00.crop.x.jpg",
+            "bbox": [
+              435.0,
+              152.0,
+              639.0,
+              256.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001007\\000056.00.crop.x.jpg",
+            "bbox": [
+              435.0,
+              156.0,
+              638.0,
+              257.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001007\\000057.00.crop.x.jpg",
+            "bbox": [
+              439.0,
+              170.0,
+              634.0,
+              245.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001007\\000058.00.crop.x.jpg",
+            "bbox": [
+              437.0,
+              168.0,
+              646.0,
+              254.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001007\\000059.00.crop.x.jpg",
+            "bbox": [
+              435.0,
+              174.0,
+              664.0,
+              255.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001007\\000060.00.crop.x.jpg",
+            "bbox": [
+              435.0,
+              170.0,
+              648.0,
+              259.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001007\\000061.00.crop.x.jpg",
+            "bbox": [
+              438.0,
+              171.0,
+              641.0,
+              255.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001007\\000062.00.crop.x.jpg",
+            "bbox": [
+              442.0,
+              172.0,
+              634.0,
+              252.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001007\\000063.00.crop.x.jpg",
+            "bbox": [
+              445.0,
+              173.0,
+              635.0,
+              253.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001007\\000064.00.crop.x.jpg",
+            "bbox": [
+              449.0,
+              174.0,
+              636.0,
+              255.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001007\\000065.00.crop.x.jpg",
+            "bbox": [
+              452.0,
+              175.0,
+              641.0,
+              253.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001007\\000066.00.crop.x.jpg",
+            "bbox": [
+              456.0,
+              176.0,
+              645.0,
+              251.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001007\\000067.00.crop.x.jpg",
+            "bbox": [
+              469.0,
+              177.0,
+              641.0,
+              256.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001007\\000068.00.crop.x.jpg",
+            "bbox": [
+              469.0,
+              179.0,
+              630.0,
+              250.0
+            ]
+          },
+          {
+            "instance_path": "a\\ILSVRC2015_train_00001007\\000069.00.crop.x.jpg",
+            "bbox": [
+              474.0,
+              181.0,
+              654.0,
+              264.0
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
