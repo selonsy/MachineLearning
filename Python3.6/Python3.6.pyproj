@@ -52,6 +52,7 @@
   <ItemGroup>
     <Content Include="requirements-old.txt" />
     <Content Include="requirements.txt" />
+    <Content Include="词云\zhu.png" />
     <Content Include="词云\hit-stopwords.txt" />
     <Content Include="词云\qq_word.txt" />
     <Content Include="词云\qq_word_pure.txt" />
