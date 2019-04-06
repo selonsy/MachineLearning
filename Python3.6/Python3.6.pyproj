@@ -22,7 +22,8 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="python\python_array_demo.py" />
+    <Compile Include="python\数组.py" />
+    <Compile Include="python\正则表达式.py" />
     <Compile Include="Pytorch\1.py" />
     <Compile Include="Pytorch\2.py" />
     <Compile Include="Pytorch\autograd.py" />

@@ -11,6 +11,8 @@ Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "Python3.6", "Python3.6\Pyth
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "leetcode4cwithcplus", "leetcode4cwithcplus\leetcode4cwithcplus.vcxproj", "{15E29ABA-E218-4653-87E1-7D08CC4A928E}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "cplusplus", "cplusplus\cplusplus.vcxproj", "{0F81026D-1DD6-418C-BB99-C4422F48142D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -53,6 +55,16 @@ Global
 		{15E29ABA-E218-4653-87E1-7D08CC4A928E}.Release|x64.Build.0 = Release|x64
 		{15E29ABA-E218-4653-87E1-7D08CC4A928E}.Release|x86.ActiveCfg = Release|Win32
 		{15E29ABA-E218-4653-87E1-7D08CC4A928E}.Release|x86.Build.0 = Release|Win32
+		{0F81026D-1DD6-418C-BB99-C4422F48142D}.Debug|Any CPU.ActiveCfg = Debug|Win32
+		{0F81026D-1DD6-418C-BB99-C4422F48142D}.Debug|x64.ActiveCfg = Debug|x64
+		{0F81026D-1DD6-418C-BB99-C4422F48142D}.Debug|x64.Build.0 = Debug|x64
+		{0F81026D-1DD6-418C-BB99-C4422F48142D}.Debug|x86.ActiveCfg = Debug|Win32
+		{0F81026D-1DD6-418C-BB99-C4422F48142D}.Debug|x86.Build.0 = Debug|Win32
+		{0F81026D-1DD6-418C-BB99-C4422F48142D}.Release|Any CPU.ActiveCfg = Release|Win32
+		{0F81026D-1DD6-418C-BB99-C4422F48142D}.Release|x64.ActiveCfg = Release|x64
+		{0F81026D-1DD6-418C-BB99-C4422F48142D}.Release|x64.Build.0 = Release|x64
+		{0F81026D-1DD6-418C-BB99-C4422F48142D}.Release|x86.ActiveCfg = Release|Win32
+		{0F81026D-1DD6-418C-BB99-C4422F48142D}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

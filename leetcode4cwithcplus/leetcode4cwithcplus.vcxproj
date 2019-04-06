@@ -115,24 +115,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="A常见小算法.cpp" />
-    <ClCompile Include="leetcode4cwithcplus.cpp" />
-    <ClCompile Include="leetcode刷题系列.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="pch.cpp" />
-    <ClCompile Include="temp_main.c" />
-    <ClCompile Include="warshall算法.cpp" />
-    <ClCompile Include="分治问题.cpp" />
-    <ClCompile Include="动态规划.cpp" />
-    <ClCompile Include="大小堆问题.cpp" />
-    <ClCompile Include="巴黎铁塔.cpp" />
-    <ClCompile Include="排序问题.cpp" />
-    <ClCompile Include="文件操作.cpp" />
-    <ClCompile Include="深度优先_广度优先搜索算法.cpp" />
-    <ClCompile Include="贪心算法.cpp" />
-    <ClCompile Include="迷宫问题.cpp" />
-    <ClCompile Include="选择查找问题.cpp" />
-    <ClCompile Include="遍历问题.cpp" />
+    <ClCompile Include="三元互质子集.cpp" />
+    <ClCompile Include="游客弹射.cpp" />
+    <ClCompile Include="砸金蛋戳气球.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="head.h" />

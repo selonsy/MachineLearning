@@ -1,7 +1,7 @@
 # 参考：https://www.cnblogs.com/kumata/p/9147077.html
 
 
-#先定一个node的类
+# 节点类-Node
 class Node():                  #value + next
     def __init__ (self, value = None, next = None):
         self._value = value
@@ -19,9 +19,9 @@ class Node():                  #value + next
     def setNext(self,new_next):
         self._next = new_next
 
-#实现Linked List及其各类操作方法
+# 链表类-LinkedList
 class LinkedList():
-    def __init__(self):      #初始化链表为空表
+    def __init__(self):                 #初始化链表为空表
         self._head = Node() 
         self._tail = None
         self._length = 0
@@ -32,7 +32,7 @@ class LinkedList():
 
     #add在链表前端添加元素:O(1)
     def add(self,value):
-        newnode = Node(value,None)    #create一个node（为了插进一个链表）
+        newnode = Node(value,None)      #create一个node（为了插进一个链表）
         newnode.setNext(self._head)   
         self._head = newnode
 
@@ -40,7 +40,7 @@ class LinkedList():
     def append(self,value):
         newnode = Node(value)
         if self.isEmpty():
-            self._head = newnode   #若为空表，将添加的元素设为第一个元素
+            self._head = newnode        #若为空表，将添加的元素设为第一个元素
         else:
             current = self._head
             while current.getNext() != None:
@@ -106,3 +106,6 @@ class LinkedList():
                 current = current.getNext()
             pre.setNext(temp)
             temp.setNext(current)
+
+
+
