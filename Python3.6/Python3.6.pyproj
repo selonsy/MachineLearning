@@ -22,8 +22,16 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="2.py" />
+    <Compile Include="3.py" />
+    <Compile Include="4.py" />
+    <Compile Include="1.py" />
     <Compile Include="python\数组.py" />
     <Compile Include="python\正则表达式.py" />
+    <Compile Include="Pytorch4Gans\卷积网络.py" />
+    <Compile Include="Pytorch4Gans\简单网络.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Pytorch\1.py" />
     <Compile Include="Pytorch\2.py" />
     <Compile Include="Pytorch\autograd.py" />
@@ -59,13 +67,23 @@
     <Compile Include="词云\word_cloud.py" />
     <Compile Include="临时待整理\yield_from.py" />
     <Compile Include="临时待整理\生成二维数组并初始化.py" />
-    <Compile Include="逻辑斯特回归.py" />
   </ItemGroup>
   <ItemGroup>
     <InterpreterReference Include="Global|PythonCore|3.6" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Pytorch4Gans\" />
     <Folder Include="python\" />
+    <Folder Include="Pytorch4Gans\data\" />
+    <Folder Include="Pytorch4Gans\data\MNIST\" />
+    <Folder Include="Pytorch4Gans\data\MNIST\" />
+    <Folder Include="Pytorch4Gans\data\MNIST\processed\" />
+    <Folder Include="Pytorch4Gans\data\MNIST\processed\" />
+    <Folder Include="Pytorch4Gans\data\MNIST\processed\" />
+    <Folder Include="Pytorch4Gans\data\MNIST\raw\" />
+    <Folder Include="Pytorch4Gans\data\MNIST\raw\" />
+    <Folder Include="Pytorch4Gans\data\MNIST\raw\" />
+    <Folder Include="Pytorch4Gans\img\" />
     <Folder Include="Tensorflow4mnist\" />
     <Folder Include="Pytorch\" />
     <Folder Include="Tensorflow4mnist\make_data_set\" />
@@ -81,6 +99,28 @@
     <Folder Include="临时待整理\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Pytorch4Gans\data\MNIST\processed\test.pt" />
+    <Content Include="Pytorch4Gans\data\MNIST\processed\test.pt" />
+    <Content Include="Pytorch4Gans\data\MNIST\processed\test.pt" />
+    <Content Include="Pytorch4Gans\data\MNIST\processed\training.pt" />
+    <Content Include="Pytorch4Gans\data\MNIST\processed\training.pt" />
+    <Content Include="Pytorch4Gans\data\MNIST\processed\training.pt" />
+    <Content Include="Pytorch4Gans\data\MNIST\raw\t10k-images-idx3-ubyte" />
+    <Content Include="Pytorch4Gans\data\MNIST\raw\t10k-images-idx3-ubyte" />
+    <Content Include="Pytorch4Gans\data\MNIST\raw\t10k-images-idx3-ubyte" />
+    <Content Include="Pytorch4Gans\data\MNIST\raw\t10k-images-idx3-ubyte" />
+    <Content Include="Pytorch4Gans\data\MNIST\raw\t10k-labels-idx1-ubyte" />
+    <Content Include="Pytorch4Gans\data\MNIST\raw\t10k-labels-idx1-ubyte" />
+    <Content Include="Pytorch4Gans\data\MNIST\raw\t10k-labels-idx1-ubyte" />
+    <Content Include="Pytorch4Gans\data\MNIST\raw\t10k-labels-idx1-ubyte" />
+    <Content Include="Pytorch4Gans\data\MNIST\raw\train-images-idx3-ubyte" />
+    <Content Include="Pytorch4Gans\data\MNIST\raw\train-images-idx3-ubyte" />
+    <Content Include="Pytorch4Gans\data\MNIST\raw\train-images-idx3-ubyte" />
+    <Content Include="Pytorch4Gans\data\MNIST\raw\train-images-idx3-ubyte" />
+    <Content Include="Pytorch4Gans\data\MNIST\raw\train-labels-idx1-ubyte" />
+    <Content Include="Pytorch4Gans\data\MNIST\raw\train-labels-idx1-ubyte" />
+    <Content Include="Pytorch4Gans\data\MNIST\raw\train-labels-idx1-ubyte" />
+    <Content Include="Pytorch4Gans\data\MNIST\raw\train-labels-idx1-ubyte" />
     <Content Include="Pytorch\model.pkl" />
     <Content Include="Pytorch\model_529.pkl" />
     <Content Include="Pytorch\readme.txt" />

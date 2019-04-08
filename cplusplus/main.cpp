@@ -370,7 +370,7 @@ public:
 
 };
 
-int main()
+int main2019_4_7_18_39_25()
 {
 	Solution solution;
 
