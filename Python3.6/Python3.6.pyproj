@@ -49,6 +49,9 @@
     <Compile Include="Tensorflow4mnist\mnist\v3\model.py" />
     <Compile Include="Tensorflow4mnist\mnist\v3\predict.py" />
     <Compile Include="Tensorflow4mnist\mnist\v3\train.py" />
+    <Compile Include="爬虫\网易云音乐歌单.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="词云\WordCloud.py" />
     <Compile Include="Python3.6.py" />
     <Compile Include="临时待整理\async_await.py" />
@@ -72,6 +75,7 @@
     <InterpreterReference Include="Global|PythonCore|3.6" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="爬虫\" />
     <Folder Include="Pytorch4Gans\" />
     <Folder Include="python\" />
     <Folder Include="Pytorch4Gans\data\" />
