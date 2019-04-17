@@ -59,7 +59,7 @@ def train(data_dir, train_imdb, val_imdb, model_save_path="./model/", use_gpu=Tr
     ])
     train_x_transforms = transforms.Compose([
         RandomStretch(),
-        CenterCrop((center_crop_size, center_crop_size)),
+        #CenterCrop((center_crop_size, center_crop_size)),
         RandomCrop((random_crop_size, random_crop_size)),  # 暂时屏蔽掉
         ToTensor()
     ])
@@ -120,7 +120,7 @@ def train(data_dir, train_imdb, val_imdb, model_save_path="./model/", use_gpu=Tr
     valid_response_flag = False
 
     # ------------------------ training & validation process ------------------------
-    for epoch in range(config.num_epoch):
+    for epoch in range(config.NUM_EPOCH):
 
         # adjusting learning rate
         scheduler.step()

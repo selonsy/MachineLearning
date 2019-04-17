@@ -7,10 +7,10 @@
 
 
 
-def func(n,arr):
+def func(n,s,arr):
     
     return None
 
-n = map(int,input())
+n,s = map(int,input().split())
 arr = list(map(int,input().split()))
-print(func(n,arr))
+print(func(n,s,arr))

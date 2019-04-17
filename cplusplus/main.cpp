@@ -1,4 +1,8 @@
-
+/*
+* leetcode c++版本刷题集合
+* author：selonsy
+* time：2019_4_17_15_13_26
+*/
 #define _CRT_SECURE_NO_WARNINGS
 #include<vector>
 #include<iostream>

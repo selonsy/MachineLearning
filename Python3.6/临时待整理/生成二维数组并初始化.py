@@ -18,7 +18,8 @@ print("myList1\n",myList1)
 print("myList2\n",myList2)
 print("myList3\n",myList3)
 print("myList4\n",myList4)
-print("myList5\n",myList5)
+print("myList5\n",myList5) 
+
 
 list = [0,0,0]
 myList6 = list*4   # (1,12)

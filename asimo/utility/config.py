@@ -18,6 +18,9 @@ class Config(object):
     # experiment is running.
     NAME = None  # Override in sub-classes
 
+    NUM_PER_EPOCH = 53200 # num of samples per epoch # #5.32e4  # z&x 的图片对数
+    NUM_EPOCH = 1 # 训练轮次，暂定为1，原始为50（一轮是指将所有的训练数据跑一遍）
+
     # NUMBER OF GPUs to use. When using only a CPU, this needs to be set to 1.
     GPU_COUNT = 1
 
