@@ -1,0 +1,5 @@
+click
+requests
+pycryptodome
+selenium
+bs4

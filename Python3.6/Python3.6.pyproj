@@ -38,6 +38,7 @@
     <Compile Include="Pytorch\cifar.py" />
     <Compile Include="Pytorch\cifar10_tutorial.py" />
     <Compile Include="Pytorch\cnn.py" />
+    <Compile Include="spider4music\__init__.py" />
     <Compile Include="Tensorflow4mnist\make_data_set\gen_200_images.py" />
     <Compile Include="Tensorflow4mnist\make_data_set\make_hdf5_data_set.py" />
     <Compile Include="Tensorflow4mnist\make_data_set\make_npy_data_set.py" />
@@ -49,7 +50,25 @@
     <Compile Include="Tensorflow4mnist\mnist\v3\model.py" />
     <Compile Include="Tensorflow4mnist\mnist\v3\predict.py" />
     <Compile Include="Tensorflow4mnist\mnist\v3\train.py" />
-    <Compile Include="爬虫\网易云音乐歌单.py">
+    <Compile Include="spider4music\core\common.py" />
+    <Compile Include="spider4music\core\exceptions.py" />
+    <Compile Include="spider4music\core\extractors\baidu.py" />
+    <Compile Include="spider4music\core\extractors\flac.py" />
+    <Compile Include="spider4music\core\extractors\kugou.py" />
+    <Compile Include="spider4music\core\extractors\netease.py" />
+    <Compile Include="spider4music\core\extractors\qq.py" />
+    <Compile Include="spider4music\core\extractors\xiami.py" />
+    <Compile Include="spider4music\core\extractors\__init__.py" />
+    <Compile Include="spider4music\core\__init__.py" />
+    <Compile Include="spider4music\utils\glovar.py" />
+    <Compile Include="spider4music\main.py" />
+    <Compile Include="spider4music\utils\cli.py" />
+    <Compile Include="spider4music\utils\customlog.py" />
+    <Compile Include="spider4music\utils\echo.py" />
+    <Compile Include="spider4music\utils\__init__.py" />
+    <Compile Include="spider4music\网易云音乐下载.py" />
+    <Compile Include="spider4music\test.py" />
+    <Compile Include="spider4music\网易云音乐歌单.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="词云\WordCloud.py" />
@@ -75,6 +94,8 @@
     <InterpreterReference Include="Global|PythonCore|3.6" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="spider4music\" />
+    <Folder Include="spider4music\songs\" />
     <Folder Include="爬虫\" />
     <Folder Include="Pytorch4Gans\" />
     <Folder Include="python\" />
@@ -99,6 +120,10 @@
     <Folder Include="Tensorflow4mnist\mnist\v1\" />
     <Folder Include="Tensorflow4mnist\mnist\v2\" />
     <Folder Include="Tensorflow4mnist\mnist\v3\" />
+    <Folder Include="spider4music\core\" />
+    <Folder Include="spider4music\core\extractors\" />
+    <Folder Include="spider4music\docs\" />
+    <Folder Include="spider4music\utils\" />
     <Folder Include="词云\" />
     <Folder Include="临时待整理\" />
   </ItemGroup>
@@ -549,6 +574,15 @@
     <Content Include="Tensorflow4mnist\mnist\test_images\1.png" />
     <Content Include="Tensorflow4mnist\mnist\test_images\4.png" />
     <Content Include="Tensorflow4mnist\README.md" />
+    <Content Include="spider4music\docs\fork.png" />
+    <Content Include="spider4music\docs\merge.png" />
+    <Content Include="spider4music\docs\normal.png" />
+    <Content Include="spider4music\docs\preview.png" />
+    <Content Include="spider4music\docs\README.md" />
+    <Content Include="spider4music\requirements.txt" />
+    <Content Include="spider4music\docs\no_authorized_list.csv" />
+    <Content Include="spider4music\docs\selonsy.csv" />
+    <Content Include="spider4music\docs\selonsy1.csv" />
     <Content Include="词云\zhu.png" />
     <Content Include="词云\hit-stopwords.txt" />
     <Content Include="词云\qq_word.txt" />
