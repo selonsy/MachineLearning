@@ -25,7 +25,7 @@ class Config:
     train_ratio = 0.99                     # training ratio of VID dataset
     frame_range_vid = 100                  # frame range of choosing the instance
     frame_range_ytb = 1
-    train_batch_size = 32                  # training batch size
+    train_batch_size = 8 #32                  # training batch size
     valid_batch_size = 8                   # validation batch size
     train_num_workers = 4                  # number of workers of train dataloader
     valid_num_workers = 4                  # number of workers of validation dataloader
@@ -58,9 +58,9 @@ class Config:
     num_neg = 48
     lamb = 5
     save_interval = 1
-    show_interval = 100
+    show_interval = 5 # 100
     show_topK = 3
-    pretrained_model = '/mnt/usershare/zrq/pytorch/lab/model/zhangruiqi/finaltry/sharedata/alexnet.pth'
+    pretrained_model = "" # '/mnt/usershare/zrq/pytorch/lab/model/zhangruiqi/finaltry/sharedata/alexnet.pth'
 
     # tracking related
     gray_ratio = 0.25

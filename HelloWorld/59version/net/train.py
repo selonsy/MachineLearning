@@ -21,9 +21,9 @@ from sklearn.model_selection import train_test_split
 from tensorboardX import SummaryWriter
 from collections import OrderedDict
 
-from .config import config
-from .network import SiameseAlexNet
-from .dataset import ImagnetVIDDataset
+from config import config
+from network import SiameseAlexNet
+from dataset import ImagnetVIDDataset
 from lib.custom_transforms import Normalize, ToTensor, RandomStretch, \
     RandomCrop, CenterCrop, RandomBlur, ColorAug
 from lib.loss import rpn_smoothL1, rpn_cross_entropy_balance
@@ -31,6 +31,7 @@ from lib.visual import visual
 from lib.utils import get_topk_box, add_box_img, compute_iou, box_transform_inv, adjust_learning_rate
 
 from IPython import embed
+from fpn import SiamFPN50,SiamFPN101,SiamFPN152
 
 torch.manual_seed(config.seed)
 
@@ -62,12 +63,13 @@ def train(data_dir, model_path=None, vis_port=None, init=None):
     ])
 
     # open lmdb
-    db = lmdb.open(data_dir + '.lmdb', readonly=True, map_size=int(200e9))
-
+    # db = lmdb.open(data_dir + '_lmdb', readonly=True, map_size=int(1024*1024*1024)) # 200e9,单位Byte
+    db_path = data_dir + '_lmdb'
     # create dataset
     # -----------------------------------------------------------------------------------------------------
-    train_dataset = ImagnetVIDDataset(db, train_videos, data_dir, train_z_transforms, train_x_transforms)
-    anchors = train_dataset.anchors
+    train_dataset = ImagnetVIDDataset(
+        db_path, train_videos, data_dir, train_z_transforms, train_x_transforms)
+    anchors = train_dataset.anchors  # (1805,4)
     # dic_num = {}
     # ind_random = list(range(len(train_dataset)))
     # import random
@@ -75,15 +77,23 @@ def train(data_dir, model_path=None, vis_port=None, init=None):
     # for i in tqdm(ind_random):
     #     exemplar_img, instance_img, regression_target, conf_target = train_dataset[i+1000]
 
-    valid_dataset = ImagnetVIDDataset(db, valid_videos, data_dir, valid_z_transforms, valid_x_transforms,
+    valid_dataset = ImagnetVIDDataset(db_path, valid_videos, data_dir, valid_z_transforms, valid_x_transforms,
                                       training=False)
     # create dataloader
-    trainloader = DataLoader(train_dataset, batch_size=config.train_batch_size * torch.cuda.device_count(),
-                             shuffle=True, pin_memory=True,
-                             num_workers=config.train_num_workers * torch.cuda.device_count(), drop_last=True)
-    validloader = DataLoader(valid_dataset, batch_size=config.valid_batch_size * torch.cuda.device_count(),
-                             shuffle=False, pin_memory=True,
-                             num_workers=config.valid_num_workers * torch.cuda.device_count(), drop_last=True)
+    if torch.cuda.is_available():
+        trainloader = DataLoader(train_dataset, batch_size=config.train_batch_size * torch.cuda.device_count(),
+                                 shuffle=True, pin_memory=True,
+                                 num_workers=config.train_num_workers * torch.cuda.device_count(), drop_last=True)
+        validloader = DataLoader(valid_dataset, batch_size=config.valid_batch_size * torch.cuda.device_count(),
+                                 shuffle=False, pin_memory=True,
+                                 num_workers=config.valid_num_workers * torch.cuda.device_count(), drop_last=True)
+    else:
+        trainloader = DataLoader(train_dataset, batch_size=config.train_batch_size,
+                                 shuffle=True, pin_memory=True,
+                                 num_workers=config.train_num_workers, drop_last=True)
+        validloader = DataLoader(valid_dataset, batch_size=config.valid_batch_size,
+                                 shuffle=False, pin_memory=True,
+                                 num_workers=config.valid_num_workers, drop_last=True)
 
     # create summary writer
     if not os.path.exists(config.log_dir):
@@ -94,8 +104,11 @@ def train(data_dir, model_path=None, vis_port=None, init=None):
 
     # start training
     # -----------------------------------------------------------------------------------------------------
-    model = SiameseAlexNet()
-    model = model.cuda()
+    # model = SiameseAlexNet()
+    model = SiamFPN50()
+    model.init_weights() # 权重初始化
+    if torch.cuda.is_available():
+        model = model.cuda()
     optimizer = torch.optim.SGD(model.parameters(), lr=config.lr,
                                 momentum=config.momentum, weight_decay=config.weight_decay)
     # load model weight
@@ -125,11 +138,13 @@ def train(data_dir, model_path=None, vis_port=None, init=None):
         torch.cuda.empty_cache()
         print("loaded checkpoint")
     elif not model_path and config.pretrained_model:
-        print("init with pretrained checkpoint %s" % config.pretrained_model + '\n')
+        print("init with pretrained checkpoint %s" %
+              config.pretrained_model + '\n')
         print('------------------------------------------------------------------------------------------------ \n')
         checkpoint = torch.load(config.pretrained_model)
         # change name and load parameters
-        checkpoint = {k.replace('features.features', 'featureExtract'): v for k, v in checkpoint.items()}
+        checkpoint = {k.replace(
+            'features.features', 'featureExtract'): v for k, v in checkpoint.items()}
         model_dict = model.state_dict()
         model_dict.update(checkpoint)
         model.load_state_dict(model_dict)
@@ -151,8 +166,22 @@ def train(data_dir, model_path=None, vis_port=None, init=None):
                 continue
             else:
                 raise KeyError('error in fixing former 3 layers')
-        print("fixed layers:")
-        print(model.featureExtract[:10])
+        # print("fixed layers:")
+        # print(model.featureExtract[:10])
+        '''
+        fixed layers:
+        Sequential(
+        (0): Conv2d(3, 96, kernel_size=(11, 11), stride=(2, 2))
+        (1): BatchNorm2d(96, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (2): MaxPool2d(kernel_size=3, stride=2, padding=0, dilation=1, ceil_mode=False)
+        (3): ReLU(inplace)
+        (4): Conv2d(96, 256, kernel_size=(5, 5), stride=(1, 1))
+        (5): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (6): MaxPool2d(kernel_size=3, stride=2, padding=0, dilation=1, ceil_mode=False)
+        (7): ReLU(inplace)
+        (8): Conv2d(256, 384, kernel_size=(3, 3), stride=(1, 1))
+        (9): BatchNorm2d(384, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        '''
 
     if torch.cuda.device_count() > 1:
         model = nn.DataParallel(model)
@@ -166,24 +195,28 @@ def train(data_dir, model_path=None, vis_port=None, init=None):
                 freeze_layers(model)
         loss_temp_cls = 0
         loss_temp_reg = 0
-        for i, data in enumerate(tqdm(trainloader)):
+        # for i, data in enumerate(tqdm(trainloader)): # can't pickle Transaction objects
+        for i, data in enumerate(trainloader):
+            # print("done")
+            # return
+            # (8,3,127,127)\(8,3,271,271)\(8,1805,4)\(8,1805)
+            # 8为batch_size,1445 = 19 * 19 * 5,5 = anchors_num
             exemplar_imgs, instance_imgs, regression_target, conf_target = data
             # conf_target (8,1125) (8,225x5)
-            regression_target, conf_target = regression_target.cuda(), conf_target.cuda()
-
-            pred_score, pred_regression = model(exemplar_imgs.cuda(), instance_imgs.cuda())
-
-            pred_conf = pred_score.reshape(-1, 2, config.anchor_num * config.score_size * config.score_size).permute(0,
-                                                                                                                     2,
-                                                                                                                     1)
-            pred_offset = pred_regression.reshape(-1, 4,
-                                                  config.anchor_num * config.score_size * config.score_size).permute(0,
-                                                                                                                     2,
-                                                                                                                     1)
+            if torch.cuda.is_available():
+                regression_target, conf_target = regression_target.cuda(), conf_target.cuda()
+                exemplar_imgs, instance_imgs = exemplar_imgs.cuda(), instance_imgs.cuda()
+            # (8,10,19,19)\(8,20,19,19)
+            pred_score, pred_regression = model(exemplar_imgs, instance_imgs)
+            # (8,1805,2)
+            pred_conf = pred_score.reshape(-1, 2, config.anchor_num * config.score_size * config.score_size).permute(0,2,1)
+            pred_offset = pred_regression.reshape(-1, 4,config.anchor_num * config.score_size * config.score_size).permute(0,2,1)
+            
             cls_loss = rpn_cross_entropy_balance(pred_conf, conf_target, config.num_pos, config.num_neg, anchors,
                                                  ohem_pos=config.ohem_pos, ohem_neg=config.ohem_neg)
             reg_loss = rpn_smoothL1(pred_offset, regression_target, conf_target, config.num_pos, ohem=config.ohem_reg)
             loss = cls_loss + config.lamb * reg_loss
+            
             optimizer.zero_grad()
             loss.backward()
             torch.nn.utils.clip_grad_norm_(model.parameters(), config.clip)
@@ -198,46 +231,59 @@ def train(data_dir, model_path=None, vis_port=None, init=None):
             # if vis_port:
             #     vis.plot_error({'rpn_cls_loss': cls_loss.detach().cpu().numpy().ravel()[0],
             #                     'rpn_regress_loss': reg_loss.detach().cpu().numpy().ravel()[0]}, win=0)
+
+            print("Epoch %d  batch %d  training loss: %f " % (epoch+1,i+1, np.mean(train_loss)))
+
             if (i + 1) % config.show_interval == 0:
                 tqdm.write("[epoch %2d][iter %4d] cls_loss: %.4f, reg_loss: %.4f lr: %.2e"
                            % (epoch, i, loss_temp_cls / config.show_interval, loss_temp_reg / config.show_interval,
                               optimizer.param_groups[0]['lr']))
                 loss_temp_cls = 0
                 loss_temp_reg = 0
+                # 视觉展示
                 if vis_port:
                     anchors_show = train_dataset.anchors
-                    exem_img = exemplar_imgs[0].cpu().numpy().transpose(1, 2, 0)
-                    inst_img = instance_imgs[0].cpu().numpy().transpose(1, 2, 0)
+                    exem_img = exemplar_imgs[0].cpu(
+                    ).numpy().transpose(1, 2, 0)
+                    inst_img = instance_imgs[0].cpu(
+                    ).numpy().transpose(1, 2, 0)
 
                     # show detected box with max score
                     topk = config.show_topK
-                    vis.plot_img(exem_img.transpose(2, 0, 1), win=1, name='exemple')
+                    vis.plot_img(exem_img.transpose(
+                        2, 0, 1), win=1, name='exemple')
                     cls_pred = conf_target[0]
-                    gt_box = get_topk_box(cls_pred, regression_target[0], anchors_show)[0]
+                    gt_box = get_topk_box(
+                        cls_pred, regression_target[0], anchors_show)[0]
 
                     # show gt_box
                     img_box = add_box_img(inst_img, gt_box, color=(255, 0, 0))
-                    vis.plot_img(img_box.transpose(2, 0, 1), win=2, name='instance')
+                    vis.plot_img(img_box.transpose(2, 0, 1),
+                                 win=2, name='instance')
 
                     # show anchor with max score
                     cls_pred = F.softmax(pred_conf, dim=2)[0, :, 1]
                     scores, index = torch.topk(cls_pred, k=topk)
                     img_box = add_box_img(inst_img, anchors_show[index.cpu()])
                     img_box = add_box_img(img_box, gt_box, color=(255, 0, 0))
-                    vis.plot_img(img_box.transpose(2, 0, 1), win=3, name='anchor_max_score')
+                    vis.plot_img(img_box.transpose(2, 0, 1),
+                                 win=3, name='anchor_max_score')
 
                     cls_pred = F.softmax(pred_conf, dim=2)[0, :, 1]
-                    topk_box = get_topk_box(cls_pred, pred_offset[0], anchors_show, topk=topk)
+                    topk_box = get_topk_box(
+                        cls_pred, pred_offset[0], anchors_show, topk=topk)
                     img_box = add_box_img(inst_img, topk_box)
                     img_box = add_box_img(img_box, gt_box, color=(255, 0, 0))
-                    vis.plot_img(img_box.transpose(2, 0, 1), win=4, name='box_max_score')
+                    vis.plot_img(img_box.transpose(2, 0, 1),
+                                 win=4, name='box_max_score')
 
                     # show anchor and detected box with max iou
                     iou = compute_iou(anchors_show, gt_box).flatten()
                     index = np.argsort(iou)[-topk:]
                     img_box = add_box_img(inst_img, anchors_show[index])
                     img_box = add_box_img(img_box, gt_box, color=(255, 0, 0))
-                    vis.plot_img(img_box.transpose(2, 0, 1), win=5, name='anchor_max_iou')
+                    vis.plot_img(img_box.transpose(2, 0, 1),
+                                 win=5, name='anchor_max_iou')
 
                     # detected box
                     regress_offset = pred_offset[0].cpu().detach().numpy()
@@ -246,37 +292,36 @@ def train(data_dir, model_path=None, vis_port=None, init=None):
                     pred_box = box_transform_inv(anchors_det, topk_offset)
                     img_box = add_box_img(inst_img, pred_box)
                     img_box = add_box_img(img_box, gt_box, color=(255, 0, 0))
-                    vis.plot_img(img_box.transpose(2, 0, 1), win=6, name='box_max_iou')
-
+                    vis.plot_img(img_box.transpose(2, 0, 1),
+                                 win=6, name='box_max_iou')
         train_loss = np.mean(train_loss)
 
+        # 验证
         valid_loss = []
         model.eval()
-        for i, data in enumerate(tqdm(validloader)):
+        # for i, data in enumerate(tqdm(validloader)):
+        for i, data in enumerate(validloader):
             exemplar_imgs, instance_imgs, regression_target, conf_target = data
+            
+            if torch.cuda.is_available():
+                regression_target, conf_target = regression_target.cuda(), conf_target.cuda()
+                exemplar_imgs, instance_imgs = exemplar_imgs.cuda(), instance_imgs.cuda()
+            
+            pred_score, pred_regression = model(exemplar_imgs, instance_imgs)
 
-            regression_target, conf_target = regression_target.cuda(), conf_target.cuda()
-
-            pred_score, pred_regression = model(exemplar_imgs.cuda(), instance_imgs.cuda())
-
-            pred_conf = pred_score.reshape(-1, 2, config.anchor_num * config.score_size * config.score_size).permute(0,
-                                                                                                                     2,
-                                                                                                                     1)
-            pred_offset = pred_regression.reshape(-1, 4,
-                                                  config.anchor_num * config.score_size * config.score_size).permute(0,
-                                                                                                                     2,
-                                                                                                                     1)
+            pred_conf = pred_score.reshape(-1, 2, config.anchor_num * config.score_size * config.score_size).permute(0,2,1)
+            pred_offset = pred_regression.reshape(-1, 4,config.anchor_num * config.score_size * config.score_size).permute(0,2,1)
             cls_loss = rpn_cross_entropy_balance(pred_conf, conf_target, config.num_pos, config.num_neg, anchors,
                                                  ohem_pos=config.ohem_pos, ohem_neg=config.ohem_neg)
             reg_loss = rpn_smoothL1(pred_offset, regression_target, conf_target, config.num_pos, ohem=config.ohem_reg)
             loss = cls_loss + config.lamb * reg_loss
             valid_loss.append(loss.detach().cpu())
         valid_loss = np.mean(valid_loss)
-        print("EPOCH %d valid_loss: %.4f, train_loss: %.4f" % (epoch, valid_loss, train_loss))
-        summary_writer.add_scalar('valid/loss',
-                                  valid_loss, (epoch + 1) * len(trainloader))
-        adjust_learning_rate(optimizer,
-                             config.gamma)  # adjust before save, and it will be epoch+1's lr when next load
+        print("EPOCH %d valid_loss: %.4f, train_loss: %.4f" %(epoch, valid_loss, train_loss))
+        summary_writer.add_scalar('valid/loss',valid_loss, (epoch + 1) * len(trainloader))
+        # 调整学习率
+        adjust_learning_rate(optimizer,config.gamma)  # adjust before save, and it will be epoch+1's lr when next load
+        # 保存训练好的模型
         if epoch % config.save_interval == 0:
             if not os.path.exists('./data/models/'):
                 os.makedirs("./data/models/")
@@ -293,3 +338,11 @@ def train(data_dir, model_path=None, vis_port=None, init=None):
                 'optimizer': optimizer.state_dict(),
             }, save_name)
             print('save model: {}'.format(save_name))
+
+
+if __name__ == "__main__":
+    data_dir = r"D:\workspace\MachineLearning\HelloWorld\59version\dataset\ILSVRC_Crops"
+    model_path = ""
+    vis_port = None
+    init = None
+    train(data_dir, model_path, vis_port, init)

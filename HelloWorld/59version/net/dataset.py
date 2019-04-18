@@ -11,14 +11,14 @@ import matplotlib.pyplot as plt
 
 from torch.utils.data.dataset import Dataset
 from lib.generate_anchors import generate_anchors
-from .config import config
+from config import config
 from lib.utils import box_transform, compute_iou, add_box_img, crop_and_pad
 
 from IPython import embed
 
 
 class ImagnetVIDDataset(Dataset):
-    def __init__(self, db, video_names, data_dir, z_transforms, x_transforms, training=True):
+    def __init__(self, db_path, video_names, data_dir, z_transforms, x_transforms, training=True):
         self.video_names = video_names
         self.data_dir = data_dir
         self.z_transforms = z_transforms
@@ -33,7 +33,10 @@ class ImagnetVIDDataset(Dataset):
                 if len(trajs[trkid]) < 2:
                     del trajs[trkid]
 
-        self.txn = db.begin(write=False)
+        # self.txn = db.begin(write=False)
+        self.txn = None
+        self.db_path = db_path
+        print(self.db_path)
         self.num = len(self.video_names) if config.pairs_per_video_per_epoch is None or not training \
             else config.pairs_per_video_per_epoch * len(self.video_names)
 
@@ -52,6 +55,12 @@ class ImagnetVIDDataset(Dataset):
 
     def imread(self, path):
         key = hashlib.md5(path.encode()).digest()
+        # print(key)
+        if not self.txn:            
+            print("init lmdb in imread")
+            db = lmdb.open(self.db_path, readonly=True, map_size=int(1024*1024*1024))
+            self.txn = db.begin(write=False)
+
         img_buffer = self.txn.get(key)
         img_buffer = np.frombuffer(img_buffer, np.uint8)
         img = cv2.imdecode(img_buffer, cv2.IMREAD_COLOR)
@@ -152,9 +161,10 @@ class ImagnetVIDDataset(Dataset):
             instance_img = cv2.cvtColor(instance_img, cv2.COLOR_GRAY2RGB)
         if config.exem_stretch:
             exemplar_img, _, _ = self.RandomStretch(exemplar_img, 0, 0)
+        exemplar_img_mean = np.mean(exemplar_img, axis=(0, 1))
         exemplar_img, _ = crop_and_pad(exemplar_img, (exemplar_img.shape[1] - 1) / 2,
                                        (exemplar_img.shape[0] - 1) / 2, self.center_crop_size,
-                                       self.center_crop_size)
+                                       self.center_crop_size,exemplar_img_mean)
 
         # exemplar_img_np = exemplar_img.copy()
 
@@ -168,7 +178,8 @@ class ImagnetVIDDataset(Dataset):
         cx = cx_o + np.random.randint(- self.max_translate, self.max_translate + 1)
         gt_cx = cx_o - cx
         gt_cy = cy_o - cy
-        instance_img, scale = crop_and_pad(instance_img, cx, cy, self.random_crop_size, self.random_crop_size)
+        instance_img_mean = np.mean(instance_img, axis=(0, 1))
+        instance_img, scale = crop_and_pad(instance_img, cx, cy, self.random_crop_size, self.random_crop_size,instance_img_mean)
 
         # frame = add_box_img(instance_img, np.array([[gt_cx, gt_cy, gt_w, gt_h]]), color=(0, 255, 255))
         # empty_img = np.zeros_like(frame)

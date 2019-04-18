@@ -1,0 +1,8 @@
+IPython
+tqdm
+fire
+opencv-python
+lmdb
+setproctitle
+tensorboardX
+visdom

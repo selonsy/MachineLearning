@@ -1,3 +1,6 @@
+import sys
+import os
+sys.path.append(os.getcwd())
 import torch
 import numpy as np
 import torch.nn.functional as F
@@ -9,7 +12,7 @@ from torch.autograd import Variable
 from torch import nn
 
 from IPython import embed
-from .config import config
+from config import config
 
 
 class SiameseAlexNet(nn.Module):
