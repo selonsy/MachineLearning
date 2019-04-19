@@ -9,6 +9,7 @@ from torch.autograd import Variable
 import math
 # from .run_SiamFPN import generate_anchors4fpn, TrackerConfig4FPN
 import gc
+from config import config
 
 class Bottleneck(nn.Module):
     expansion = 4
@@ -17,18 +18,15 @@ class Bottleneck(nn.Module):
         super(Bottleneck, self).__init__()
         self.conv1 = nn.Conv2d(in_planes, planes, kernel_size=1, bias=False)
         self.bn1 = nn.BatchNorm2d(planes)
-        self.conv2 = nn.Conv2d(planes, planes, kernel_size=3,
-                               stride=stride, padding=1, bias=False)
+        self.conv2 = nn.Conv2d(planes, planes, kernel_size=3, stride=stride, padding=1, bias=False)
         self.bn2 = nn.BatchNorm2d(planes)
-        self.conv3 = nn.Conv2d(planes, self.expansion *
-                               planes, kernel_size=1, bias=False)
+        self.conv3 = nn.Conv2d(planes, self.expansion * planes, kernel_size=1, bias=False)
         self.bn3 = nn.BatchNorm2d(self.expansion*planes)
 
         self.shortcut = nn.Sequential()
         if stride != 1 or in_planes != self.expansion*planes:
             self.shortcut = nn.Sequential(
-                nn.Conv2d(in_planes, self.expansion*planes,
-                          kernel_size=1, stride=stride, bias=False),
+                nn.Conv2d(in_planes, self.expansion*planes, kernel_size=1, stride=stride, bias=False),
                 nn.BatchNorm2d(self.expansion*planes)
             )
 
@@ -102,41 +100,40 @@ class FPN(nn.Module):
         return F.interpolate(x, size=(H, W), mode='bilinear') + y
 
     def forward(self, x):
-        # Bottom-up
-        c1 = F.relu(self.bn1(self.conv1(x)))
-        c1 = F.max_pool2d(c1, kernel_size=3, stride=2, padding=1)
-        c2 = self.layer1(c1)
-        c3 = self.layer2(c2)
-        c4 = self.layer3(c3)
-        c5 = self.layer4(c4)
+        # Bottom-up x(1,3,127,127)
+        c1 = F.relu(self.bn1(self.conv1(x))) # c1(1,64,64,64)
+        c1 = F.max_pool2d(c1, kernel_size=3, stride=2, padding=1) # c1(1,64,32,32)
+        c2 = self.layer1(c1) # c2(1,256,32,32)
+        c3 = self.layer2(c2) # c3([1, 256, 32, 32])
+        c4 = self.layer3(c3) # c4([1, 1024, 8, 8])
+        c5 = self.layer4(c4) # c5([1, 2048, 4, 4])
         # Top-down
-        p5 = self.toplayer(c5)
-        p4 = self._upsample_add(p5, self.latlayer1(c4))
-        p3 = self._upsample_add(p4, self.latlayer2(c3))
-        p2 = self._upsample_add(p3, self.latlayer3(c2))
+        p5 = self.toplayer(c5) # p5([1, 256, 4, 4])
+        p4 = self._upsample_add(p5, self.latlayer1(c4)) # p4([1, 256, 8, 8])
+        p3 = self._upsample_add(p4, self.latlayer2(c3)) # p3([1, 256, 16, 16])
+        p2 = self._upsample_add(p3, self.latlayer3(c2)) # p2([1, 256, 32, 32])
         # Smooth
         p4 = self.smooth1(p4)
         p3 = self.smooth2(p3)
         p2 = self.smooth3(p2)
+        # ToDo：是否缺少P6层
         return p2, p3, p4, p5
 
 class SiamFPN(FPN):
-    def __init__(self, block, feature_out=256, anchor=3):
+    def __init__(self, block, feature_out=256, anchor_num=3):
         super(SiamFPN, self).__init__(Bottleneck, block)
 
-        self.anchor = anchor
+        self.anchor_num = anchor_num
         self.feature_out = feature_out
 
-        self.conv_reg1 = nn.Conv2d(256, feature_out*4*anchor, 3)      # 模板分支的回归子分支
-        self.conv_reg2 = nn.Conv2d(256, feature_out, 3)               # 检测分支的回归子分支
-        self.conv_cls1 = nn.Conv2d(256, feature_out*2*anchor, 3)      # 模板分支的分类子分支
-        self.conv_cls2 = nn.Conv2d(256, feature_out, 3)               # 检测分支的分类子分支
-        self.regress_adjust = nn.Conv2d(4*anchor, 4*anchor, 1)        # 1x1卷积
-
-        self.bn = nn.BatchNorm2d(256),
+        self.conv_reg1 = nn.Conv2d(256, feature_out*4*anchor_num, 3)      # 模板分支的回归子分支
+        self.conv_reg2 = nn.Conv2d(256, feature_out, 3)                   # 检测分支的回归子分支
+        self.conv_cls1 = nn.Conv2d(256, feature_out*2*anchor_num, 3)      # 模板分支的分类子分支
+        self.conv_cls2 = nn.Conv2d(256, feature_out, 3)                   # 检测分支的分类子分支
+        self.regress_adjust = nn.Conv2d(4*anchor_num, 4*anchor_num, 1)    # 1x1卷积
 
         self.reg_kernel = []
-        self.cls_kernel = []
+        self.cls_kernel = []        
 
     def forward(self, x):  # x:1,3,271,271
         # px2, px3, px4, px5 = super().forward(x)
@@ -335,11 +332,54 @@ class SiamFPN(FPN):
         def L_reg(t_x, t_y, t_w, t_h):
             a_x, a_y, a_w, a_h = 1, 1, 100, 60  # 假设，因为暂时没有值传递过来，其实取的是gt的值，即标准bbox的值
 
-    # 训练的时候，模板和实例帧都需要进行操作
-    # 但跟踪的时候，一个数据集的第一帧进行模板帧处理，之后仅进行实例帧的处理，这个就叫做单次学习。
-    def mytrain(self, z, x):
-        self.template(z)
-        return self.forward(x)
+    def featureExtract(self,x):
+        return super().forward(x)
+        
+    def train(self, template, detection):
+        N = template.size(0) # ([N, 3, 127, 127]) \ ([N, 3, 271, 271])
+        template_features = self.featureExtract(template)   # p2,p3,p4,p5
+        detection_features = self.featureExtract(detection) # p2,p3,p4,p5
+
+        pred_scores = []
+        pred_regressions = []
+
+        # 分层进行,模板帧和实例帧相关滤波,得到 score_size * score_size * [2,4] * anchor_num
+        for i in range(len(template_features)):        
+            kernel_score_t = self.conv_cls1(template_features[i])
+            t_shape = kernel_score_t.shape[-1]
+            kernel_score = kernel_score_t.view(N, 2 * self.anchor_num, 256, t_shape, t_shape)
+            kernel_regression = self.conv_reg1(template_features[i]).view(N, 4 * self.anchor_num, 256, t_shape, t_shape)
+
+            conv_score = self.conv_cls2(detection_features[i])    
+            conv_regression = self.conv_reg2(detection_features[i]) 
+            d_shape = conv_score.shape[-1]
+            
+            feature_map_size = d_shape - t_shape + 1
+
+            conv_scores = conv_score.reshape(1, -1, d_shape, d_shape) 
+            score_filters = kernel_score.reshape(-1, 256, t_shape, t_shape) 
+            pred_score = F.conv2d(conv_scores, score_filters, groups=N).reshape(N, 2 * self.anchor_num, feature_map_size, feature_map_size)
+
+            conv_reg = conv_regression.reshape(1, -1, d_shape, d_shape) 
+            reg_filters = kernel_regression.reshape(-1, 256, t_shape, t_shape) 
+            pred_regression = self.regress_adjust(
+                F.conv2d(conv_reg, reg_filters, groups=N).reshape(N, 4 * self.anchor_num, feature_map_size,feature_map_size))
+            
+            pred_scores.append(pred_score)
+            pred_regressions.append(pred_regression)
+
+        '''
+        when batch_size = 2, anchor_num = 3
+        torch.Size([2, 6, 37, 37])
+        torch.Size([2, 6, 19, 19])
+        torch.Size([2, 6, 10, 10])
+        torch.Size([2, 6, 6, 6])
+        torch.Size([2, 12, 37, 37])
+        torch.Size([2, 12, 19, 19])
+        torch.Size([2, 12, 10, 10])
+        torch.Size([2, 12, 6, 6])
+        '''
+        return pred_scores, pred_regressions 
 
     # 权重初始化
     def init_weights(self):
@@ -378,31 +418,24 @@ def FPN152():
     return FPN(Bottleneck, [3, 8, 36, 3])
 
 if __name__ == "__main__":
-    net = FPN50()
-    fms = net(Variable(torch.randn(1, 3, 127, 127)))
-    for fm in fms:
+    net = SiamFPN50()
+    # fms = net(Variable(torch.randn(1, 3, 127, 127)))
+    # fms = net(Variable(torch.randn(1, 3, 271, 271)))
+    pred_scores, pred_regressions = net.train(Variable(torch.randn(2, 3, 127, 127)),Variable(torch.randn(2, 3, 271, 271)))
+    for fm in pred_scores:
         print(fm.size())
-
+    for fm in pred_regressions:
+        print(fm.size())
 
 
 # fpn101
 # 1,3,127,127
-# torch.Size([1, 256, 32, 32])
-# torch.Size([1, 256, 16, 16])
-# torch.Size([1, 256, 8, 8])
-# torch.Size([1, 256, 4, 4])
+# torch.Size([1, 256, 32, 32]) p2
+# torch.Size([1, 256, 16, 16]) p3
+# torch.Size([1, 256, 8, 8])   p4
+# torch.Size([1, 256, 4, 4])   p5
 # 1,3,271,271
-# torch.Size([1, 256, 68, 68])
-# torch.Size([1, 256, 34, 34])
-# torch.Size([1, 256, 17, 17])
-# torch.Size([1, 256, 9, 9])
-
-# import time
-# start = time.time()
-# for i in range(1):
-#     test()
-# end = time.time()
-# print((end-start)/10)
-
-# cpu resnet-50 : 5.243599987030029 [1,3,600,900]
-# gpu resnet-50 : 1.130720591545105 [1,3,600,900]
+# torch.Size([1, 256, 68, 68]) p2
+# torch.Size([1, 256, 34, 34]) p3
+# torch.Size([1, 256, 17, 17]) p4
+# torch.Size([1, 256, 9, 9])   p5
