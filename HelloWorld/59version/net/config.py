@@ -7,10 +7,21 @@ class Machine_type(Enum):
 
 class Config:
     # selonsy
-    MACHINE_TYPE = Machine_type.Windows # 机器类型：WINDOWS 1, LINUX 2
+    MACHINE_TYPE = Machine_type.Windows         # 机器类型：WINDOWS 1, LINUX 2
     LAYER_Z_SOCRE_SIZE = np.array([32,16,8,4])  # 模板金字塔特征图大小,依次为p2,p3,p4,p5(P2为第2层,p5为顶层)
     LAYER_X_SOCRE_SIZE = np.array([68,34,17,9]) # 实例金字塔特征图大小,依次为p2,p3,p4,p5
     FEATURE_MAP_SIZE = np.array([37,19,10,6])   # 分层输出特征图大小,依次为p2,p3,p4,p5
+    FEATURE_MAP_SIZES = np.array([[37,37],[19,19],[10,10],[6,6]]) 
+    FPN_ANCHOR_NUM = 3                          # 由于分层预测,所以每层的尺度唯一,即anchor的数量为3
+    FPN_ANCHOR_RATIOS = np.array([0.5, 1, 2])   # FPN的anchor的比例有三种
+    FPN_ANCHOR_SCALES = (32, 64, 128, 256) # (32, 64, 128, 256, 512) # Length of square anchor side in pixels
+    # Anchor stride
+    # If 1 then anchors are created for each cell in the backbone feature map.
+    # If 2, then anchors are created for every other cell, and so on.
+    FPN_ANCHOR_STRIDE = 1
+    # The strides of each layer of the FPN Pyramid. These values
+    # are based on a Resnet101 backbone.
+    BACKBONE_STRIDES = [4, 8, 16, 32] # [4, 8, 16, 32, 64]
 
     # dataset related
     exemplar_size = 127                    # exemplar size

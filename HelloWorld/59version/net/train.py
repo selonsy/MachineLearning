@@ -69,7 +69,10 @@ def train(data_dir, model_path=None, vis_port=None, init=None):
     # -----------------------------------------------------------------------------------------------------
     train_dataset = ImagnetVIDDataset(
         db_path, train_videos, data_dir, train_z_transforms, train_x_transforms)
-    anchors = train_dataset.anchors  # (1805,4)
+    # test __getitem__
+    train_dataset.__getitem__(1)
+    exit(0)
+    anchors = train_dataset.anchors  # (1805,4) = (19*19*5,4)
     # dic_num = {}
     # ind_random = list(range(len(train_dataset)))
     # import random
@@ -206,17 +209,48 @@ def train(data_dir, model_path=None, vis_port=None, init=None):
             if torch.cuda.is_available():
                 regression_target, conf_target = regression_target.cuda(), conf_target.cuda()
                 exemplar_imgs, instance_imgs = exemplar_imgs.cuda(), instance_imgs.cuda()
-            # (8,10,19,19)\(8,20,19,19)
-            pred_score, pred_regression = model(exemplar_imgs, instance_imgs)
-            # (8,1805,2)
-            pred_conf = pred_score.reshape(-1, 2, config.anchor_num * config.score_size * config.score_size).permute(0,2,1)
-            pred_offset = pred_regression.reshape(-1, 4,config.anchor_num * config.score_size * config.score_size).permute(0,2,1)
+            # # 基于一层的损失计算
+            # # (8,10,19,19)\(8,20,19,19)
+            # pred_score, pred_regression = model(exemplar_imgs, instance_imgs)
+            # # (8,1805,2)
+            # pred_conf = pred_score.reshape(-1, 2, config.anchor_num * config.score_size * config.score_size).permute(0,2,1)
+            # # (8,1805,4)
+            # pred_offset = pred_regression.reshape(-1, 4,config.anchor_num * config.score_size * config.score_size).permute(0,2,1)
             
-            cls_loss = rpn_cross_entropy_balance(pred_conf, conf_target, config.num_pos, config.num_neg, anchors,
-                                                 ohem_pos=config.ohem_pos, ohem_neg=config.ohem_neg)
-            reg_loss = rpn_smoothL1(pred_offset, regression_target, conf_target, config.num_pos, ohem=config.ohem_reg)
-            loss = cls_loss + config.lamb * reg_loss
-            
+            # cls_loss = rpn_cross_entropy_balance(pred_conf, conf_target, config.num_pos, config.num_neg, anchors,
+            #                                      ohem_pos=config.ohem_pos, ohem_neg=config.ohem_neg)
+            # reg_loss = rpn_smoothL1(pred_offset, regression_target, conf_target, config.num_pos, ohem=config.ohem_reg)
+            # loss = cls_loss + config.lamb * reg_loss
+            # 基于金字塔模型的损失计算
+            pred_scores, pred_regressions = model.train(exemplar_imgs, instance_imgs)
+            # FEATURE_MAP_SIZE、FPN_ANCHOR_NUM
+            '''
+            when batch_size = 2, anchor_num = 3
+            torch.Size([N, 6, 37, 37])
+            torch.Size([N, 6, 19, 19])
+            torch.Size([N, 6, 10, 10])
+            torch.Size([N, 6, 6, 6])
+
+            torch.Size([N, 12, 37, 37])
+            torch.Size([N, 12, 19, 19])
+            torch.Size([N, 12, 10, 10])
+            torch.Size([N, 12, 6, 6])
+            '''
+            loss = 0
+            for i in range(len(pred_scores)):
+                pred_score = pred_scores[i]
+                pred_regression = pred_regressions[i]
+                anchors_num = config.FPN_ANCHOR_NUM * config.FEATURE_MAP_SIZE[i] * config.FEATURE_MAP_SIZE[i]
+                pred_conf = pred_score.reshape(-1, 2, anchors_num).permute(0,2,1)                
+                pred_offset = pred_regression.reshape(-1, 4, anchors_num).permute(0,2,1)                
+                # 二分类损失计算(交叉熵)
+                cls_loss = rpn_cross_entropy_balance(pred_conf, conf_target, config.num_pos, config.num_neg, anchors,
+                                                    ohem_pos=config.ohem_pos, ohem_neg=config.ohem_neg)
+                # 回归损失计算(Smooth L1)
+                reg_loss = rpn_smoothL1(pred_offset, regression_target, conf_target, config.num_pos, ohem=config.ohem_reg)
+                _loss = cls_loss + config.lamb * reg_loss
+                loss += _loss
+
             optimizer.zero_grad()
             loss.backward()
             torch.nn.utils.clip_grad_norm_(model.parameters(), config.clip)

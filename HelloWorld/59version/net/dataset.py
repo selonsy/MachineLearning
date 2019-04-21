@@ -11,6 +11,7 @@ import matplotlib.pyplot as plt
 
 from torch.utils.data.dataset import Dataset
 from lib.generate_anchors import generate_anchors
+from lib.generate_anchors_fpn import compute_backbone_shapes,generate_pyramid_anchors
 from config import config
 from lib.utils import box_transform, compute_iou, add_box_img, crop_and_pad
 
@@ -36,7 +37,7 @@ class ImagnetVIDDataset(Dataset):
         # self.txn = db.begin(write=False)
         self.txn = None
         self.db_path = db_path
-        print(self.db_path)
+        # print(self.db_path)
         self.num = len(self.video_names) if config.pairs_per_video_per_epoch is None or not training \
             else config.pairs_per_video_per_epoch * len(self.video_names)
 
@@ -48,10 +49,23 @@ class ImagnetVIDDataset(Dataset):
 
         self.training = training
 
-        valid_scope = 2 * config.valid_scope + 1
-        self.anchors = generate_anchors(config.total_stride, config.anchor_base_size, config.anchor_scales,
-                                        config.anchor_ratios,
-                                        valid_scope)
+        # 原计算单层锚标签
+        # valid_scope = 2 * config.valid_scope + 1
+        # self.anchors = generate_anchors(config.total_stride, config.anchor_base_size, config.anchor_scales,
+        #                                 config.anchor_ratios,
+        #                                 valid_scope)
+        
+        # 分层计算锚标签
+        # 
+        # backbone_shapes = compute_backbone_shapes(config, config.IMAGE_SHAPE) 
+        # array([[256,256],[128,128],[64,64],[32,32],[16,16]])
+        # 上面的特征图太大了,不符合我的模型的输出,采用下面自定义的
+        backbone_shapes = config.FEATURE_MAP_SIZES
+        self.anchors = generate_pyramid_anchors(config.FPN_ANCHOR_SCALES,
+                                                config.FPN_ANCHOR_RATIOS,
+                                                backbone_shapes,
+                                                config.BACKBONE_STRIDES,
+                                                config.FPN_ANCHOR_STRIDE)  
 
     def imread(self, path):
         key = hashlib.md5(path.encode()).digest()
@@ -140,6 +154,7 @@ class ImagnetVIDDataset(Dataset):
         low_idx = max(0, exemplar_idx - frame_range)
         up_idx = min(len(traj), exemplar_idx + frame_range + 1)
 
+        # 样本权重,离中心越远被选中的概率越高(即后面选的实例图片要距模板图片足够远)
         # create sample weight, if the sample are far away from center
         # the probability being choosen are high
         weights = self._sample_weights(exemplar_idx, low_idx, up_idx, config.sample_type)
@@ -152,22 +167,23 @@ class ImagnetVIDDataset(Dataset):
 
         instance_img = self.imread(instance_name)
         # instance_img = cv2.cvtColor(instance_img, cv2.COLOR_BGR2RGB)
+        # 数据集预处理的时候,文件名称有保存gt框的宽高
         gt_w, gt_h = float(instance_name.split('_')[-2]), float(instance_name.split('_')[-1][:-4])
 
+        # 25%的灰度图处理
         if np.random.rand(1) < config.gray_ratio:
             exemplar_img = cv2.cvtColor(exemplar_img, cv2.COLOR_RGB2GRAY)
-            exemplar_img = cv2.cvtColor(exemplar_img, cv2.COLOR_GRAY2RGB)
+            # exemplar_img = cv2.cvtColor(exemplar_img, cv2.COLOR_GRAY2RGB) # 这两句应该要屏蔽掉
             instance_img = cv2.cvtColor(instance_img, cv2.COLOR_RGB2GRAY)
-            instance_img = cv2.cvtColor(instance_img, cv2.COLOR_GRAY2RGB)
+            # instance_img = cv2.cvtColor(instance_img, cv2.COLOR_GRAY2RGB)
+        
         if config.exem_stretch:
             exemplar_img, _, _ = self.RandomStretch(exemplar_img, 0, 0)
         exemplar_img_mean = np.mean(exemplar_img, axis=(0, 1))
         exemplar_img, _ = crop_and_pad(exemplar_img, (exemplar_img.shape[1] - 1) / 2,
                                        (exemplar_img.shape[0] - 1) / 2, self.center_crop_size,
                                        self.center_crop_size,exemplar_img_mean)
-
         # exemplar_img_np = exemplar_img.copy()
-
         exemplar_img = self.z_transforms(exemplar_img)
 
         instance_img, gt_w, gt_h = self.RandomStretch(instance_img, gt_w, gt_h)
@@ -194,9 +210,18 @@ class ImagnetVIDDataset(Dataset):
         # frame = add_box_img(frame, np.array([[0, 0, gt_w, gt_h]]), color=(0, 255, 0))
         instance_img = self.x_transforms(instance_img)
 
-        regression_target, conf_target = self.compute_target(self.anchors,
-                                                             np.array(list(map(round, [gt_cx, gt_cy, gt_w, gt_h]))))
+        # 这里用的box,不是annotation里面的xml数据,我现在暂时假设作者计算的是正确的
+        box = np.array(list(map(round, [gt_cx, gt_cy, gt_w, gt_h])))
+        # 这里暂时考虑anchor是分层的,所以返回的是多个层的数组
+        # regression_target, conf_target = self.compute_target(self.anchors, box)
+        regression_targets = []
+        conf_targets = []
+        for i in range(len(self.anchors)):
+            regression_target, conf_target = self.compute_target(self.anchors[i], box)
+            regression_targets.append(regression_target)
+            conf_targets.append(conf_target.astype(np.int64))
 
+        # 下面有代码可以看到锚标签在原图上面的效果
         # img = instance_img.numpy().transpose(1, 2, 0)
         # pos_index = np.where(conf_target == 1)[0]
         # pos_anchor = self.anchors[pos_index]
@@ -266,7 +291,7 @@ class ImagnetVIDDataset(Dataset):
         # embed()
         # cv2.waitKey(30)
 
-        return exemplar_img, instance_img, regression_target, conf_target.astype(np.int64)
+        return exemplar_img, instance_img, regression_targets, conf_targets
 
     def draw_img(self, img, boxes, name='1.jpg', color=(0, 255, 0)):
         # boxes (x,y,w,h)
@@ -282,3 +307,24 @@ class ImagnetVIDDataset(Dataset):
 
     def __len__(self):
         return self.num
+
+if __name__ == "__main__":        
+    pass
+    # train_videos = 
+    # data_dir = 
+    # db_path = db_path = data_dir + '_lmdb'
+    # train_z_transforms = 
+    # train_x_transforms = 
+    # train_z_transforms = transforms.Compose([
+    #     ToTensor()
+    # ])
+    # train_x_transforms = transforms.Compose([
+    #     ToTensor()
+    # ])
+    # valid_z_transforms = transforms.Compose([
+    #     ToTensor()
+    # ])
+    # valid_x_transforms = transforms.Compose([
+    #     ToTensor()
+    # ])
+    # train_dataset = ImagnetVIDDataset(db_path, train_videos, data_dir, train_z_transforms, train_x_transforms)
