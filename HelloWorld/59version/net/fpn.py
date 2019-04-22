@@ -335,7 +335,7 @@ class SiamFPN(FPN):
     def featureExtract(self,x):
         return super().forward(x)
         
-    def train(self, template, detection):
+    def mytrain(self, template, detection):
         N = template.size(0) # ([N, 3, 127, 127]) \ ([N, 3, 271, 271])
         template_features = self.featureExtract(template)   # p2,p3,p4,p5
         detection_features = self.featureExtract(detection) # p2,p3,p4,p5

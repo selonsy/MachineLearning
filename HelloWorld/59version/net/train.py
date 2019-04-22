@@ -1,3 +1,6 @@
+import os
+import sys
+sys.path.append(os.getcwd())
 import torch
 import torch.nn.functional as F
 import torch.optim as optim
@@ -5,7 +8,6 @@ import torchvision.transforms as transforms
 import torchvision
 import numpy as np
 import pandas as pd
-import os
 import cv2
 import pickle
 import lmdb
@@ -21,9 +23,9 @@ from sklearn.model_selection import train_test_split
 from tensorboardX import SummaryWriter
 from collections import OrderedDict
 
-from config import config
-from network import SiameseAlexNet
-from dataset import ImagnetVIDDataset
+from net.config import config
+from net.network import SiameseAlexNet
+from net.dataset import ImagnetVIDDataset
 from lib.custom_transforms import Normalize, ToTensor, RandomStretch, \
     RandomCrop, CenterCrop, RandomBlur, ColorAug
 from lib.loss import rpn_smoothL1, rpn_cross_entropy_balance
@@ -31,7 +33,7 @@ from lib.visual import visual
 from lib.utils import get_topk_box, add_box_img, compute_iou, box_transform_inv, adjust_learning_rate
 
 from IPython import embed
-from fpn import SiamFPN50,SiamFPN101,SiamFPN152
+from net.fpn import SiamFPN50,SiamFPN101,SiamFPN152
 
 torch.manual_seed(config.seed)
 
@@ -67,11 +69,11 @@ def train(data_dir, model_path=None, vis_port=None, init=None):
     db_path = data_dir + '_lmdb'
     # create dataset
     # -----------------------------------------------------------------------------------------------------
-    train_dataset = ImagnetVIDDataset(
-        db_path, train_videos, data_dir, train_z_transforms, train_x_transforms)
+    train_dataset = ImagnetVIDDataset(db_path, train_videos, data_dir, train_z_transforms, train_x_transforms)
     # test __getitem__
-    train_dataset.__getitem__(1)
-    exit(0)
+    # train_dataset.__getitem__(1)
+    # exit(0)
+
     anchors = train_dataset.anchors  # (1805,4) = (19*19*5,4)
     # dic_num = {}
     # ind_random = list(range(len(train_dataset)))
@@ -80,27 +82,16 @@ def train(data_dir, model_path=None, vis_port=None, init=None):
     # for i in tqdm(ind_random):
     #     exemplar_img, instance_img, regression_target, conf_target = train_dataset[i+1000]
 
-    valid_dataset = ImagnetVIDDataset(db_path, valid_videos, data_dir, valid_z_transforms, valid_x_transforms,
-                                      training=False)
-    # create dataloader
-    if torch.cuda.is_available():
-        trainloader = DataLoader(train_dataset, batch_size=config.train_batch_size * torch.cuda.device_count(),
-                                 shuffle=True, pin_memory=True,
-                                 num_workers=config.train_num_workers * torch.cuda.device_count(), drop_last=True)
-        validloader = DataLoader(valid_dataset, batch_size=config.valid_batch_size * torch.cuda.device_count(),
-                                 shuffle=False, pin_memory=True,
-                                 num_workers=config.valid_num_workers * torch.cuda.device_count(), drop_last=True)
-    else:
-        trainloader = DataLoader(train_dataset, batch_size=config.train_batch_size,
-                                 shuffle=True, pin_memory=True,
-                                 num_workers=config.train_num_workers, drop_last=True)
-        validloader = DataLoader(valid_dataset, batch_size=config.valid_batch_size,
-                                 shuffle=False, pin_memory=True,
-                                 num_workers=config.valid_num_workers, drop_last=True)
-
+    valid_dataset = ImagnetVIDDataset(db_path, valid_videos, data_dir, valid_z_transforms, valid_x_transforms, training=False)
+    # create dataloader   
+    trainloader = DataLoader(train_dataset, batch_size=config.train_batch_size, shuffle=True, 
+                                pin_memory=True, num_workers=config.train_num_workers, drop_last=True)
+    validloader = DataLoader(valid_dataset, batch_size=config.valid_batch_size, shuffle=False, 
+                                pin_memory=True, num_workers=config.valid_num_workers, drop_last=True)
+   
     # create summary writer
     if not os.path.exists(config.log_dir):
-        os.mkdir(config.log_dir)
+        os.makedirs(config.log_dir)
     summary_writer = SummaryWriter(config.log_dir)
     if vis_port:
         vis = visual(port=vis_port)
@@ -110,7 +101,7 @@ def train(data_dir, model_path=None, vis_port=None, init=None):
     # model = SiameseAlexNet()
     model = SiamFPN50()
     model.init_weights() # 权重初始化
-    if torch.cuda.is_available():
+    if config.CUDA:
         model = model.cuda()
     optimizer = torch.optim.SGD(model.parameters(), lr=config.lr,
                                 momentum=config.momentum, weight_decay=config.weight_decay)
@@ -152,7 +143,7 @@ def train(data_dir, model_path=None, vis_port=None, init=None):
         model_dict.update(checkpoint)
         model.load_state_dict(model_dict)
 
-    # freeze layers
+    #  layers
     def freeze_layers(model):
         print('------------------------------------------------------------------------------------------------')
         for layer in model.featureExtract[:10]:
@@ -188,10 +179,10 @@ def train(data_dir, model_path=None, vis_port=None, init=None):
 
     if torch.cuda.device_count() > 1:
         model = nn.DataParallel(model)
-    for epoch in range(start_epoch, config.epoch + 1):
+    for epoch in range(start_epoch, config.EPOCH + 1):
         train_loss = []
         model.train()
-        if config.fix_former_3_layers:
+        if config.fix_former_3_layers:  # 暂时去掉 # 固定前三层卷积的v.requires_grad = False
             if torch.cuda.device_count() > 1:
                 freeze_layers(model.module)
             else:
@@ -199,16 +190,20 @@ def train(data_dir, model_path=None, vis_port=None, init=None):
         loss_temp_cls = 0
         loss_temp_reg = 0
         # for i, data in enumerate(tqdm(trainloader)): # can't pickle Transaction objects
-        for i, data in enumerate(trainloader):
+        for k, data in enumerate(trainloader): # 这里有问题,loader没有遍历完就跳走了
             # print("done")
             # return
             # (8,3,127,127)\(8,3,271,271)\(8,1805,4)\(8,1805)
             # 8为batch_size,1445 = 19 * 19 * 5,5 = anchors_num
-            exemplar_imgs, instance_imgs, regression_target, conf_target = data
+            # exemplar_imgs, instance_imgs, regression_target, conf_target = data
+            exemplar_imgs, instance_imgs, regression_targets, conf_targets = data
+
             # conf_target (8,1125) (8,225x5)
-            if torch.cuda.is_available():
-                regression_target, conf_target = regression_target.cuda(), conf_target.cuda()
+            if config.CUDA:
+                # 这里有问题,regression_targets是list,不能直接使用.cuda(),后面考虑将其压缩成(N,4)的形式
+                # regression_targets, conf_targets = torch.tensor(regression_targets).cuda(), torch.tensor(conf_targets).cuda()
                 exemplar_imgs, instance_imgs = exemplar_imgs.cuda(), instance_imgs.cuda()
+            
             # # 基于一层的损失计算
             # # (8,10,19,19)\(8,20,19,19)
             # pred_score, pred_regression = model(exemplar_imgs, instance_imgs)
@@ -222,7 +217,7 @@ def train(data_dir, model_path=None, vis_port=None, init=None):
             # reg_loss = rpn_smoothL1(pred_offset, regression_target, conf_target, config.num_pos, ohem=config.ohem_reg)
             # loss = cls_loss + config.lamb * reg_loss
             # 基于金字塔模型的损失计算
-            pred_scores, pred_regressions = model.train(exemplar_imgs, instance_imgs)
+            pred_scores, pred_regressions = model.mytrain(exemplar_imgs, instance_imgs)
             # FEATURE_MAP_SIZE、FPN_ANCHOR_NUM
             '''
             when batch_size = 2, anchor_num = 3
@@ -237,40 +232,54 @@ def train(data_dir, model_path=None, vis_port=None, init=None):
             torch.Size([N, 12, 6, 6])
             '''
             loss = 0
+            cls_loss_sum = 0
+            reg_loss_sum = 0
             for i in range(len(pred_scores)):
                 pred_score = pred_scores[i]
                 pred_regression = pred_regressions[i]
                 anchors_num = config.FPN_ANCHOR_NUM * config.FEATURE_MAP_SIZE[i] * config.FEATURE_MAP_SIZE[i]
                 pred_conf = pred_score.reshape(-1, 2, anchors_num).permute(0,2,1)                
-                pred_offset = pred_regression.reshape(-1, 4, anchors_num).permute(0,2,1)                
+                pred_offset = pred_regression.reshape(-1, 4, anchors_num).permute(0,2,1)  
+
+                conf_target = conf_targets[i]
+                regression_target = regression_targets[i].type(torch.FloatTensor) # pred_offset是float类型
+                if config.CUDA:
+                    conf_target = conf_target.cuda()
+                    regression_target = regression_target.cuda()
                 # 二分类损失计算(交叉熵)
-                cls_loss = rpn_cross_entropy_balance(pred_conf, conf_target, config.num_pos, config.num_neg, anchors,
+                cls_loss = rpn_cross_entropy_balance(pred_conf, conf_target, config.num_pos, config.num_neg, anchors[i],
                                                     ohem_pos=config.ohem_pos, ohem_neg=config.ohem_neg)
-                # 回归损失计算(Smooth L1)
+                # 回归损失计算(Smooth L1) # 这里应该有问题,回归损失的值为0                
                 reg_loss = rpn_smoothL1(pred_offset, regression_target, conf_target, config.num_pos, ohem=config.ohem_reg)
+
                 _loss = cls_loss + config.lamb * reg_loss
-                loss += _loss
+                loss += _loss # 这里四层的loss先直接加起来,后面考虑加权处理
+
+                # 用于tensorboard展示
+                cls_loss_sum = cls_loss_sum + cls_loss
+                reg_loss_sum = reg_loss_sum + reg_loss
 
             optimizer.zero_grad()
             loss.backward()
             torch.nn.utils.clip_grad_norm_(model.parameters(), config.clip)
             optimizer.step()
 
-            step = (epoch - 1) * len(trainloader) + i
-            summary_writer.add_scalar('train/cls_loss', cls_loss.data, step)
-            summary_writer.add_scalar('train/reg_loss', reg_loss.data, step)
-            train_loss.append(loss.detach().cpu())
+            step = (epoch - 1) * len(trainloader) + k
+            summary_writer.add_scalar('train/cls_loss', cls_loss_sum.data, step)
+            summary_writer.add_scalar('train/reg_loss', reg_loss_sum.data, step)
+            loss = loss.detach().cpu()
+            train_loss.append(loss)
             loss_temp_cls += cls_loss.detach().cpu().numpy()
             loss_temp_reg += reg_loss.detach().cpu().numpy()
             # if vis_port:
             #     vis.plot_error({'rpn_cls_loss': cls_loss.detach().cpu().numpy().ravel()[0],
             #                     'rpn_regress_loss': reg_loss.detach().cpu().numpy().ravel()[0]}, win=0)
 
-            print("Epoch %d  batch %d  training loss: %f " % (epoch+1,i+1, np.mean(train_loss)))
+            print("Epoch %d  batch %d  training loss: %f " % (epoch,k+1, loss))
 
-            if (i + 1) % config.show_interval == 0:
+            if (k + 1) % config.show_interval == 0:
                 tqdm.write("[epoch %2d][iter %4d] cls_loss: %.4f, reg_loss: %.4f lr: %.2e"
-                           % (epoch, i, loss_temp_cls / config.show_interval, loss_temp_reg / config.show_interval,
+                           % (epoch, k, loss_temp_cls / config.show_interval, loss_temp_reg / config.show_interval,
                               optimizer.param_groups[0]['lr']))
                 loss_temp_cls = 0
                 loss_temp_reg = 0
@@ -328,29 +337,44 @@ def train(data_dir, model_path=None, vis_port=None, init=None):
                     img_box = add_box_img(img_box, gt_box, color=(255, 0, 0))
                     vis.plot_img(img_box.transpose(2, 0, 1),
                                  win=6, name='box_max_iou')
+        
         train_loss = np.mean(train_loss)
-
+        # print("done")
+        # exit(0)
         # 验证
         valid_loss = []
         model.eval()
         # for i, data in enumerate(tqdm(validloader)):
         for i, data in enumerate(validloader):
-            exemplar_imgs, instance_imgs, regression_target, conf_target = data
-            
-            if torch.cuda.is_available():
-                regression_target, conf_target = regression_target.cuda(), conf_target.cuda()
+            exemplar_imgs, instance_imgs, regression_targets, conf_targets = data            
+            if config.CUDA:                
                 exemplar_imgs, instance_imgs = exemplar_imgs.cuda(), instance_imgs.cuda()
             
-            pred_score, pred_regression = model(exemplar_imgs, instance_imgs)
+            pred_scores, pred_regressions = model.mytrain(exemplar_imgs, instance_imgs)
+            loss = 0
+            for i in range(len(pred_scores)):
+                pred_score = pred_scores[i]
+                pred_regression = pred_regressions[i]
+                anchors_num = config.FPN_ANCHOR_NUM * config.FEATURE_MAP_SIZE[i] * config.FEATURE_MAP_SIZE[i]
+                pred_conf = pred_score.reshape(-1, 2, anchors_num).permute(0,2,1)                
+                pred_offset = pred_regression.reshape(-1, 4, anchors_num).permute(0,2,1)  
 
-            pred_conf = pred_score.reshape(-1, 2, config.anchor_num * config.score_size * config.score_size).permute(0,2,1)
-            pred_offset = pred_regression.reshape(-1, 4,config.anchor_num * config.score_size * config.score_size).permute(0,2,1)
-            cls_loss = rpn_cross_entropy_balance(pred_conf, conf_target, config.num_pos, config.num_neg, anchors,
-                                                 ohem_pos=config.ohem_pos, ohem_neg=config.ohem_neg)
-            reg_loss = rpn_smoothL1(pred_offset, regression_target, conf_target, config.num_pos, ohem=config.ohem_reg)
-            loss = cls_loss + config.lamb * reg_loss
+                conf_target = conf_targets[i]
+                regression_target = regression_targets[i].type(torch.FloatTensor) # pred_offset是float类型
+                if config.CUDA:
+                    conf_target = conf_target.cuda()
+                    regression_target = regression_target.cuda()
+                # 二分类损失计算(交叉熵)
+                cls_loss = rpn_cross_entropy_balance(pred_conf, conf_target, config.num_pos, config.num_neg, anchors[i],
+                                                    ohem_pos=config.ohem_pos, ohem_neg=config.ohem_neg)
+                # 回归损失计算(Smooth L1) # 这里应该有问题,回归损失的值为0                
+                reg_loss = rpn_smoothL1(pred_offset, regression_target, conf_target, config.num_pos, ohem=config.ohem_reg)
+            
+                _loss = cls_loss + config.lamb * reg_loss
+                loss += _loss # 这里四层的loss先直接加起来,后面考虑加权处理            
             valid_loss.append(loss.detach().cpu())
         valid_loss = np.mean(valid_loss)
+        
         print("EPOCH %d valid_loss: %.4f, train_loss: %.4f" %(epoch, valid_loss, train_loss))
         summary_writer.add_scalar('valid/loss',valid_loss, (epoch + 1) * len(trainloader))
         # 调整学习率
@@ -359,7 +383,8 @@ def train(data_dir, model_path=None, vis_port=None, init=None):
         if epoch % config.save_interval == 0:
             if not os.path.exists('./data/models/'):
                 os.makedirs("./data/models/")
-            save_name = "./data/models/siamrpn_{}.pth".format(epoch)
+            
+            save_name = "./data/models/siamrpn_{}_trainloss_{:.4f}_validloss_{:.4f}.pth".format(epoch,train_loss,valid_loss)
             new_state_dict = model.state_dict()
             if torch.cuda.device_count() > 1:
                 new_state_dict = OrderedDict()

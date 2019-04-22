@@ -38,6 +38,7 @@ class ImagnetVIDDataset(Dataset):
         self.txn = None
         self.db_path = db_path
         # print(self.db_path)
+        # num表示dataloader的总数,除以batch_size即为循环的轮次
         self.num = len(self.video_names) if config.pairs_per_video_per_epoch is None or not training \
             else config.pairs_per_video_per_epoch * len(self.video_names)
 
@@ -65,13 +66,14 @@ class ImagnetVIDDataset(Dataset):
                                                 config.FPN_ANCHOR_RATIOS,
                                                 backbone_shapes,
                                                 config.BACKBONE_STRIDES,
-                                                config.FPN_ANCHOR_STRIDE)  
+                                                config.FPN_ANCHOR_STRIDE) 
+        # pass 
 
     def imread(self, path):
         key = hashlib.md5(path.encode()).digest()
         # print(key)
         if not self.txn:            
-            print("init lmdb in imread")
+            # print("init lmdb in imread")
             db = lmdb.open(self.db_path, readonly=True, map_size=int(1024*1024*1024))
             self.txn = db.begin(write=False)
 
@@ -170,12 +172,12 @@ class ImagnetVIDDataset(Dataset):
         # 数据集预处理的时候,文件名称有保存gt框的宽高
         gt_w, gt_h = float(instance_name.split('_')[-2]), float(instance_name.split('_')[-1][:-4])
 
-        # 25%的灰度图处理
-        if np.random.rand(1) < config.gray_ratio:
-            exemplar_img = cv2.cvtColor(exemplar_img, cv2.COLOR_RGB2GRAY)
-            # exemplar_img = cv2.cvtColor(exemplar_img, cv2.COLOR_GRAY2RGB) # 这两句应该要屏蔽掉
-            instance_img = cv2.cvtColor(instance_img, cv2.COLOR_RGB2GRAY)
-            # instance_img = cv2.cvtColor(instance_img, cv2.COLOR_GRAY2RGB)
+        # 暂时屏蔽掉 # 25%的灰度图处理 
+        # if np.random.rand(1) < config.gray_ratio:
+        #     exemplar_img = cv2.cvtColor(exemplar_img, cv2.COLOR_RGB2GRAY)
+        #     # exemplar_img = cv2.cvtColor(exemplar_img, cv2.COLOR_GRAY2RGB) # 这两句应该要屏蔽掉
+        #     instance_img = cv2.cvtColor(instance_img, cv2.COLOR_RGB2GRAY)
+        #     # instance_img = cv2.cvtColor(instance_img, cv2.COLOR_GRAY2RGB)
         
         if config.exem_stretch:
             exemplar_img, _, _ = self.RandomStretch(exemplar_img, 0, 0)

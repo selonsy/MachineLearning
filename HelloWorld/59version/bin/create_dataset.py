@@ -117,25 +117,26 @@ def processing(vid_dir, ytb_dir, output_dir, num_threads=mp.cpu_count()):
                  glob(os.path.join(vid_video_dir, 'train/ILSVRC2015_VID_train_0001/*')) + \
                  glob(os.path.join(vid_video_dir, 'train/ILSVRC2015_VID_train_0002/*')) + \
                  glob(os.path.join(vid_video_dir, 'train/ILSVRC2015_VID_train_0003/*')) + \
-                 glob(os.path.join(vid_video_dir, 'train/ILSVRC2015_VID_train_0003/*')) + \
                  glob(os.path.join(vid_video_dir, 'val/*')) + \
                  glob(os.path.join(ytb_video_dir, 'v*/youtube_dection_frame_temp/*'))
+                # 怎么会莫名其妙多了一行
+                #  glob(os.path.join(vid_video_dir, 'train/ILSVRC2015_VID_train_0003/*')) + \
 
     meta_data = []
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
     
-    # # 下面的代码无法调试(可以在后面跑的时候打开，显示进度条)
-    # functools.partial(worker, output_dir)(all_videos[5333])
-    # with Pool(processes=num_threads) as pool: # 多进程并发操作进程池
-    #     for ret in tqdm(pool.imap_unordered(
-    #             functools.partial(worker, output_dir), all_videos), total=len(all_videos)):
-    #         meta_data.append(ret)
+    # 下面的代码无法调试(可以在后面跑的时候打开，显示进度条)
+    functools.partial(worker, output_dir)(all_videos[5278]) # 5333
+    with Pool(processes=num_threads) as pool: # 多进程并发操作进程池
+        for ret in tqdm(pool.imap_unordered(
+                functools.partial(worker, output_dir), all_videos), total=len(all_videos)):
+            meta_data.append(ret)
 
-    # 改为下面的直接进行
-    for video_dir in all_videos:
-        ret = worker(output_dir,video_dir)
-        meta_data.append(ret)
+    # # 改为下面的直接进行(可以调试)
+    # for video_dir in all_videos:
+    #     ret = worker(output_dir,video_dir)
+    #     meta_data.append(ret)
 
     # save meta data
     pickle.dump(meta_data, open(os.path.join(output_dir, "meta_data.pkl"), 'wb'))
@@ -143,9 +144,9 @@ def processing(vid_dir, ytb_dir, output_dir, num_threads=mp.cpu_count()):
 
 if __name__ == '__main__':
     # Fire(processing)
-    vid_dir = r"D:\workspace\MachineLearning\HelloWorld\59version\dataset\ILSVRC"
+    vid_dir = r'E:\dataset\ILSVRC2015' # r"D:\workspace\MachineLearning\HelloWorld\59version\dataset\ILSVRC"
     ytb_dir = ""
-    output_dir = r"D:\workspace\MachineLearning\HelloWorld\59version\dataset\ILSVRC_Crops"
+    output_dir = r'E:\dataset\ILSVRC2015_Crops' # r"D:\workspace\MachineLearning\HelloWorld\59version\dataset\ILSVRC_Crops"
     
     processing(vid_dir, ytb_dir, output_dir)
 

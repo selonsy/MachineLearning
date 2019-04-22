@@ -4,7 +4,8 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>21bfbe2f-a749-4704-87d8-628f24fd8b5d</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile></StartupFile>
+    <StartupFile>
+    </StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -22,10 +23,150 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-   
+    <Folder Include="54version\" />
+    <Folder Include="54version\bin\" />
+    <Folder Include="54version\bin\__pycache__\" />
+    <Folder Include="54version\siamfc\" />
+    <Folder Include="54version\siamfc\__pycache__\" />
+    <Folder Include="59version\" />
+    <Folder Include="59version\bin\" />
+    <Folder Include="59version\bin\__pycache__\" />
+    <Folder Include="59version\data\" />
+    <Folder Include="59version\data\logs\" />
+    <Folder Include="59version\lib\" />
+    <Folder Include="59version\lib\__pycache__\" />
+    <Folder Include="59version\net\" />
+    <Folder Include="59version\net\__pycache__\" />
+    <Folder Include="bin\" />
+    <Folder Include="bin\__pycache__\" />
+    <Folder Include="siamfc\" />
+    <Folder Include="siamfc\__pycache__\" />
   </ItemGroup>
   <ItemGroup>
     <InterpreterReference Include="Global|PythonCore|3.6" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="54version\bin\run_SiamRPN.pyc" />
+    <Content Include="54version\bin\__pycache__\run_SiamRPN.cpython-36.pyc" />
+    <Content Include="54version\README.md" />
+    <Content Include="54version\siamfc\__pycache__\alexnet.cpython-36.pyc" />
+    <Content Include="54version\siamfc\__pycache__\config.cpython-36.pyc" />
+    <Content Include="54version\siamfc\__pycache__\custom_transforms.cpython-36.pyc" />
+    <Content Include="54version\siamfc\__pycache__\dataset.cpython-36.pyc" />
+    <Content Include="54version\siamfc\__pycache__\generate_anchors.cpython-36.pyc" />
+    <Content Include="54version\siamfc\__pycache__\loss.cpython-36.pyc" />
+    <Content Include="54version\siamfc\__pycache__\tracker.cpython-36.pyc" />
+    <Content Include="54version\siamfc\__pycache__\train.cpython-36.pyc" />
+    <Content Include="54version\siamfc\__pycache__\utils.cpython-36.pyc" />
+    <Content Include="54version\siamfc\__pycache__\visual.cpython-36.pyc" />
+    <Content Include="54version\siamfc\__pycache__\__init__.cpython-36.pyc" />
+    <Content Include="59version\bin\__pycache__\run_SiamRPN.cpython-36.pyc" />
+    <Content Include="59version\data\logs\events.out.tfevents.1553566479.work-All-Series" />
+    <Content Include="59version\data\logs\events.out.tfevents.1553567215.work-All-Series" />
+    <Content Include="59version\data\logs\events.out.tfevents.1553567426.work-All-Series" />
+    <Content Include="59version\data\logs\events.out.tfevents.1553567539.work-All-Series" />
+    <Content Include="59version\data\logs\events.out.tfevents.1553589476.work-All-Series" />
+    <Content Include="59version\data\logs\events.out.tfevents.1553590201.work-All-Series" />
+    <Content Include="59version\data\logs\events.out.tfevents.1553590710.work-All-Series" />
+    <Content Include="59version\data\logs\events.out.tfevents.1553591756.work-All-Series" />
+    <Content Include="59version\eval_result.json" />
+    <Content Include="59version\lib\__pycache__\custom_transforms.cpython-36.pyc" />
+    <Content Include="59version\lib\__pycache__\generate_anchors.cpython-36.pyc" />
+    <Content Include="59version\lib\__pycache__\loss.cpython-36.pyc" />
+    <Content Include="59version\lib\__pycache__\utils.cpython-36.pyc" />
+    <Content Include="59version\lib\__pycache__\visual.cpython-36.pyc" />
+    <Content Include="59version\lib\__pycache__\__init__.cpython-36.pyc" />
+    <Content Include="59version\net\__pycache__\alexnet.cpython-36.pyc" />
+    <Content Include="59version\net\__pycache__\config.cpython-36.pyc" />
+    <Content Include="59version\net\__pycache__\custom_transforms.cpython-36.pyc" />
+    <Content Include="59version\net\__pycache__\dataset.cpython-36.pyc" />
+    <Content Include="59version\net\__pycache__\generate_anchors.cpython-36.pyc" />
+    <Content Include="59version\net\__pycache__\loss.cpython-36.pyc" />
+    <Content Include="59version\net\__pycache__\network.cpython-36.pyc" />
+    <Content Include="59version\net\__pycache__\run_SiamRPN.cpython-36.pyc" />
+    <Content Include="59version\net\__pycache__\tracker.cpython-36.pyc" />
+    <Content Include="59version\net\__pycache__\train.cpython-36.pyc" />
+    <Content Include="59version\net\__pycache__\utils.cpython-36.pyc" />
+    <Content Include="59version\net\__pycache__\visual.cpython-36.pyc" />
+    <Content Include="59version\net\__pycache__\__init__.cpython-36.pyc" />
+    <Content Include="59version\README.md" />
+    <Content Include="bin\run_SiamRPN.pyc" />
+    <Content Include="bin\__pycache__\run_SiamRPN.cpython-36.pyc" />
+    <Content Include="siamfc\__pycache__\alexnet.cpython-36.pyc" />
+    <Content Include="siamfc\__pycache__\config.cpython-36.pyc" />
+    <Content Include="siamfc\__pycache__\custom_transforms.cpython-36.pyc" />
+    <Content Include="siamfc\__pycache__\dataset.cpython-36.pyc" />
+    <Content Include="siamfc\__pycache__\generate_anchors.cpython-36.pyc" />
+    <Content Include="siamfc\__pycache__\loss.cpython-36.pyc" />
+    <Content Include="siamfc\__pycache__\tracker.cpython-36.pyc" />
+    <Content Include="siamfc\__pycache__\train.cpython-36.pyc" />
+    <Content Include="siamfc\__pycache__\utils.cpython-36.pyc" />
+    <Content Include="siamfc\__pycache__\visual.cpython-36.pyc" />
+    <Content Include="siamfc\__pycache__\__init__.cpython-36.pyc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="54version\bin\create_dataset.py" />
+    <Compile Include="54version\bin\create_lmdb.py" />
+    <Compile Include="54version\bin\demo_siamfc.py" />
+    <Compile Include="54version\bin\run_SiamRPN.py" />
+    <Compile Include="54version\bin\show_videos.py" />
+    <Compile Include="54version\bin\test_OTB.py" />
+    <Compile Include="54version\bin\train_siamfc.py" />
+    <Compile Include="54version\siamfc\alexnet.py" />
+    <Compile Include="54version\siamfc\config.py" />
+    <Compile Include="54version\siamfc\custom_transforms.py" />
+    <Compile Include="54version\siamfc\dataset.py" />
+    <Compile Include="54version\siamfc\generate_anchors.py" />
+    <Compile Include="54version\siamfc\loss.py" />
+    <Compile Include="54version\siamfc\tracker.py" />
+    <Compile Include="54version\siamfc\train.py" />
+    <Compile Include="54version\siamfc\utils.py" />
+    <Compile Include="54version\siamfc\visual.py" />
+    <Compile Include="54version\siamfc\__init__.py" />
+    <Compile Include="59version\bin\check_data.py" />
+    <Compile Include="59version\bin\create_dataset.py" />
+    <Compile Include="59version\bin\create_dataset_ytbid.py" />
+    <Compile Include="59version\bin\create_lmdb.py" />
+    <Compile Include="59version\bin\demo_siamfc.py" />
+    <Compile Include="59version\bin\leave_ori.py" />
+    <Compile Include="59version\bin\rectify_id.py" />
+    <Compile Include="59version\bin\show_videos.py" />
+    <Compile Include="59version\bin\test_kitti.py" />
+    <Compile Include="59version\bin\test_OTB.py" />
+    <Compile Include="59version\bin\test_read_speed.py" />
+    <Compile Include="59version\bin\test_read_speed_lmdb.py" />
+    <Compile Include="59version\bin\train_siamrpn.py" />
+    <Compile Include="59version\lib\custom_transforms.py" />
+    <Compile Include="59version\lib\generate_anchors.py" />
+    <Compile Include="59version\lib\loss.py" />
+    <Compile Include="59version\lib\utils.py" />
+    <Compile Include="59version\lib\visual.py" />
+    <Compile Include="59version\lib\__init__.py" />
+    <Compile Include="59version\net\config.py" />
+    <Compile Include="59version\net\dataset.py" />
+    <Compile Include="59version\net\network.py" />
+    <Compile Include="59version\net\run_SiamRPN.py" />
+    <Compile Include="59version\net\tracker.py" />
+    <Compile Include="59version\net\train.py" />
+    <Compile Include="59version\net\__init__.py" />
+    <Compile Include="bin\create_dataset.py" />
+    <Compile Include="bin\create_lmdb.py" />
+    <Compile Include="bin\demo_siamfc.py" />
+    <Compile Include="bin\run_SiamRPN.py" />
+    <Compile Include="bin\show_videos.py" />
+    <Compile Include="bin\test_OTB.py" />
+    <Compile Include="bin\train_siamfc.py" />
+    <Compile Include="siamfc\alexnet.py" />
+    <Compile Include="siamfc\config.py" />
+    <Compile Include="siamfc\custom_transforms.py" />
+    <Compile Include="siamfc\dataset.py" />
+    <Compile Include="siamfc\generate_anchors.py" />
+    <Compile Include="siamfc\loss.py" />
+    <Compile Include="siamfc\tracker.py" />
+    <Compile Include="siamfc\train.py" />
+    <Compile Include="siamfc\utils.py" />
+    <Compile Include="siamfc\visual.py" />
+    <Compile Include="siamfc\__init__.py" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in

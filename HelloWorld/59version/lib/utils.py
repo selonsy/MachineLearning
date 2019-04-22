@@ -71,7 +71,8 @@ def round_up(value):
 
 
 def crop_and_pad(img, cx, cy, model_sz, original_sz, img_mean=None):
-    im_h, im_w, _ = img.shape
+    # print(img.shape)
+    im_h, im_w, _ = img.shape # 灰度图的shape为两位,这里会报错
 
     xmin = cx - (original_sz - 1) / 2
     xmax = xmin + original_sz - 1

@@ -35,6 +35,8 @@
     <Compile Include="train\DataAugmentation.py" />
     <Compile Include="train\ILSVRC15-curation\gen_image_crops_VID.py" />
     <Compile Include="train\ILSVRC15-curation\gen_imdb_VID.py" />
+    <Compile Include="train\ILSVRC\create_dataset.py" />
+    <Compile Include="train\ILSVRC\create_lmdb.py" />
     <Compile Include="train\loss.py" />
     <Compile Include="train\run_Train_SiamFC.py" />
     <Compile Include="train\run_Train_SiamFPN.py" />
@@ -145,6 +147,7 @@
     <Folder Include="train\" />
     <Folder Include="train\ILSVRC15-curation\" />
     <Folder Include="train\model\" />
+    <Folder Include="train\ILSVRC\" />
     <Folder Include="train\__pycache__\" />
     <Folder Include="utility\" />
     <Folder Include="utility\temp\" />

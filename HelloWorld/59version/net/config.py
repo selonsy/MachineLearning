@@ -1,5 +1,6 @@
 import numpy as np
 from enum import Enum
+import torch
 
 class Machine_type(Enum):
     Windows = 1
@@ -23,6 +24,18 @@ class Config:
     # are based on a Resnet101 backbone.
     BACKBONE_STRIDES = [4, 8, 16, 32] # [4, 8, 16, 32, 64]
 
+    USE_CUDA = True # 是否使用cuda
+    CUDA = True if USE_CUDA and torch.cuda.is_available() else False # 当且仅当USE_CUDA=True且确实有cuda返回True
+    EPOCH = 50 # 训练轮次
+    _train_batch_size = 4 #32                  # training batch size
+    train_batch_size = _train_batch_size * torch.cuda.device_count() if CUDA else _train_batch_size
+    _valid_batch_size = 1                      # validation batch size
+    valid_batch_size = _valid_batch_size * torch.cuda.device_count() if CUDA else _valid_batch_size
+    _train_num_workers = 4                  # number of workers of train dataloader
+    train_num_workers = _train_num_workers * torch.cuda.device_count() if CUDA else _train_num_workers
+    _valid_num_workers = 1                  # number of workers of validation dataloader
+    valid_num_workers = _valid_num_workers * torch.cuda.device_count() if CUDA else _valid_num_workers
+
     # dataset related
     exemplar_size = 127                    # exemplar size
     instance_size = 271                    # instance size
@@ -34,15 +47,11 @@ class Config:
     ohem_pos = False
     ohem_neg = False
     ohem_reg = False
-    fix_former_3_layers = True
-    pairs_per_video_per_epoch = 1          # pairs per video
+    fix_former_3_layers = False # True
+    pairs_per_video_per_epoch = 1 # 1          # pairs per video
     train_ratio = 0.99                     # training ratio of VID dataset
     frame_range_vid = 100                  # frame range of choosing the instance
-    frame_range_ytb = 1
-    train_batch_size = 8 #32                  # training batch size
-    valid_batch_size = 8                   # validation batch size
-    train_num_workers = 4                  # number of workers of train dataloader
-    valid_num_workers = 4                  # number of workers of validation dataloader
+    frame_range_ytb = 1    
     clip = 10                              # grad clip
 
     start_lr = 3e-2

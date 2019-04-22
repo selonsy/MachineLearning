@@ -266,7 +266,7 @@ def rpn_cross_entropy_balance(input, target, num_pos, num_neg, anchors, ohem_pos
 
 
 def rpn_smoothL1(input, target, label, num_pos=16, ohem=None):
-    r'''
+    '''
     :param input: torch.Size([1, 1125, 4])
     :param target: torch.Size([1, 1125, 4])
             label: (torch.Size([1, 1125]) pos neg or ignore

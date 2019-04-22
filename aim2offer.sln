@@ -15,6 +15,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "cplusplus", "cplusplus\cplu
 EndProject
 Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "asimo", "asimo\asimo.pyproj", "{31C23BD9-C57F-4184-93BD-81424EECA2BB}"
 EndProject
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "HelloWorld", "HelloWorld\HelloWorld.pyproj", "{21BFBE2F-A749-4704-87D8-628F24FD8B5D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -73,6 +75,12 @@ Global
 		{31C23BD9-C57F-4184-93BD-81424EECA2BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{31C23BD9-C57F-4184-93BD-81424EECA2BB}.Release|x64.ActiveCfg = Release|Any CPU
 		{31C23BD9-C57F-4184-93BD-81424EECA2BB}.Release|x86.ActiveCfg = Release|Any CPU
+		{21BFBE2F-A749-4704-87D8-628F24FD8B5D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{21BFBE2F-A749-4704-87D8-628F24FD8B5D}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{21BFBE2F-A749-4704-87D8-628F24FD8B5D}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{21BFBE2F-A749-4704-87D8-628F24FD8B5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{21BFBE2F-A749-4704-87D8-628F24FD8B5D}.Release|x64.ActiveCfg = Release|Any CPU
+		{21BFBE2F-A749-4704-87D8-628F24FD8B5D}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
