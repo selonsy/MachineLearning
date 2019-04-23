@@ -135,7 +135,7 @@ class SiamFPN(FPN):
         self.reg_kernel = []
         self.cls_kernel = []        
 
-    def forward(self, x):  # x:1,3,271,271
+    def forward_bak(self, x):  # x:1,3,271,271
         # px2, px3, px4, px5 = super().forward(x)
         px = super().forward(x)
         deltas = []
@@ -335,7 +335,7 @@ class SiamFPN(FPN):
     def featureExtract(self,x):
         return super().forward(x)
         
-    def mytrain(self, template, detection):
+    def forward(self, template, detection):
         N = template.size(0) # ([N, 3, 127, 127]) \ ([N, 3, 271, 271])
         template_features = self.featureExtract(template)   # p2,p3,p4,p5
         detection_features = self.featureExtract(detection) # p2,p3,p4,p5

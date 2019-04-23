@@ -27,14 +27,18 @@ class Config:
     USE_CUDA = True # 是否使用cuda
     CUDA = True if USE_CUDA and torch.cuda.is_available() else False # 当且仅当USE_CUDA=True且确实有cuda返回True
     EPOCH = 50 # 训练轮次
-    _train_batch_size = 4 #32                  # training batch size
+    _train_batch_size = 8 #32                  # training batch size
     train_batch_size = _train_batch_size * torch.cuda.device_count() if CUDA else _train_batch_size
-    _valid_batch_size = 1                      # validation batch size
+    _valid_batch_size = 8                      # validation batch size
     valid_batch_size = _valid_batch_size * torch.cuda.device_count() if CUDA else _valid_batch_size
     _train_num_workers = 4                  # number of workers of train dataloader
     train_num_workers = _train_num_workers * torch.cuda.device_count() if CUDA else _train_num_workers
     _valid_num_workers = 1                  # number of workers of validation dataloader
     valid_num_workers = _valid_num_workers * torch.cuda.device_count() if CUDA else _valid_num_workers
+
+    # cls_loss太大了,将它们控制在一个数量级
+    lamb_reg = 100     # reg_loss * lamb_reg
+    lamb_cls = 0.0001  # cls_loss * lamb_reg
 
     # dataset related
     exemplar_size = 127                    # exemplar size
@@ -79,9 +83,9 @@ class Config:
     neg_threshold = 0.3
     num_pos = 16
     num_neg = 48
-    lamb = 5
+    
     save_interval = 1
-    show_interval = 5 # 100
+    show_interval = 8 # 100
     show_topK = 3
     pretrained_model = "" # '/mnt/usershare/zrq/pytorch/lab/model/zhangruiqi/finaltry/sharedata/alexnet.pth'
 

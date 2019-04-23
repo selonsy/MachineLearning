@@ -127,7 +127,7 @@ def processing(vid_dir, ytb_dir, output_dir, num_threads=mp.cpu_count()):
         os.makedirs(output_dir)
     
     # 下面的代码无法调试(可以在后面跑的时候打开，显示进度条)
-    functools.partial(worker, output_dir)(all_videos[5278]) # 5333
+    # functools.partial(worker, output_dir)(all_videos[5278]) # 5333
     with Pool(processes=num_threads) as pool: # 多进程并发操作进程池
         for ret in tqdm(pool.imap_unordered(
                 functools.partial(worker, output_dir), all_videos), total=len(all_videos)):
@@ -144,9 +144,14 @@ def processing(vid_dir, ytb_dir, output_dir, num_threads=mp.cpu_count()):
 
 if __name__ == '__main__':
     # Fire(processing)
+    # windows
     vid_dir = r'E:\dataset\ILSVRC2015' # r"D:\workspace\MachineLearning\HelloWorld\59version\dataset\ILSVRC"
     ytb_dir = ""
     output_dir = r'E:\dataset\ILSVRC2015_Crops' # r"D:\workspace\MachineLearning\HelloWorld\59version\dataset\ILSVRC_Crops"
     
+    # linux
+    vid_dir = r'/home/zzx/vot/VGG/ILSVRCBAK'
+    ytb_dir = ""
+    output_dir = r'/home/sjl/dataset/ILSVRC2015_Crops'
     processing(vid_dir, ytb_dir, output_dir)
 

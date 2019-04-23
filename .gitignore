@@ -3,6 +3,9 @@
 DataSet/
 logs/
 .vscode/
+Python3.6/����/filter_data/
+Python3.6/����/ori_data/
+models/
 
 # Visual Studio 2017
 ## Ignore Visual Studio temporary files, build results, and
@@ -491,3 +494,14 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+/Python3.6/词云/filter_data/w_wangyuanyuan__.txt
+/Python3.6/词云/filter_data/wangyuanyuan__.txt
+/Python3.6/词云/filter_data/qq_word.txt
+/Python3.6/词云/filter_data/Q-S-Y-S.txt
+/Python3.6/词云/filter_data/s_wangyuanyuan__.txt
+/Python3.6/词云/filter_data/test.txt
+/Python3.6/词云/ori_data/qq_word.txt
+/Python3.6/词云/ori_data/Q-S-Y-S.txt
+/Python3.6/词云/ori_data/test.txt
+/Python3.6/词云/ori_data/wangyuanyuan__.1.txt
+/Python3.6/词云/ori_data/wangyuanyuan__.txt
