@@ -1,5 +1,5 @@
 import numpy as np
-from config import config
+from net.config import config
 import math
 
 ############################################################
@@ -80,6 +80,43 @@ def compute_backbone_shapes(config, image_shape):
         [[int(math.ceil(image_shape[0] / stride)),
             int(math.ceil(image_shape[1] / stride))]
             for stride in config.BACKBONE_STRIDES])
+
+def generate_track_windows():
+    windows = []
+    # self.window = np.tile(np.outer(np.hanning(config.score_size), np.hanning(config.score_size))[None, :],
+    #                           [config.anchor_num, 1, 1]).flatten()
+
+    # a = np.hanning(config.score_size) # shape:(19,)
+    # b = np.outer(a, a) # (19, 19)
+    # '''outer
+    #     ①对于多维向量，全部展开变为一维向量
+    #     ②第一个参数表示倍数，使得第二个向量每次变为几倍。
+    #     ③第一个参数确定结果的行，第二个参数确定结果的列。
+    #     import numpy as np
+    #     x1 = [1,2,3]
+    #     x2 = [4,5,6]
+    #     outer = np.outer(x1,x2)
+    #     print outer
+
+    #     输出:
+    #     [[ 4  5  6]       #1倍
+    #     [ 8 10 12]        #2倍
+    #     [12 15 18]]       #3倍
+    # '''
+    # c = b[None, :] # (1, 19, 19)
+    # print(c.ndim) # 3
+    # print(np.array([config.anchor_num, 1, 1]).ndim) # 1
+    # d = np.tile(c,[config.anchor_num, 1, 1]) # (5, 19, 19)
+    # e = d.flatten() # (1805,)
+
+    for size in config.FEATURE_MAP_SIZE:
+        a = np.hanning(size)
+        b = np.outer(a, a)
+        c = b[None, :]
+        d = np.tile(b,[3, 1, 1]) # 3 means anchors_num
+        e = d.flatten()
+        windows.append(e) 
+    return windows
 
 if __name__ == '__main__':
     # Anchors

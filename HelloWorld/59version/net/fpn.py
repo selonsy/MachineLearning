@@ -9,7 +9,7 @@ from torch.autograd import Variable
 import math
 # from .run_SiamFPN import generate_anchors4fpn, TrackerConfig4FPN
 import gc
-from config import config
+from net.config import config
 
 class Bottleneck(nn.Module):
     expansion = 4
@@ -132,8 +132,8 @@ class SiamFPN(FPN):
         self.conv_cls2 = nn.Conv2d(256, feature_out, 3)                   # 检测分支的分类子分支
         self.regress_adjust = nn.Conv2d(4*anchor_num, 4*anchor_num, 1)    # 1x1卷积
 
-        self.reg_kernel = []
-        self.cls_kernel = []        
+        self.reg_kernels = []
+        self.cls_kernels = []        
 
     def forward_bak(self, x):  # x:1,3,271,271
         # px2, px3, px4, px5 = super().forward(x)
@@ -332,9 +332,41 @@ class SiamFPN(FPN):
         def L_reg(t_x, t_y, t_w, t_h):
             a_x, a_y, a_w, a_h = 1, 1, 100, 60  # 假设，因为暂时没有值传递过来，其实取的是gt的值，即标准bbox的值
 
+    # 跟踪初始化
+    def track_init(self, template):
+        N = template.size(0)
+        template_features = self.featureExtract(template)
+        for i in range(len(template_features)):
+            kernel_score_t = self.conv_cls1(template_features[i])
+            t_shape = kernel_score_t.shape[-1]
+            kernel_score = kernel_score_t.view(N, 2 * self.anchor_num, 256, t_shape, t_shape)
+            kernel_regression = self.conv_reg1(template_features[i]).view(N, 4 * self.anchor_num, 256, t_shape, t_shape)
+            
+            self.cls_kernels.append(kernel_score.reshape(-1,256,t_shape,t_shape))
+            self.reg_kernels.append(kernel_regression.reshape(-1,256,t_shape,t_shape))    
+
+    # 跟踪代码
+    def track(self, detection):
+        N = detection.size(0)
+        detection_feature = self.featureExtract(detection)
+
+        conv_score = self.conv_cls2(detection_feature)
+        conv_regression = self.conv_r2(detection_feature)
+
+        conv_scores = conv_score.reshape(1, -1, self.score_displacement + 4, self.score_displacement + 4)
+        pred_score = F.conv2d(conv_scores, self.score_filters, groups=N).reshape(N, 10, self.score_displacement + 1,
+                                                                                 self.score_displacement + 1)
+        conv_reg = conv_regression.reshape(1, -1, self.score_displacement + 4, self.score_displacement + 4)
+        pred_regression = self.regress_adjust(
+            F.conv2d(conv_reg, self.reg_filters, groups=N).reshape(N, 20, self.score_displacement + 1,
+                                                                   self.score_displacement + 1))
+        return pred_score, pred_regression
+
+    # 调用父类FPN的特征提取
     def featureExtract(self,x):
         return super().forward(x)
-        
+    
+    # 训练(模板+实例图片对)
     def forward(self, template, detection):
         N = template.size(0) # ([N, 3, 127, 127]) \ ([N, 3, 271, 271])
         template_features = self.featureExtract(template)   # p2,p3,p4,p5

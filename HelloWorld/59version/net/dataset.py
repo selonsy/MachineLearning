@@ -12,7 +12,7 @@ import matplotlib.pyplot as plt
 from torch.utils.data.dataset import Dataset
 from lib.generate_anchors import generate_anchors
 from lib.generate_anchors_fpn import compute_backbone_shapes,generate_pyramid_anchors
-from config import config
+from net.config import config
 from lib.utils import box_transform, compute_iou, add_box_img, crop_and_pad
 
 from IPython import embed

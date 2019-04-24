@@ -13,11 +13,11 @@ import sys
 
 sys.path.append(os.getcwd())
 
-from net.run_SiamRPN import run_SiamRPN
+from net.run_SiamFPN import run_SiamFPN
 from tqdm import tqdm
 from IPython import embed
 from multiprocessing import Pool
-
+from net.config import *
 
 def embeded_numbers(s):
     re_digits = re.compile(r'(\d+)')
@@ -89,15 +89,23 @@ def cal_success(iou):
 if __name__ == '__main__':
     program_name = os.getcwd().split('/')[-1]
     setproctitle.setproctitle('zrq test ' + program_name)
-    parser = argparse.ArgumentParser(description='Test some models on OTB2015 or OTB2013')
+    parser = argparse.ArgumentParser(description='Test some models on OTB2015 or OTB2013') # 创建一个解析对象
     parser.add_argument('--model_paths', '-ms', dest='model_paths', nargs='+',
                         help='the path of models or the path of a model or folder')
     parser.add_argument('--videos', '-v', dest='videos')  # choices=['tb50', 'tb100', 'cvpr2013']
-    parser.add_argument('--save_name', '-n', dest='save_name', default='result.json')
-    args = parser.parse_args()
+    parser.add_argument('--save_name', '-n', dest='save_name', default='result.json')      # 向该对象中添加你要关注的命令行参数和选项
+    args = parser.parse_args()  # 进行解析
+
+    # 临时测试,直接给args赋值
+    args.videos = "50" # "50,100,13"
+    args.model_paths = r"D:\workspace\MachineLearning\HelloWorld\59version\data\models\siamfpn_50_trainloss_1.1085_validloss_0.9913.pth" # 
+    args.save_name = "./data/results/result_otb{0}.json".format(args.videos) 
 
     # ------------ prepare data  -----------
-    data_path = '/dataset_ssd/OTB/data/'
+    if config.MACHINE_TYPE == Machine_type.Linux:
+        data_path = '/home/sjl/dataset/otb'
+    else:
+        data_path = r'E:\dataset\OTB'
     if '50' in args.videos:
         direct_file = data_path + 'tb_50.txt'
     elif '100' in args.videos:
@@ -112,6 +120,7 @@ if __name__ == '__main__':
     video_paths = [data_path + x for x in video_names]
 
     # ------------ prepare models  -----------
+    # 可以一次性操作多个模型
     input_paths = [os.path.abspath(x) for x in args.model_paths]
     model_paths = []
     for input_path in input_paths:
@@ -136,12 +145,16 @@ if __name__ == '__main__':
             assert os.path.isfile(groundtruth_path), 'groundtruth of ' + video_path + ' doesn\'t exist'
             with open(groundtruth_path, 'r') as f:
                 boxes = f.readlines()
+            # 有些是,号分隔;有些是空格分隔
             if ',' in boxes[0]:
                 boxes = [list(map(int, box.split(','))) for box in boxes]
             else:
                 boxes = [list(map(int, box.split())) for box in boxes]
+            # gt的cx,cy需要减1
             boxes = [np.array(box) - [1, 1, 0, 0] for box in boxes]
-            result = run_SiamRPN(video_path, model_path, boxes[0])
+            # 跟踪代码
+            result = run_SiamFPN(video_path, model_path, boxes[0])
+
             result_boxes = [np.array(box) + [1, 1, 0, 0] for box in result['res']]
             results[os.path.abspath(model_path)][video_path.split('/')[-1]] = [box.tolist() for box in result_boxes]
 

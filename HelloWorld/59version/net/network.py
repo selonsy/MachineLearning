@@ -12,7 +12,7 @@ from torch.autograd import Variable
 from torch import nn
 
 from IPython import embed
-from config import config
+from net.config import config
 
 
 class SiameseAlexNet(nn.Module):
