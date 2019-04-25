@@ -1,8 +1,9 @@
+import os
 import torch
 import numpy as np
 import cv2
 import time
-
+from glob import glob
 from IPython import embed
 
 
@@ -72,7 +73,7 @@ def round_up(value):
 
 def crop_and_pad(img, cx, cy, model_sz, original_sz, img_mean=None):
     # print(img.shape)
-    im_h, im_w, _ = img.shape # 灰度图的shape为两位,这里会报错
+    im_h, im_w, _ = img.shape # ToDo:灰度图的shape为两位,这里会报错
 
     xmin = cx - (original_sz - 1) / 2
     xmax = xmin + original_sz - 1
@@ -247,3 +248,55 @@ def adjust_learning_rate(optimizer, decay=0.1):
     """Sets the learning rate to the initial LR decayed by 0.5 every 20 epochs"""
     for param_group in optimizer.param_groups:
         param_group['lr'] = decay * param_group['lr']
+
+def track_visualization(im,gt,location=None,f=0,name="Test"):
+    '''
+        跟踪时视觉展示
+        im:image instance
+        gt:array, 标准ground_truth,bbox -> [4,] or [8,]
+            x,y,w,h 格式:x,y为左上角的坐标
+        location:array, track result,bbox -> [4,] or [8,]
+            x,y,w,h 格式:x,y为左上角的坐标
+        f:int, frame 表示第几帧
+        name:str,视频名称
+        注:opencv的坐标轴,横轴为x,往右为正;纵轴为y,往下为正
+    '''
+    if f == 0: cv2.destroyAllWindows()
+    if len(gt) == 8:
+        cv2.polylines(im, [np.array(gt, np.int).reshape((-1, 1, 2))], True, (0, 255, 0), 3) # Green 绿色
+    else:
+        # def rectangle(img, pt1, pt2, color, thickness, lineType, shift)
+        # pt1:矩形的顶点,pt2:矩形的与pt1相对的顶点,thickness:厚度,层数
+        gt = [int(l) for l in gt]
+        cv2.rectangle(im, (gt[0], gt[1]), (gt[0] + gt[2], gt[1] + gt[3]), (0, 255, 0), 3)
+    if location:
+        if len(location) == 8:
+            cv2.polylines(im, [location.reshape((-1, 1, 2))], True, (0, 255, 255), 3) 
+        else:
+            location = [int(l) for l in location]  #
+            cv2.rectangle(im, (location[0], location[1]),(location[0] + location[2], location[1] + location[3]), (0, 255, 255), 3)
+    # def putText(img, text, org, fontFace, fontScale, color, thickness, lineType, bottomLeftOrigin)
+    # ToDo:考虑把iou以及中心点误差也展示到图片上面
+    cv2.putText(im, str(f), (40, 40), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 255), 2)
+
+    cv2.imshow(name, im)
+    cv2.waitKey(10000) # 10s,单位ms
+
+if __name__ == "__main__":
+    image_file = r"D:\workspace\MachineLearning\HelloWorld\59version\dataset\demo\000000.00.x_74.19_53.24.jpg" # r"D:\workspace\MachineLearning\HelloWorld\59version\dataset\demo\000000.JPEG"
+    im = cv2.imread(image_file)
+    gt_path = r"D:\dataset\OTB\Basketball\groundtruth_rect.txt"
+    gt = [list(map(float,x.split(','))) for x in open(gt_path, 'r').readlines()]
+    name = "Basketball"
+
+    # 单次
+    gt = [0,81,888,718]
+    track_visualization(im,gt,None,0,name)
+
+    # 多次
+    # video_dir = "D:\dataset\OTB\Basketball\\"
+    # image_names = glob(os.path.join(video_dir, 'img\*.jpg'))
+    # for f in range(len(gt)):
+    #     image_file = image_names[f]
+    #     im = cv2.imread(image_file)
+    #     track_visualization(im,gt[f],None,f,name)

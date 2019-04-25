@@ -23,7 +23,7 @@ from sklearn.model_selection import train_test_split
 from tensorboardX import SummaryWriter
 from collections import OrderedDict
 
-from net.config import config
+from net.config import *
 from net.network import SiameseAlexNet
 from net.dataset import ImagnetVIDDataset
 from lib.custom_transforms import Normalize, ToTensor, RandomStretch, \
@@ -42,7 +42,7 @@ def train(data_dir, model_path=None, vis_port=None, init=None):
     # loading meta data
     # -----------------------------------------------------------------------------------------------------
     meta_data_path = os.path.join(data_dir, "meta_data.pkl")
-    meta_data = pickle.load(open(meta_data_path, 'rb'))
+    meta_data = pickle.load(open(meta_data_path, 'rb')) # meta_data[0] = ('ILSVRC2015_train_00001000', {0: ['000000', '000001', '000002',...]}), 
     all_videos = [x[0] for x in meta_data]
 
     # split train/valid dataset
@@ -265,7 +265,7 @@ def train(data_dir, model_path=None, vis_port=None, init=None):
                 # 回归损失计算(Smooth L1) # 这里应该有问题,回归损失的值为0                
                 reg_loss = rpn_smoothL1(pred_offset, regression_target, conf_target, config.num_pos, ohem=config.ohem_reg)
 
-                _loss = cls_loss * config.lamb_cls + reg_loss * config.lamb_reg 
+                _loss = cls_loss + reg_loss * config.lamb_reg # config.lamb_cls
                 loss += _loss # 这里四层的loss先直接加起来,后面考虑加权处理
 
                 # 用于tensorboard展示cls_loss\reg_loss 原样输出
@@ -293,8 +293,8 @@ def train(data_dir, model_path=None, vis_port=None, init=None):
 
             if (k + 1) % config.show_interval == 0:
                 tqdm.write("[epoch %2d][iter %4d] loss: %.4f, cls_loss: %.4f, reg_loss: %.4f lr: %.2e"
-                           % (epoch, k+1, loss_temp_cls / config.show_interval, loss_temp / config.show_interval,
-                           loss_temp_reg / config.show_interval,optimizer.param_groups[0]['lr']))
+                           % (epoch, k+1, loss_temp / config.show_interval, loss_temp_cls / config.show_interval, 
+                           loss_temp_reg / config.show_interval, optimizer.param_groups[0]['lr']))
                 loss_temp_cls = 0
                 loss_temp_reg = 0
                 loss_temp = 0                
@@ -420,14 +420,13 @@ def train(data_dir, model_path=None, vis_port=None, init=None):
             torch.cuda.empty_cache()
 
 if __name__ == "__main__":
-    # windows
-    data_dir = r"D:\workspace\MachineLearning\HelloWorld\59version\dataset\ILSVRC_Crops"
-    model_path = ""
 
-    # linux
-    data_dir = r"/home/sjl/dataset/ILSVRC2015_Crops"
-    model_path = r"/home/sjl/workspace/HelloWorld/data/models/siamrpn_13_trainloss_1.2968_validloss_1.1963.pth"
-
+    if config.MACHINE_TYPE == Machine_type.Windows: # windows    
+        data_dir = r"D:\workspace\MachineLearning\HelloWorld\59version\dataset\ILSVRC_Crops"
+        model_path = ""
+    else:    
+        data_dir = r"/home/sjl/dataset/ILSVRC2015_Crops"
+        model_path = "" # r"/home/sjl/workspace/HelloWorld/data/models/siamrpn_13_trainloss_1.2968_validloss_1.1963.pth"
     vis_port = None
     init = None
     train(data_dir, model_path, vis_port, init)

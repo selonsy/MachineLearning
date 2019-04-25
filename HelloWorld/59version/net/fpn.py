@@ -348,19 +348,24 @@ class SiamFPN(FPN):
     # 跟踪代码
     def track(self, detection):
         N = detection.size(0)
-        detection_feature = self.featureExtract(detection)
-
-        conv_score = self.conv_cls2(detection_feature)
-        conv_regression = self.conv_r2(detection_feature)
-
-        conv_scores = conv_score.reshape(1, -1, self.score_displacement + 4, self.score_displacement + 4)
-        pred_score = F.conv2d(conv_scores, self.score_filters, groups=N).reshape(N, 10, self.score_displacement + 1,
-                                                                                 self.score_displacement + 1)
-        conv_reg = conv_regression.reshape(1, -1, self.score_displacement + 4, self.score_displacement + 4)
-        pred_regression = self.regress_adjust(
-            F.conv2d(conv_reg, self.reg_filters, groups=N).reshape(N, 20, self.score_displacement + 1,
-                                                                   self.score_displacement + 1))
-        return pred_score, pred_regression
+        detection_features = self.featureExtract(detection)
+        pred_scores = []
+        pred_regressions = []
+        for i in range(len(detection_features)):
+            score_size = config.FEATURE_MAP_SIZE[i]
+            conv_score = self.conv_cls2(detection_features[i])
+            conv_regression = self.conv_reg2(detection_features[i])
+            d_shape = conv_score.shape[-1]
+            conv_scores = conv_score.reshape(1, -1, d_shape, d_shape)
+            pred_score = F.conv2d(conv_scores, self.cls_kernels[i], groups=N).reshape(N, 2 * self.anchor_num, score_size, score_size)
+            
+            conv_reg = conv_regression.reshape(1, -1, d_shape, d_shape)
+            pred_regression = self.regress_adjust(
+                F.conv2d(conv_reg, self.reg_kernels[i], groups=N).reshape(N, 4 * self.anchor_num, score_size, score_size))
+            
+            pred_scores.append(pred_score)
+            pred_regressions.append(pred_regression)
+        return pred_scores, pred_regressions
 
     # 调用父类FPN的特征提取
     def featureExtract(self,x):

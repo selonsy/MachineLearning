@@ -7,10 +7,10 @@ import json
 from IPython import embed
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser(description='show images with groundtruth and detected box')
-    parser.add_argument('--detected_box', '-dt', dest='dt_path', default='./result.json')
-    parser.add_argument('--show_videos', '-s', dest='show_videos', default=None)
-    args = parser.parse_args()
+    # parser = argparse.ArgumentParser(description='show images with groundtruth and detected box')
+    # parser.add_argument('--detected_box', '-dt', dest='dt_path', default='./result.json')
+    # parser.add_argument('--show_videos', '-s', dest='show_videos', default=None)
+    # args = parser.parse_args()
 
     with open(args.dt_path, 'r') as f:
         dt_file = json.load(f)

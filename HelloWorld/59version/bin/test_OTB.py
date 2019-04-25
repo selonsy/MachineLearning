@@ -1,23 +1,26 @@
 import argparse
-import os
-import glob
-import numpy as np
-import re
-import json
-import matplotlib
-import setproctitle
 import functools
+import glob
+import json
 import multiprocessing as mp
-import matplotlib.pyplot as plt
+import os
+import re
 import sys
+from multiprocessing import Pool
+
+import matplotlib
+import matplotlib.pyplot as plt
+import numpy as np
+from IPython import embed
+from tqdm import tqdm
+
+import setproctitle
 
 sys.path.append(os.getcwd())
 
-from net.run_SiamFPN import run_SiamFPN
-from tqdm import tqdm
-from IPython import embed
-from multiprocessing import Pool
 from net.config import *
+from net.run_SiamFPN import run_SiamFPN
+
 
 def embeded_numbers(s):
     re_digits = re.compile(r'(\d+)')
@@ -69,43 +72,49 @@ def cal_success(iou):
     return np.array(success_all)
 
 
-# def worker(video_paths, model_path):
-#     results_ = {}
-#     for video_path in tqdm(video_paths, total=len(video_paths)):
-#         groundtruth_path = video_path + '/groundtruth_rect.txt'
-#         assert os.path.isfile(groundtruth_path), 'groundtruth of ' + video_path + ' doesn\'t exist'
-#         with open(groundtruth_path, 'r') as f:
-#             boxes = f.readlines()
-#         if ',' in boxes[0]:
-#             boxes = [list(map(int, box.split(','))) for box in boxes]
-#         else:
-#             boxes = [list(map(int, box.split())) for box in boxes]
-#         result = run_SiamFC(video_path, model_path, boxes[0])
-#         results_box_video = result['res']
-#         results_[os.path.abspath(model_path)][video_path.split('/')[-1]] = results_box_video
-#         return results_
-
-
-if __name__ == '__main__':
-    program_name = os.getcwd().split('/')[-1]
-    setproctitle.setproctitle('zrq test ' + program_name)
-    parser = argparse.ArgumentParser(description='Test some models on OTB2015 or OTB2013') # 创建一个解析对象
-    parser.add_argument('--model_paths', '-ms', dest='model_paths', nargs='+',
-                        help='the path of models or the path of a model or folder')
-    parser.add_argument('--videos', '-v', dest='videos')  # choices=['tb50', 'tb100', 'cvpr2013']
-    parser.add_argument('--save_name', '-n', dest='save_name', default='result.json')      # 向该对象中添加你要关注的命令行参数和选项
-    args = parser.parse_args()  # 进行解析
-
-    # 临时测试,直接给args赋值
-    args.videos = "50" # "50,100,13"
-    args.model_paths = r"D:\workspace\MachineLearning\HelloWorld\59version\data\models\siamfpn_50_trainloss_1.1085_validloss_0.9913.pth" # 
-    args.save_name = "./data/results/result_otb{0}.json".format(args.videos) 
-
-    # ------------ prepare data  -----------
+# 验证跟踪结果的准确性
+def evaluation(_type):
+    # ------------ starting evaluation  -----------
     if config.MACHINE_TYPE == Machine_type.Linux:
-        data_path = '/home/sjl/dataset/otb'
+        data_path = '/home/sjl/dataset/otb/'
+        result_path = '/home/sjl/workspace/HelloWorld/data/results/result_otb{0}.json'.format(_type)
+        save_path = '/home/sjl/workspace/HelloWorld/data/results/eval_result_otb{0}.json'.format(_type)
     else:
-        data_path = r'E:\dataset\OTB'
+        data_path = r'D:\dataset\otb\\' # r'E:\dataset\OTB'
+        result_path = r"D:\workspace\MachineLearning\HelloWorld\59version\data\results\result_otb{0}.json".format(_type)    
+        save_path = r"D:\workspace\MachineLearning\HelloWorld\59version\data\results\eval_result_otb{0}.json".format(_type)
+    with open(result_path, 'r') as f:
+        results = json.load(f)    
+    results_eval = {}
+    for model in sorted(list(results.keys()), key=embeded_numbers_results):
+        results_eval[model] = {}
+        success_all_video = []
+        for video in results[model].keys():
+            result_boxes = results[model][video]
+            with open(data_path + video + '/groundtruth_rect.txt', 'r') as f:
+                result_boxes_gt = f.readlines()
+            if ',' in result_boxes_gt[0]:
+                result_boxes_gt = [list(map(int, box.split(','))) for box in result_boxes_gt]
+            else:
+                result_boxes_gt = [list(map(int, box.split())) for box in result_boxes_gt]
+            result_boxes_gt = [np.array(box) for box in result_boxes_gt]            
+            iou = list(map(cal_iou, result_boxes, result_boxes_gt)) # 计算交并比
+            success = cal_success(iou)                              # 计算成功率
+            auc = np.mean(success)                                  # 计算AUC
+            success_all_video.append(success)
+            results_eval[model][video] = auc
+        results_eval[model]['all_video'] = np.mean(success_all_video)
+        print(model.split('/')[-1] + ' : ', np.mean(success_all_video))
+    json.dump(results_eval, open(save_path, 'w'))
+
+
+# 跟踪
+def validation(args):
+     # ------------ prepare data  -----------
+    if config.MACHINE_TYPE == Machine_type.Linux:
+        data_path = '/home/sjl/dataset/otb/'
+    else:
+        data_path = "D:\\dataset\\otb\\" # r'E:\dataset\OTB'
     if '50' in args.videos:
         direct_file = data_path + 'tb_50.txt'
     elif '100' in args.videos:
@@ -136,11 +145,11 @@ if __name__ == '__main__':
             raise ValueError('model_path setting wrong')
 
     # ------------ starting validation  -----------
+    print("start validation!")
     results = {}
     for model_path in tqdm(model_paths, total=len(model_paths)):
         results[os.path.abspath(model_path)] = {}
         for video_path in tqdm(video_paths, total=len(video_paths)):
-            # video_path = video_paths[-10]
             groundtruth_path = video_path + '/groundtruth_rect.txt'
             assert os.path.isfile(groundtruth_path), 'groundtruth of ' + video_path + ' doesn\'t exist'
             with open(groundtruth_path, 'r') as f:
@@ -162,28 +171,33 @@ if __name__ == '__main__':
     #     for ret in tqdm(pool.imap_unordered(
     #             functools.partial(worker, video_paths), model_paths), total=len(model_paths)):
     #         results.update(ret)
+
     json.dump(results, open(args.save_name, 'w'))
 
-    # ------------ starting evaluation  -----------
-    data_path = '/dataset_ssd/OTB/data/'
-    results_eval = {}
-    for model in sorted(list(results.keys()), key=embeded_numbers_results):
-        results_eval[model] = {}
-        success_all_video = []
-        for video in results[model].keys():
-            result_boxes = results[model][video]
-            with open(data_path + video + '/groundtruth_rect.txt', 'r') as f:
-                result_boxes_gt = f.readlines()
-            if ',' in result_boxes_gt[0]:
-                result_boxes_gt = [list(map(int, box.split(','))) for box in result_boxes_gt]
-            else:
-                result_boxes_gt = [list(map(int, box.split())) for box in result_boxes_gt]
-            result_boxes_gt = [np.array(box) for box in result_boxes_gt]
-            iou = list(map(cal_iou, result_boxes, result_boxes_gt))
-            success = cal_success(iou)
-            auc = np.mean(success)
-            success_all_video.append(success)
-            results_eval[model][video] = auc
-        results_eval[model]['all_video'] = np.mean(success_all_video)
-        print(model.split('/')[-1] + ' : ', np.mean(success_all_video))
-    json.dump(results_eval, open('eval_' + args.save_name, 'w'))
+
+if __name__ == '__main__':
+    # assert 1==2,'1 不能等于 2'
+    # print(1)
+    # exit(0)
+    program_name = os.getcwd().split('/')[-1]
+    setproctitle.setproctitle('sjl test ' + program_name)
+    parser = argparse.ArgumentParser(description='Test some models on OTB2015 or OTB2013')  # 创建一个解析对象
+    parser.add_argument('--model_paths', '-ms', dest='model_paths', nargs='+',
+                        help='the path of models or the path of a model or folder')
+    parser.add_argument('--videos', '-v', dest='videos')                                    # choices=['tb50', 'tb100', 'cvpr2013']
+    parser.add_argument('--save_name', '-n', dest='save_name', default='result.json')       # 向该对象中添加你要关注的命令行参数和选项
+    args = parser.parse_args()                                                              # 进行解析
+    
+    # 临时测试,直接给args赋值
+    args.videos = "50" # "50,100,13"
+    if config.MACHINE_TYPE == Machine_type.Linux:    
+        args.model_paths = [r'/home/sjl/workspace/HelloWorld/data/models/siamfpn_50_trainloss_1.1085_validloss_0.9913.pth',
+                            r'/home/sjl/workspace/HelloWorld/data/models/siamfpn_43_trainloss_1.0989_validloss_1.0030.pth'] # [r"D:\workspace\MachineLearning\HelloWorld\59version\data\models\siamfpn_50_trainloss_1.1085_validloss_0.9913.pth"] # 
+        args.save_name = "./data/results/result_otb{0}.json".format(args.videos) 
+    else:
+        args.model_paths = ""
+        args.save_name = ""
+    # 跟踪
+    validation(args)
+    # 验证
+    evaluation(args.videos)

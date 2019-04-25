@@ -151,11 +151,14 @@ class SiamRPNTracker_bak:
 class SiamFPNTracker:
     def __init__(self, model_path):
         self.model = SiamFPN50()
-        checkpoint = torch.load(model_path)
+        if not config.CUDA:
+            checkpoint = torch.load(model_path, map_location='cpu') 
+        else:   
+            checkpoint = torch.load(model_path)
         if 'model' in checkpoint.keys():
-            self.model.load_state_dict(torch.load(model_path)['model'])
+            self.model.load_state_dict(checkpoint['model'])
         else:
-            self.model.load_state_dict(torch.load(model_path))
+            self.model.load_state_dict(checkpoint)
         if config.CUDA:
             self.model = self.model.cuda()
         self.model.eval()
@@ -176,17 +179,7 @@ class SiamFPNTracker:
         # self.window = np.tile(
         #     np.outer(np.hanning(config.score_size), np.hanning(config.score_size))[None, :],[config.anchor_num, 1, 1]).flatten()
         self.windows = generate_track_windows()
-
-    def _cosine_window(self, size):
-        """
-            get the cosine window
-        """
-        cos_window = np.hanning(int(size[0]))[:, np.newaxis].dot(
-            np.hanning(int(size[1]))[np.newaxis, :])
-        cos_window = cos_window.astype(np.float32)
-        cos_window /= np.sum(cos_window)
-        return cos_window
-
+  
     def init(self, frame, bbox):
         """ initialize siamfpn tracker
         Args:
@@ -215,7 +208,7 @@ class SiamFPNTracker:
         # 调用跟踪初始化代码,先计算模板帧的特征卷积结果,单次学习,后面暂时不更新
         # 考虑高分样本反馈,模板帧的特征卷积结果可能发生变化,可以加权处理
         # 权重就考虑样本的得分,默认初始帧的得分为1.其余样本的得分0.9<x<1 0.9暂定
-        self.model.track_init(exemplar_img)
+        self.model.track_init(exemplar_img) # torch.Size([1, 3, 127, 127])
 
     def update(self, frame):
         """track object based on the previous frame
@@ -248,48 +241,66 @@ class SiamFPNTracker:
 
         # 这里比较复杂，我们先分层预测，每层选最佳的匹配，并记录下score
         # 后面对score进行排序，返回最高得分的预测结果
-        # PS：记录下不是 19*19 组获得最高评分的次数，分析FPN的效果
+        # PS：记录下不是 19*19 组获得最高评分的次数，分析FPN的效果        
+        results_bboxs  = []
+        results_scores = []
+        for i in range(len(pred_scores)):
+            pred_score = pred_scores[i] # torch.Size([1, 6, 37, 37])
+            pred_regression = pred_regressions[i] # torch.Size([1, 12, 37, 37])
+            score_size = config.FEATURE_MAP_SIZE[i] # 37
+            anchor_num = 3 # 暂时定为3 即[0.5,1,2]
 
-
-        pred_conf = pred_score.reshape(-1, 2, 
-        config.anchor_num * config.score_size * config.score_size).permute(0,2,1)
-        pred_offset = pred_regression.reshape(-1, 4,
-        config.anchor_num * config.score_size * config.score_size).permute(0,2,1)
+            pred_conf = pred_score.reshape(-1, 2, anchor_num * score_size * score_size).permute(0,2,1) # torch.Size([1, 4107, 2])
+            pred_offset = pred_regression.reshape(-1, 4, anchor_num * score_size * score_size).permute(0,2,1) # # torch.Size([1, 4107, 4])
+            
+            delta = pred_offset[0].cpu().detach().numpy() # (4107, 4)
+            box_pred = box_transform_inv(self.anchors[i], delta) # (4107, 4)
+            score_pred = F.softmax(pred_conf, dim=2)[0, :, 1].cpu().detach().numpy() # (4107,)
         
-        delta = pred_offset[0].cpu().detach().numpy()
-        box_pred = box_transform_inv(self.anchors, delta)
-        score_pred = F.softmax(pred_conf, dim=2)[0, :, 1].cpu().detach().numpy()
+            s_c = change(sz(box_pred[:, 2], box_pred[:, 3]) /
+                        (sz_wh(self.target_sz * scale_x)))  # scale penalty (4107,)
+            r_c = change((self.target_sz[0] / self.target_sz[1]) /
+                        (box_pred[:, 2] / box_pred[:, 3]))  # ratio penalty (4107,)
+            penalty = np.exp(-(r_c * s_c - 1.) * config.penalty_k) # (4107,)
+            pscore = penalty * score_pred # (4107,)
+            pscore = pscore * (1 - config.window_influence) + self.windows[i] * config.window_influence # (4107,)
+            best_pscore_id = np.argmax(pscore)
+            target = box_pred[best_pscore_id, :] / scale_x
 
-       
-        s_c = change(sz(box_pred[:, 2], box_pred[:, 3]) /
-                     (sz_wh(self.target_sz * scale_x)))  # scale penalty
-        r_c = change((self.target_sz[0] / self.target_sz[1]) /
-                     (box_pred[:, 2] / box_pred[:, 3]))  # ratio penalty
-        penalty = np.exp(-(r_c * s_c - 1.) * config.penalty_k)
-        pscore = penalty * score_pred
-        pscore = pscore * (1 - config.window_influence) + \
-            self.window * config.window_influence
-        best_pscore_id = np.argmax(pscore)
-        target = box_pred[best_pscore_id, :] / scale_x
+            lr = penalty[best_pscore_id] * score_pred[best_pscore_id] * config.lr_box
 
-        lr = penalty[best_pscore_id] * \
-            score_pred[best_pscore_id] * config.lr_box
+            res_x = np.clip(target[0] + self.pos[0], 0, frame.shape[1])
+            res_y = np.clip(target[1] + self.pos[1], 0, frame.shape[0])
 
-        res_x = np.clip(target[0] + self.pos[0], 0, frame.shape[1])
-        res_y = np.clip(target[1] + self.pos[1], 0, frame.shape[0])
+            res_w = np.clip(self.target_sz[0] * (1 - lr) + target[2] * lr, config.min_scale * self.origin_target_sz[0], config.max_scale * self.origin_target_sz[0])
+            res_h = np.clip(self.target_sz[1] * (1 - lr) + target[3] * lr, config.min_scale * self.origin_target_sz[1], config.max_scale * self.origin_target_sz[1])
 
-        res_w = np.clip(self.target_sz[0] * (1 - lr) + target[2] * lr, config.min_scale *       self.origin_target_sz[0], config.max_scale * self.origin_target_sz[0])
-        res_h = np.clip(self.target_sz[1] * (1 - lr) + target[3] * lr, config.min_scale *       self.origin_target_sz[1], config.max_scale * self.origin_target_sz[1])
-
-        self.pos = np.array([res_x, res_y])
-        self.target_sz = np.array([res_w, res_h])
-        bbox = np.array([res_x, res_y, res_w, res_h])
+            # self.pos = np.array([res_x, res_y])
+            # self.target_sz = np.array([res_w, res_h])
+            bbox = np.array([res_x, res_y, res_w, res_h])
+            # self.bbox = (
+            #     np.clip(bbox[0], 0, frame.shape[1]).astype(np.float64),
+            #     np.clip(bbox[1], 0, frame.shape[0]).astype(np.float64),
+            #     np.clip(bbox[2], 10, frame.shape[1]).astype(np.float64),
+            #     np.clip(bbox[3], 10, frame.shape[0]).astype(np.float64))            
+            results_bboxs.append(bbox)
+            results_scores.append(score_pred[best_pscore_id])
+        max_score_id = np.argmax(results_scores)   
+        _box = results_bboxs[max_score_id]  
+        _socre = results_scores[max_score_id]
+        # results = sorted(results.items,key=lambda x:x[1], reverse=True) # 按照得分进行排序
+        # _box = results.keys[0]
+        # _socre = results[0]
+        x, y, w, h = _box
+        self.pos = np.array([x, y])
+        self.target_sz = np.array([w, h])
         self.bbox = (
-            np.clip(bbox[0], 0, frame.shape[1]).astype(np.float64),
-            np.clip(bbox[1], 0, frame.shape[0]).astype(np.float64),
-            np.clip(bbox[2], 10, frame.shape[1]).astype(np.float64),
-            np.clip(bbox[3], 10, frame.shape[0]).astype(np.float64))
-        return self.bbox, score_pred[best_pscore_id]
+                np.clip(_box[0], 0, frame.shape[1]).astype(np.float64),
+                np.clip(_box[1], 0, frame.shape[0]).astype(np.float64),
+                np.clip(_box[2], 10, frame.shape[1]).astype(np.float64),
+                np.clip(_box[3], 10, frame.shape[0]).astype(np.float64))
+
+        return self.bbox, _socre
 
 
 if __name__ == "__main__":

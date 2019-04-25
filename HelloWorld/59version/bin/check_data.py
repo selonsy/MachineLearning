@@ -1,11 +1,14 @@
-import cv2
 import os
 import xml.etree.ElementTree as ET
-
-from IPython import embed
 from glob import glob
 
+import cv2
+from IPython import embed
+'''
+对youtube-bb的数据进行处理，保持格式和LSVRC的一致性
+'''
 if __name__ == '__main__':
+    
     # image_path = '/mnt/usershare/zrq/pytorch/lab/model/zhangruiqi/ytb_vid/benchmark.ytbb/phIXsE50tCY_19'
     image_path = '/mnt/diska1/YT-BB/v2/youtube_dection_frame_temp/phIXsE50tCY_19'
     anno_path = '/mnt/usershare/zrq/pytorch/lab/model/zhangruiqi/ytb_vid/benchmark.ytbb/xml'
