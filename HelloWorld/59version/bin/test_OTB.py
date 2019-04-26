@@ -162,7 +162,7 @@ def validation(args):
             # gt的cx,cy需要减1
             boxes = [np.array(box) - [1, 1, 0, 0] for box in boxes]
             # 跟踪代码
-            result = run_SiamFPN(video_path, model_path, boxes[0])
+            result = run_SiamFPN(video_path, model_path, boxes)
 
             result_boxes = [np.array(box) + [1, 1, 0, 0] for box in result['res']]
             results[os.path.abspath(model_path)][video_path.split('/')[-1]] = [box.tolist() for box in result_boxes]
@@ -191,12 +191,11 @@ if __name__ == '__main__':
     # 临时测试,直接给args赋值
     args.videos = "50" # "50,100,13"
     if config.MACHINE_TYPE == Machine_type.Linux:    
-        args.model_paths = [r'/home/sjl/workspace/HelloWorld/data/models/siamfpn_50_trainloss_1.1085_validloss_0.9913.pth',
-                            r'/home/sjl/workspace/HelloWorld/data/models/siamfpn_43_trainloss_1.0989_validloss_1.0030.pth'] # [r"D:\workspace\MachineLearning\HelloWorld\59version\data\models\siamfpn_50_trainloss_1.1085_validloss_0.9913.pth"] # 
+        args.model_paths = [r'/home/sjl/workspace/HelloWorld/data/models/siamfpn_50_trainloss_1.1085_validloss_0.9913.pth'] # [r"D:\workspace\MachineLearning\HelloWorld\59version\data\models\siamfpn_50_trainloss_1.1085_validloss_0.9913.pth"] # 
         args.save_name = "./data/results/result_otb{0}.json".format(args.videos) 
     else:
-        args.model_paths = ""
-        args.save_name = ""
+        args.model_paths = [r"D:\workspace\MachineLearning\HelloWorld\59version\data\models\siamfpn_50_trainloss_1.1085_validloss_0.9913.pth"]
+        args.save_name = r"D:\workspace\MachineLearning\HelloWorld\59version\data\results\result_otb{0}.json".format(args.videos)
     # 跟踪
     validation(args)
     # 验证

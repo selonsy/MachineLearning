@@ -35,10 +35,10 @@ class Config:
     train_num_workers = _train_num_workers * torch.cuda.device_count() if CUDA else _train_num_workers
     _valid_num_workers = 1                  # number of workers of validation dataloader
     valid_num_workers = _valid_num_workers * torch.cuda.device_count() if CUDA else _valid_num_workers
-
     # cls_loss太大了,将它们控制在一个数量级
     lamb_reg = 100     # reg_loss * lamb_reg
-    lamb_cls = 0.0001  # cls_loss * lamb_reg
+    lamb_cls = 0.0001  # cls_loss * lamb_reg    
+    TRACK_VISUALIZATION = True # 跟踪过程中视觉展示
 
     # dataset related
     exemplar_size = 127                    # exemplar size

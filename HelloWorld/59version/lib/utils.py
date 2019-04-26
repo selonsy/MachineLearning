@@ -269,7 +269,7 @@ def track_visualization(im,gt,location=None,f=0,name="Test"):
         # pt1:矩形的顶点,pt2:矩形的与pt1相对的顶点,thickness:厚度,层数
         gt = [int(l) for l in gt]
         cv2.rectangle(im, (gt[0], gt[1]), (gt[0] + gt[2], gt[1] + gt[3]), (0, 255, 0), 3)
-    if location:
+    if location is not None and len(location)>0:
         if len(location) == 8:
             cv2.polylines(im, [location.reshape((-1, 1, 2))], True, (0, 255, 255), 3) 
         else:

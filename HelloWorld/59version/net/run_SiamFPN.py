@@ -7,18 +7,19 @@ import sys
 
 sys.path.append(os.getcwd())
 from net.tracker import SiamFPNTracker
-from net.config import config
+from net.config import *
 from tqdm import tqdm
 from IPython import embed
+from lib.utils import track_visualization
 
-
-def run_SiamFPN(seq_path, model_path, init_box):
+def run_SiamFPN(seq_path, model_path, boxes):
     '''
         seq_path:str,视频序列地址  eg:'D:\\dataset\\otb\\Basketball' 
 
         model_path:str,跟踪模型地址 eg:[197, 213, 34, 81]
-        init_box:array,初始帧box
+        boxes:array,bboxs
     '''
+    init_box = boxes[0] 
     x, y, w, h = init_box # 这里的x,y是左上角的坐标
     tracker = SiamFPNTracker(model_path)
     res = []
@@ -52,7 +53,12 @@ def run_SiamFPN(seq_path, model_path, init_box):
         else:
             bbox, score = tracker.update(frame)  # x,y,w,h
             bbox = np.array(bbox)
-        res.append(list((bbox[0] - bbox[2] / 2 + 1 / 2, bbox[1] - bbox[3] / 2 + 1 / 2, bbox[2], bbox[3])))
+        res_bbox = list((bbox[0] - bbox[2] / 2 + 1 / 2, bbox[1] - bbox[3] / 2 + 1 / 2, bbox[2], bbox[3]))
+        if config.MACHINE_TYPE == Machine_type.Windows and config.TRACK_VISUALIZATION:
+            # 如果在windows上面跟踪,且开启了视觉展示
+            video_name = os.path.basename(seq_path)
+            track_visualization(frame,res_bbox,boxes[idx],idx,video_name)
+        res.append(res_bbox)
     duration = time.clock() - tic
     result = {}
     result['res'] = res
@@ -63,5 +69,14 @@ def run_SiamFPN(seq_path, model_path, init_box):
 if __name__ == "__main__":
     seq_path = 'D:\\dataset\\otb\\Basketball'
     model_path = r"D:\workspace\MachineLearning\HelloWorld\59version\data\models\siamfpn_50_trainloss_1.1085_validloss_0.9913.pth"
-    init_box = np.array([197, 213, 34, 81])
-    run_SiamFPN(seq_path,model_path,init_box)
+    groundtruth_path = seq_path + '/groundtruth_rect.txt'    
+    with open(groundtruth_path, 'r') as f:
+        boxes = f.readlines()
+    # 有些是,号分隔;有些是空格分隔
+    if ',' in boxes[0]:
+        boxes = [list(map(int, box.split(','))) for box in boxes]
+    else:
+        boxes = [list(map(int, box.split())) for box in boxes]
+    # gt的cx,cy需要减1
+    boxes = [np.array(box) - [1, 1, 0, 0] for box in boxes]
+    run_SiamFPN(seq_path,model_path,boxes)

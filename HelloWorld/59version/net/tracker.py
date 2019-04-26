@@ -218,7 +218,10 @@ class SiamFPNTracker:
         Returns:
             bbox: tuple of 1-based bounding box(xmin, ymin, xmax, ymax)
         """
-        instance_img, _, _, scale_x = get_instance_image(frame, self.bbox, config.exemplar_size, config.instance_size, config.context_amount, self.img_mean)
+        # ToDo:看看这几个返回的值都是些什么东西
+        instance_img, _, _, scale_x = get_instance_image(frame, self.bbox, config.exemplar_size, 
+                config.instance_size, config.context_amount, self.img_mean)
+        cv2.imshow("update", instance_img)
         instance_img = self.transforms(instance_img)[None, :, :, :]
         if config.CUDA:
             instance_img = instance_img.cuda()
@@ -256,35 +259,53 @@ class SiamFPNTracker:
             delta = pred_offset[0].cpu().detach().numpy() # (4107, 4)
             box_pred = box_transform_inv(self.anchors[i], delta) # (4107, 4)
             score_pred = F.softmax(pred_conf, dim=2)[0, :, 1].cpu().detach().numpy() # (4107,)
-        
+
+            # # 不进行后面的尺度惩罚等等,直接选最大得分的试试
+            # best_pscore_id = np.argmax(score_pred)
+            # target = box_pred[best_pscore_id, :] / scale_x
+            # res_x = np.clip(target[0] + self.pos[0], 0, frame.shape[0])
+            # res_y = np.clip(target[1] + self.pos[1], 0, frame.shape[1])
+            # res_w = np.clip(target[2], 
+            #         config.min_scale * self.origin_target_sz[0], 
+            #         config.max_scale * self.origin_target_sz[0])
+            # res_h = np.clip(target[3], 
+            #         config.min_scale * self.origin_target_sz[1], 
+            #         config.max_scale * self.origin_target_sz[1])
+            # bbox = np.array([res_x, res_y, res_w, res_h])          
+            # results_bboxs.append(bbox)
+            # results_scores.append(score_pred[best_pscore_id])
+            # continue
+
+            # 进行尺度惩罚等措施,但是相关的超参数不知道怎么确定
             s_c = change(sz(box_pred[:, 2], box_pred[:, 3]) /
                         (sz_wh(self.target_sz * scale_x)))  # scale penalty (4107,)
             r_c = change((self.target_sz[0] / self.target_sz[1]) /
                         (box_pred[:, 2] / box_pred[:, 3]))  # ratio penalty (4107,)
-            penalty = np.exp(-(r_c * s_c - 1.) * config.penalty_k) # (4107,)
+            penalty = np.exp(-(r_c * s_c - 1.) * config.penalty_k) # (4107,) penalty_k=0.22
             pscore = penalty * score_pred # (4107,)
+            # window_influence = 0.4
             pscore = pscore * (1 - config.window_influence) + self.windows[i] * config.window_influence # (4107,)
             best_pscore_id = np.argmax(pscore)
             target = box_pred[best_pscore_id, :] / scale_x
 
-            lr = penalty[best_pscore_id] * score_pred[best_pscore_id] * config.lr_box
+            lr = penalty[best_pscore_id] * score_pred[best_pscore_id] * config.lr_box # lr_box = 0.3
 
-            res_x = np.clip(target[0] + self.pos[0], 0, frame.shape[1])
-            res_y = np.clip(target[1] + self.pos[1], 0, frame.shape[0])
+            res_x = np.clip(target[0] + self.pos[0], 0, frame.shape[0])
+            res_y = np.clip(target[1] + self.pos[1], 0, frame.shape[1])
 
-            res_w = np.clip(self.target_sz[0] * (1 - lr) + target[2] * lr, config.min_scale * self.origin_target_sz[0], config.max_scale * self.origin_target_sz[0])
-            res_h = np.clip(self.target_sz[1] * (1 - lr) + target[3] * lr, config.min_scale * self.origin_target_sz[1], config.max_scale * self.origin_target_sz[1])
+            # min_scale = 0.1 max_scale = 10
+            # numpy.clip(a, a_min, a_max, out=None) 
+            # 将数组中的元素限制在a_min, a_max之间，大于a_max的就使得它等于 a_max，小于a_min,的就使得它等于a_min
+            res_w = np.clip(self.target_sz[0] * (1 - lr) + target[2] * lr, 
+                    config.min_scale * self.origin_target_sz[0], 
+                    config.max_scale * self.origin_target_sz[0])
+            res_h = np.clip(self.target_sz[1] * (1 - lr) + target[3] * lr, 
+                    config.min_scale * self.origin_target_sz[1], 
+                    config.max_scale * self.origin_target_sz[1])
 
-            # self.pos = np.array([res_x, res_y])
-            # self.target_sz = np.array([res_w, res_h])
-            bbox = np.array([res_x, res_y, res_w, res_h])
-            # self.bbox = (
-            #     np.clip(bbox[0], 0, frame.shape[1]).astype(np.float64),
-            #     np.clip(bbox[1], 0, frame.shape[0]).astype(np.float64),
-            #     np.clip(bbox[2], 10, frame.shape[1]).astype(np.float64),
-            #     np.clip(bbox[3], 10, frame.shape[0]).astype(np.float64))            
+            bbox = np.array([res_x, res_y, res_w, res_h])          
             results_bboxs.append(bbox)
-            results_scores.append(score_pred[best_pscore_id])
+            results_scores.append(pscore[best_pscore_id])
         max_score_id = np.argmax(results_scores)   
         _box = results_bboxs[max_score_id]  
         _socre = results_scores[max_score_id]
