@@ -176,9 +176,6 @@ def validation(args):
 
 
 if __name__ == '__main__':
-    # assert 1==2,'1 不能等于 2'
-    # print(1)
-    # exit(0)
     program_name = os.getcwd().split('/')[-1]
     setproctitle.setproctitle('sjl test ' + program_name)
     parser = argparse.ArgumentParser(description='Test some models on OTB2015 or OTB2013')  # 创建一个解析对象

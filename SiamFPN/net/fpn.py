@@ -135,6 +135,7 @@ class SiamFPN(FPN):
         self.reg_kernels = []
         self.cls_kernels = []        
 
+    # 废弃
     def forward_bak(self, x):  # x:1,3,271,271
         # px2, px3, px4, px5 = super().forward(x)
         px = super().forward(x)
@@ -172,6 +173,7 @@ class SiamFPN(FPN):
         # return self.regress_adjust(F.conv2d(self.conv_r2(x_f), self.r1_kernel)), \
         #        F.conv2d(self.conv_cls2(x_f), self.cls1_kernel)
 
+    # 废弃
     def template(self, z):  # z:1,3,127,127
         # pz2, pz3, pz4, pz5 = super().forward(z)
         pz = super().forward(z)
@@ -230,6 +232,7 @@ class SiamFPN(FPN):
         # self.r1_kernel = r1_kernel_raw.view(self.anchor*4, self.feature_out, kernel_size, kernel_size)   # 20,256,4,4
         # self.cls1_kernel = cls1_kernel_raw.view(self.anchor*2, self.feature_out, kernel_size, kernel_size) # 10,256,4,4
 
+    # 废弃
     def weight_loss(self, deltas, scores, gt, use_gpu):
         """
         weighted cross entropy loss

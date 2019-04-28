@@ -67,8 +67,8 @@ def run_SiamFPN(seq_path, model_path, boxes):
     return result
 
 if __name__ == "__main__":
-    seq_path = 'D:\\dataset\\otb\\Basketball'
-    model_path = r"D:\workspace\MachineLearning\HelloWorld\59version\data\models\siamfpn_50_trainloss_1.1085_validloss_0.9913.pth"
+    seq_path = 'E:\\dataset\\OTB\\Biker\\'
+    model_path = r"D:\workspace\MachineLearning\SiamFPN\data\models\siamfpn_50_trainloss_1.1085_validloss_0.9913.pth"
     groundtruth_path = seq_path + '/groundtruth_rect.txt'    
     with open(groundtruth_path, 'r') as f:
         boxes = f.readlines()

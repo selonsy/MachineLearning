@@ -221,7 +221,7 @@ class SiamFPNTracker:
         # ToDo:看看这几个返回的值都是些什么东西
         instance_img, _, _, scale_x = get_instance_image(frame, self.bbox, config.exemplar_size, 
                 config.instance_size, config.context_amount, self.img_mean)
-        cv2.imshow("update", instance_img)
+        # cv2.imshow("update", instance_img)
         instance_img = self.transforms(instance_img)[None, :, :, :]
         if config.CUDA:
             instance_img = instance_img.cuda()
