@@ -282,6 +282,15 @@ def track_visualization(im,gt,location=None,f=0,name="Test"):
     cv2.imshow(name, im)
     cv2.waitKey(10000) # 10s,单位ms
 
+def show_anchors(anchors):
+    image = cv2.imread(r"D:\dataset\OTB_Crops\Boy\0001.00.x_57.77_69.32.jpg")
+    for anchor in anchors:        
+        anchor = list((anchor[0] - anchor[2] / 2 + 1 / 2, anchor[1] - anchor[3] / 2 + 1 / 2, anchor[2], anchor[3]))
+        anchor = [int(l) for l in anchor]
+        cv2.rectangle(image, (anchor[0], anchor[1]), (anchor[0] + anchor[2], anchor[1] + anchor[3]), (0, 255, 0), 3)
+    cv2.imshow("show_anchors", image)
+    cv2.waitKey(10000) # 10s,单位ms
+
 if __name__ == "__main__":
     image_file = r"D:\workspace\MachineLearning\HelloWorld\59version\dataset\demo\000000.00.x_74.19_53.24.jpg" # r"D:\workspace\MachineLearning\HelloWorld\59version\dataset\demo\000000.JPEG"
     im = cv2.imread(image_file)

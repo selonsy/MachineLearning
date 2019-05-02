@@ -1,6 +1,8 @@
 import torch
 import cv2
 import os
+import sys
+sys.path.append(os.getcwd())
 import numpy as np
 import pickle
 import lmdb
@@ -10,8 +12,7 @@ import xml.etree.ElementTree as ET
 import matplotlib.pyplot as plt
 
 from torch.utils.data.dataset import Dataset
-from lib.generate_anchors import generate_anchors
-from lib.generate_anchors_fpn import compute_backbone_shapes,generate_pyramid_anchors
+from lib.generate_anchors import generate_pyramid_anchors,generate_anchors_rpn
 from net.config import config
 from lib.utils import box_transform, compute_iou, add_box_img, crop_and_pad
 
@@ -51,23 +52,30 @@ class ImagnetVIDDataset(Dataset):
         self.training = training
 
         # 原计算单层锚标签
-        # valid_scope = 2 * config.valid_scope + 1
-        # self.anchors = generate_anchors(config.total_stride, config.anchor_base_size, config.anchor_scales,
-        #                                 config.anchor_ratios,
-        #                                 valid_scope)
+        valid_scope = 2 * config.valid_scope + 1
+        self.anchors_ori = generate_anchors(config.total_stride, config.anchor_base_size, config.anchor_scales,
+                                        # config.anchor_ratios,
+                                        config.FPN_ANCHOR_RATIOS,
+                                        valid_scope)
         
         # 分层计算锚标签
         # 
         # backbone_shapes = compute_backbone_shapes(config, config.IMAGE_SHAPE) 
         # array([[256,256],[128,128],[64,64],[32,32],[16,16]])
         # 上面的特征图太大了,不符合我的模型的输出,采用下面自定义的
-        backbone_shapes = config.FEATURE_MAP_SIZES
         self.anchors = generate_pyramid_anchors(config.FPN_ANCHOR_SCALES,
                                                 config.FPN_ANCHOR_RATIOS,
-                                                backbone_shapes,
+                                                config.FEATURE_MAP_SIZES,
                                                 config.BACKBONE_STRIDES,
                                                 config.FPN_ANCHOR_STRIDE) 
-        # pass 
+        # ToDo:比较下19*19的两层的锚是否一致，在比例相等的情况下
+        def compare_anchor(old,new):
+            for i in range(old.shape[0]):
+                if not (old[i]==new[i]).all():
+                    return False
+            return True
+        is_compare = compare_anchor(self.anchors_ori,self.anchors[1])
+        pass
 
     def imread(self, path):
         key = hashlib.md5(path.encode()).digest()
@@ -310,23 +318,5 @@ class ImagnetVIDDataset(Dataset):
     def __len__(self):
         return self.num
 
-if __name__ == "__main__":        
+if __name__ == "__main__":            
     pass
-    # train_videos = 
-    # data_dir = 
-    # db_path = db_path = data_dir + '_lmdb'
-    # train_z_transforms = 
-    # train_x_transforms = 
-    # train_z_transforms = transforms.Compose([
-    #     ToTensor()
-    # ])
-    # train_x_transforms = transforms.Compose([
-    #     ToTensor()
-    # ])
-    # valid_z_transforms = transforms.Compose([
-    #     ToTensor()
-    # ])
-    # valid_x_transforms = transforms.Compose([
-    #     ToTensor()
-    # ])
-    # train_dataset = ImagnetVIDDataset(db_path, train_videos, data_dir, train_z_transforms, train_x_transforms)

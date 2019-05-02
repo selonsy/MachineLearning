@@ -72,7 +72,7 @@ def train(data_dir, model_path=None, vis_port=None, init=None):
     train_dataset = ImagnetVIDDataset(db_path, train_videos, data_dir, train_z_transforms, train_x_transforms)
     # test __getitem__
     # train_dataset.__getitem__(1)
-    # exit(0)
+    exit(0)
 
     anchors = train_dataset.anchors  # (1805,4) = (19*19*5,4)
     # dic_num = {}
