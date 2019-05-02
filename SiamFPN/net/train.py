@@ -248,6 +248,8 @@ def train(data_dir, model_path=None, vis_port=None, init=None):
             cls_loss_sum = 0
             reg_loss_sum = 0
             for i in range(len(pred_scores)):
+                if i != 1:
+                    continue # 这里先只考虑一层（19*19）的损失,其余的暂时不考虑
                 pred_score = pred_scores[i]
                 pred_regression = pred_regressions[i]
                 anchors_num = config.FPN_ANCHOR_NUM * config.FEATURE_MAP_SIZE[i] * config.FEATURE_MAP_SIZE[i]
@@ -266,8 +268,8 @@ def train(data_dir, model_path=None, vis_port=None, init=None):
                 reg_loss = rpn_smoothL1(pred_offset, regression_target, conf_target, config.num_pos, ohem=config.ohem_reg)
 
                 _loss = cls_loss + reg_loss * config.lamb_reg # config.lamb_cls
+                                
                 loss += _loss # 这里四层的loss先直接加起来,后面考虑加权处理
-
                 # 用于tensorboard展示cls_loss\reg_loss 原样输出
                 cls_loss_sum = cls_loss_sum + cls_loss
                 reg_loss_sum = reg_loss_sum + reg_loss
@@ -370,6 +372,8 @@ def train(data_dir, model_path=None, vis_port=None, init=None):
                 pred_scores, pred_regressions = model(exemplar_imgs, instance_imgs)
                 loss = 0
                 for i in range(len(pred_scores)):
+                    if i != 1:
+                        continue # 这里先只考虑一层（19*19）的损失,其余的暂时不考虑
                     pred_score = pred_scores[i]
                     pred_regression = pred_regressions[i]
                     anchors_num = config.FPN_ANCHOR_NUM * config.FEATURE_MAP_SIZE[i] * config.FEATURE_MAP_SIZE[i]

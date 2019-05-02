@@ -12,7 +12,7 @@ import xml.etree.ElementTree as ET
 import matplotlib.pyplot as plt
 
 from torch.utils.data.dataset import Dataset
-from lib.generate_anchors import generate_pyramid_anchors,generate_anchors_rpn
+from lib.generate_anchors import generate_pyramid_anchors,generate_anchors_rpn,generate_anchors_fpn
 from net.config import config
 from lib.utils import box_transform, compute_iou, add_box_img, crop_and_pad
 
@@ -51,15 +51,12 @@ class ImagnetVIDDataset(Dataset):
 
         self.training = training
 
-        # 原计算单层锚标签
-        valid_scope = 2 * config.valid_scope + 1
-        self.anchors_ori = generate_anchors(config.total_stride, config.anchor_base_size, config.anchor_scales,
-                                        # config.anchor_ratios,
-                                        config.FPN_ANCHOR_RATIOS,
-                                        valid_scope)
+        # # 原计算单层锚标签
+        # valid_scope = 2 * config.valid_scope + 1
+        # self.anchors_ori = generate_anchors(config.total_stride, config.anchor_base_size, config.anchor_scales,
+        #                                 config.anchor_ratios, valid_scope)
         
         # 分层计算锚标签
-        # 
         # backbone_shapes = compute_backbone_shapes(config, config.IMAGE_SHAPE) 
         # array([[256,256],[128,128],[64,64],[32,32],[16,16]])
         # 上面的特征图太大了,不符合我的模型的输出,采用下面自定义的
@@ -68,14 +65,11 @@ class ImagnetVIDDataset(Dataset):
                                                 config.FEATURE_MAP_SIZES,
                                                 config.BACKBONE_STRIDES,
                                                 config.FPN_ANCHOR_STRIDE) 
-        # ToDo:比较下19*19的两层的锚是否一致，在比例相等的情况下
-        def compare_anchor(old,new):
-            for i in range(old.shape[0]):
-                if not (old[i]==new[i]).all():
-                    return False
-            return True
-        is_compare = compare_anchor(self.anchors_ori,self.anchors[1])
-        pass
+        # 采用原作者里面的anchor计算方式，不适用FPN里面的计算方式
+        self.anchors = generate_anchors_fpn(config.BACKBONE_STRIDES,
+                                            config.FPN_ANCHOR_SCALES,
+                                            config.FPN_ANCHOR_RATIOS,
+                                            config.FEATURE_MAP_SIZE)
 
     def imread(self, path):
         key = hashlib.md5(path.encode()).digest()

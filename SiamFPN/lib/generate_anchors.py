@@ -178,32 +178,38 @@ def generate_track_windows():
     return windows
 
 
-def generate_anchors_fpn(total_stride, base_size, scales, ratios, score_size):
-    '''SiamRPN的锚标签生成
-
-        @total_stride, int: 8 # total stride of backbone
-
-        @base_size, int: 8 
-
-        @scales, array: [8]
-
-        @ratios, array: [0.33, 0.5, 1, 2, 3] 
-        注：按论文的理解应该是宽高比，即w/h，但是下面的计算是按照高宽比进行的
-
-        @score_size, int: 19
-
-        return anchors -> (1805,4)   
-        1805 = len(ratios) * len(scales) * score_size * score_size
-             = 5 * 1 * 19 * 19     
-    '''
-    anchor_num = len(ratios) * len(scales) # 锚种类数
-    anchor = np.zeros((anchor_num, 4), dtype=np.float32) # (5,4)
-    size = base_size * base_size # 锚的大小（映射回原图的基准大小，比例只是在此基础上进行变化，宽高比变化不影响锚的大小）
-    count = 0
-    for ratio in ratios:
-        ws = int(np.sqrt(size / ratio))
-        hs = int(ws * ratio)
-        for scale in scales:
+def generate_anchors_fpn(total_strides, base_sizes, ratios, score_sizes):
+    """[summary]
+    
+    Arguments:
+        total_stride {[type]} -- [description]
+        base_size {[type]} -- [description]
+        scales {[type]} -- [description]
+        ratios {[type]} -- [description]
+        score_size {[type]} -- [description]
+    
+    example_size = 127 | instance_size = 271
+    socore_size = (instance_branch_after_conv - example_branch_after_conv) + 1
+    total_stride = (instance_size - example_size) / (socore_size - 1)
+    total_stride | base_size | scales | ratios | socore_size 
+        4             (32)              0.5,1,2    37 * 37  
+        8             (64)        8     0.5,1,2    19 * 19       
+        16            (128)             0.5,1,2    10 * 10
+        32            (256)             0.5,1,2    6  * 6
+    """
+    res_anchors = []
+    for i in range(len(score_sizes)):        
+        anchor_num = len(ratios) # 锚种类数
+        anchor = np.zeros((anchor_num, 4), dtype=np.float32) # (3,4)
+        size = base_sizes[i]  # 锚的大小（映射回原图的基准大小，比例只是在此基础上进行变化，宽高比变化不影响锚的大小）
+        score_size = score_sizes[i]
+        total_stride = total_strides[i]
+        count = 0
+        for ratio in ratios:
+            ws = int(np.sqrt(size / ratio))
+            hs = int(ws * ratio)
+            
+            scale = np.sqrt(size)
             wws = ws * scale
             hhs = hs * scale
             anchor[count, 0] = 0
@@ -212,21 +218,18 @@ def generate_anchors_fpn(total_stride, base_size, scales, ratios, score_size):
             anchor[count, 3] = hhs
             count += 1
 
-    anchor = np.tile(anchor, score_size * score_size).reshape((-1, 4)) # 重复anchor共score_size**2次并变形为(1805,4)    
-    ori = - (score_size // 2) * total_stride # -72
-    # the left displacement 
-    # [ori + total_stride * dx for dx in range(score_size)] = [-72,-64,...,64,72] , len = 19
-    xx, yy = np.meshgrid([ori + total_stride * dx for dx in range(score_size)],
-                         [ori + total_stride * dy for dy in range(score_size)])
-
-    # xx (1805,1) yy (1805,1)
-    xx = np.tile(xx.flatten(), (anchor_num, 1)).flatten()
-    yy = np.tile(yy.flatten(), (anchor_num, 1)).flatten()
-    
-    # 给锚的(x,y)赋值
-    anchor[:, 0], anchor[:, 1] = xx.astype(np.float32), yy.astype(np.float32)    
-
-    return anchor
+        anchor = np.tile(anchor, score_size * score_size).reshape((-1, 4)) # 重复anchor共score_size**2次并变形为(N,4)    
+        ori = - (score_size // 2) * total_stride 
+        xx, yy = np.meshgrid([ori + total_stride * dx for dx in range(score_size)],
+                            [ori + total_stride * dy for dy in range(score_size)])
+        # xx (1805,1) yy (1805,1)
+        xx = np.tile(xx.flatten(), (anchor_num, 1)).flatten()
+        yy = np.tile(yy.flatten(), (anchor_num, 1)).flatten()
+        
+        # 给锚的(x,y)赋值
+        anchor[:, 0], anchor[:, 1] = xx.astype(np.float32), yy.astype(np.float32)    
+        res_anchors.append(anchor)
+    return res_anchors
 
 
 if __name__ == '__main__':
@@ -244,12 +247,15 @@ if __name__ == '__main__':
                                             config.FEATURE_MAP_SIZES,
                                             config.BACKBONE_STRIDES,
                                             config.FPN_ANCHOR_STRIDE) 
+    
+    anchors_new = generate_anchors_fpn(config.BACKBONE_STRIDES,config.FPN_ANCHOR_SCALES,config.FPN_ANCHOR_RATIOS,config.FEATURE_MAP_SIZE)
+    
     def compare_anchor(old,new):
         for i in range(old.shape[0]):
             if not (old[i]==new[i]).all():
                 return False
         return True
-    is_compare = compare_anchor(anchors_ori,anchors[1])
+    is_compare = compare_anchor(anchors_ori,anchors_new[1])
     # show_anchors(anchors_ori[:10,:])
     # show_anchors(anchors[1])
     pass
