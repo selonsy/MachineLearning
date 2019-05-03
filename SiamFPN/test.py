@@ -8,3 +8,12 @@ with open('dump.data', 'rb') as f:
     data_load = pickle.load(f)
 print(data_load)
 print(type(data_load))
+
+def test(func,func1):
+    """[summary]
+    
+    Arguments:
+        func {[type]} -- [description]
+        func1 {[type]} -- [description]
+    """
+    pass
