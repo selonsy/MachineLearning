@@ -1,7 +1,7 @@
-/*
-* leetcode c++°æ±¾Ë¢Ìâ¼¯ºÏ
-* author£ºselonsy
-* time£º2019_4_17_15_13_26
+ï»¿/*
+* leetcode c++ç‰ˆæœ¬åˆ·é¢˜é›†åˆ
+* authorï¼šselonsy
+* timeï¼š2019_4_17_15_13_26
 */
 #define _CRT_SECURE_NO_WARNINGS
 #include<vector>
@@ -21,18 +21,18 @@ struct ListNode {
 
 class Solution {
 public:
-	// 1.Á½ÊıÖ®ºÍ-Two Sum
+	// 1.ä¸¤æ•°ä¹‹å’Œ-Two Sum
 	vector<int> twoSum_1(vector<int>& nums, int target) 
 	{
 		/*
-			¸ø¶¨Ò»¸öÕûÊıÊı×é nums ºÍÒ»¸öÄ¿±êÖµ target£¬ÇëÄãÔÚ¸ÃÊı×éÖĞÕÒ³öºÍÎªÄ¿±êÖµµÄÄÇ Á½¸ö ÕûÊı£¬²¢·µ»ØËûÃÇµÄÊı×éÏÂ±ê¡£
-			Äã¿ÉÒÔ¼ÙÉèÃ¿ÖÖÊäÈëÖ»»á¶ÔÓ¦Ò»¸ö´ğ°¸¡£µ«ÊÇ£¬Äã²»ÄÜÖØ¸´ÀûÓÃÕâ¸öÊı×éÖĞÍ¬ÑùµÄÔªËØ¡£
-			Ê¾Àı:
-			¸ø¶¨ nums = [2, 7, 11, 15], target = 9
-			ÒòÎª nums[0] + nums[1] = 2 + 7 = 9
-			ËùÒÔ·µ»Ø [0, 1]
+			ç»™å®šä¸€ä¸ªæ•´æ•°æ•°ç»„ nums å’Œä¸€ä¸ªç›®æ ‡å€¼ targetï¼Œè¯·ä½ åœ¨è¯¥æ•°ç»„ä¸­æ‰¾å‡ºå’Œä¸ºç›®æ ‡å€¼çš„é‚£ ä¸¤ä¸ª æ•´æ•°ï¼Œå¹¶è¿”å›ä»–ä»¬çš„æ•°ç»„ä¸‹æ ‡ã€‚
+			ä½ å¯ä»¥å‡è®¾æ¯ç§è¾“å…¥åªä¼šå¯¹åº”ä¸€ä¸ªç­”æ¡ˆã€‚ä½†æ˜¯ï¼Œä½ ä¸èƒ½é‡å¤åˆ©ç”¨è¿™ä¸ªæ•°ç»„ä¸­åŒæ ·çš„å…ƒç´ ã€‚
+			ç¤ºä¾‹:
+			ç»™å®š nums = [2, 7, 11, 15], target = 9
+			å› ä¸º nums[0] + nums[1] = 2 + 7 = 9
+			æ‰€ä»¥è¿”å› [0, 1]
 		*/
-		// ±©Á¦½â·¨£ººÄÊ±550ms
+		// æš´åŠ›è§£æ³•ï¼šè€—æ—¶550ms
 		vector<int> res;
 		for (int i = 0; i < nums.size()-1; i++)
 		{
@@ -48,7 +48,7 @@ public:
 	}
 	vector<int> twoSum_2(vector<int>& nums, int target)
 	{
-		// ¿Õ¼ä»»Ê±¼ä£º16ms
+		// ç©ºé—´æ¢æ—¶é—´ï¼š16ms
 		unordered_map <int, int> ans;
 		for (int i = 0; i < nums.size(); i++) 
 		{
@@ -61,16 +61,16 @@ public:
 		return vector<int>({});
 	}
 
-	// 2.Á½ÊıÏà¼Ó-Add Two Numbers
+	// 2.ä¸¤æ•°ç›¸åŠ -Add Two Numbers
 	ListNode* addTwoNumbers_1(ListNode* l1, ListNode* l2) {
 		/*
-		¸ø³öÁ½¸ö ·Ç¿Õ µÄÁ´±íÓÃÀ´±íÊ¾Á½¸ö·Ç¸ºµÄÕûÊı¡£ÆäÖĞ£¬ËüÃÇ¸÷×ÔµÄÎ»ÊıÊÇ°´ÕÕ ÄæĞò µÄ·½Ê½´æ´¢µÄ£¬²¢ÇÒËüÃÇµÄÃ¿¸ö½ÚµãÖ»ÄÜ´æ´¢ Ò»Î» Êı×Ö¡£
-		Èç¹û£¬ÎÒÃÇ½«ÕâÁ½¸öÊıÏà¼ÓÆğÀ´£¬Ôò»á·µ»ØÒ»¸öĞÂµÄÁ´±íÀ´±íÊ¾ËüÃÇµÄºÍ¡£
-		Äú¿ÉÒÔ¼ÙÉè³ıÁËÊı×Ö 0 Ö®Íâ£¬ÕâÁ½¸öÊı¶¼²»»áÒÔ 0 ¿ªÍ·¡£
-		Ê¾Àı£º
-		ÊäÈë£º(2 -> 4 -> 3) + (5 -> 6 -> 4)
-		Êä³ö£º7 -> 0 -> 8
-		Ô­Òò£º342 + 465 = 807
+		ç»™å‡ºä¸¤ä¸ª éç©º çš„é“¾è¡¨ç”¨æ¥è¡¨ç¤ºä¸¤ä¸ªéè´Ÿçš„æ•´æ•°ã€‚å…¶ä¸­ï¼Œå®ƒä»¬å„è‡ªçš„ä½æ•°æ˜¯æŒ‰ç…§ é€†åº çš„æ–¹å¼å­˜å‚¨çš„ï¼Œå¹¶ä¸”å®ƒä»¬çš„æ¯ä¸ªèŠ‚ç‚¹åªèƒ½å­˜å‚¨ ä¸€ä½ æ•°å­—ã€‚
+		å¦‚æœï¼Œæˆ‘ä»¬å°†è¿™ä¸¤ä¸ªæ•°ç›¸åŠ èµ·æ¥ï¼Œåˆ™ä¼šè¿”å›ä¸€ä¸ªæ–°çš„é“¾è¡¨æ¥è¡¨ç¤ºå®ƒä»¬çš„å’Œã€‚
+		æ‚¨å¯ä»¥å‡è®¾é™¤äº†æ•°å­— 0 ä¹‹å¤–ï¼Œè¿™ä¸¤ä¸ªæ•°éƒ½ä¸ä¼šä»¥ 0 å¼€å¤´ã€‚
+		ç¤ºä¾‹ï¼š
+		è¾“å…¥ï¼š(2 -> 4 -> 3) + (5 -> 6 -> 4)
+		è¾“å‡ºï¼š7 -> 0 -> 8
+		åŸå› ï¼š342 + 465 = 807
 		*/
 		// 40ms 10.2MB 68%
 		ListNode * res = NULL,* current = NULL;
@@ -170,7 +170,7 @@ public:
 		return res;
 	}
 	ListNode* addTwoNumbers_2(ListNode* l1, ListNode* l2) {		
-		// addTwoNumbers_1µÄ¾«¼ò°æ±¾
+		// addTwoNumbers_1çš„ç²¾ç®€ç‰ˆæœ¬
 		ListNode * res = NULL, *current = NULL;
 		int jin_wei = 0;
 		while (l1 != NULL || l2 != NULL)
@@ -222,26 +222,26 @@ public:
 		return res;
 	}
 
-	// 3.ÎŞÖØ¸´×Ö·ûµÄ×î³¤×Ó´®-Longest Substring Without Repeating Characters
+	// 3.æ— é‡å¤å­—ç¬¦çš„æœ€é•¿å­ä¸²-Longest Substring Without Repeating Characters
 	int lengthOfLongestSubstring_1(string s) {
 		/*
-		¸ø¶¨Ò»¸ö×Ö·û´®£¬ÇëÄãÕÒ³öÆäÖĞ²»º¬ÓĞÖØ¸´×Ö·ûµÄ ×î³¤×Ó´® µÄ³¤¶È¡£
+		ç»™å®šä¸€ä¸ªå­—ç¬¦ä¸²ï¼Œè¯·ä½ æ‰¾å‡ºå…¶ä¸­ä¸å«æœ‰é‡å¤å­—ç¬¦çš„ æœ€é•¿å­ä¸² çš„é•¿åº¦ã€‚
 
-		Ê¾Àı 1:
-		ÊäÈë: "abcabcbb"
-		Êä³ö: 3 
-		½âÊÍ: ÒòÎªÎŞÖØ¸´×Ö·ûµÄ×î³¤×Ó´®ÊÇ "abc"£¬ËùÒÔÆä³¤¶ÈÎª 3¡£
+		ç¤ºä¾‹ 1:
+		è¾“å…¥: "abcabcbb"
+		è¾“å‡º: 3 
+		è§£é‡Š: å› ä¸ºæ— é‡å¤å­—ç¬¦çš„æœ€é•¿å­ä¸²æ˜¯ "abc"ï¼Œæ‰€ä»¥å…¶é•¿åº¦ä¸º 3ã€‚
 
-		Ê¾Àı 2:
-		ÊäÈë: "bbbbb"
-		Êä³ö: 1
-		½âÊÍ: ÒòÎªÎŞÖØ¸´×Ö·ûµÄ×î³¤×Ó´®ÊÇ "b"£¬ËùÒÔÆä³¤¶ÈÎª 1¡£
+		ç¤ºä¾‹ 2:
+		è¾“å…¥: "bbbbb"
+		è¾“å‡º: 1
+		è§£é‡Š: å› ä¸ºæ— é‡å¤å­—ç¬¦çš„æœ€é•¿å­ä¸²æ˜¯ "b"ï¼Œæ‰€ä»¥å…¶é•¿åº¦ä¸º 1ã€‚
 
-		Ê¾Àı 3:
-		ÊäÈë: "pwwkew"
-		Êä³ö: 3
-		½âÊÍ: ÒòÎªÎŞÖØ¸´×Ö·ûµÄ×î³¤×Ó´®ÊÇ "wke"£¬ËùÒÔÆä³¤¶ÈÎª 3¡£
-			 Çë×¢Òâ£¬ÄãµÄ´ğ°¸±ØĞëÊÇ ×Ó´® µÄ³¤¶È£¬"pwke" ÊÇÒ»¸ö×ÓĞòÁĞ£¬²»ÊÇ×Ó´®¡£
+		ç¤ºä¾‹ 3:
+		è¾“å…¥: "pwwkew"
+		è¾“å‡º: 3
+		è§£é‡Š: å› ä¸ºæ— é‡å¤å­—ç¬¦çš„æœ€é•¿å­ä¸²æ˜¯ "wke"ï¼Œæ‰€ä»¥å…¶é•¿åº¦ä¸º 3ã€‚
+			 è¯·æ³¨æ„ï¼Œä½ çš„ç­”æ¡ˆå¿…é¡»æ˜¯ å­ä¸² çš„é•¿åº¦ï¼Œ"pwke" æ˜¯ä¸€ä¸ªå­åºåˆ—ï¼Œä¸æ˜¯å­ä¸²ã€‚
 		*/
 		// 1000ms,150MB
 		int len = 0,t = 0;
@@ -264,7 +264,7 @@ public:
 		return len;
 	}
 	int lengthOfLongestSubstring_2(string s) {
-		// Ê¹ÓÃascii±àÂë2^8=256
+		// ä½¿ç”¨asciiç¼–ç 2^8=256
 		// 28ms,10.3MB
 		vector<int> dict(256, -1);
 		int maxLen = 0, start = -1;
@@ -277,30 +277,30 @@ public:
 		return maxLen;
 	}
 
-#pragma region ¶¯Ì¬¹æ»®-Dynamic Programming
-	// 395.ÖÁÉÙÓĞK¸öÖØ¸´×Ö·ûµÄ×î³¤×Ó´®
+#pragma region åŠ¨æ€è§„åˆ’-Dynamic Programming
+	// 395.è‡³å°‘æœ‰Kä¸ªé‡å¤å­—ç¬¦çš„æœ€é•¿å­ä¸²
 	int longestSubstring_1(string s, int k) {
 		/*
-		ÕÒµ½¸ø¶¨×Ö·û´®£¨ÓÉĞ¡Ğ´×Ö·û×é³É£©ÖĞµÄ×î³¤×Ó´® T £¬ ÒªÇó T ÖĞµÄÃ¿Ò»×Ö·û³öÏÖ´ÎÊı¶¼²»ÉÙÓÚ k ¡£Êä³ö T µÄ³¤¶È¡£
+		æ‰¾åˆ°ç»™å®šå­—ç¬¦ä¸²ï¼ˆç”±å°å†™å­—ç¬¦ç»„æˆï¼‰ä¸­çš„æœ€é•¿å­ä¸² T ï¼Œ è¦æ±‚ T ä¸­çš„æ¯ä¸€å­—ç¬¦å‡ºç°æ¬¡æ•°éƒ½ä¸å°‘äº k ã€‚è¾“å‡º T çš„é•¿åº¦ã€‚
 
-		Ê¾Àı 1:
+		ç¤ºä¾‹ 1:
 
-		ÊäÈë:
+		è¾“å…¥:
 		s = "aaabb", k = 3
 
-		Êä³ö:
+		è¾“å‡º:
 		3
 
-		×î³¤×Ó´®Îª "aaa" £¬ÆäÖĞ 'a' ÖØ¸´ÁË 3 ´Î¡£
-		Ê¾Àı 2:
+		æœ€é•¿å­ä¸²ä¸º "aaa" ï¼Œå…¶ä¸­ 'a' é‡å¤äº† 3 æ¬¡ã€‚
+		ç¤ºä¾‹ 2:
 
-		ÊäÈë:
+		è¾“å…¥:
 		s = "ababbc", k = 2
 
-		Êä³ö:
+		è¾“å‡º:
 		5
 
-		×î³¤×Ó´®Îª "ababb" £¬ÆäÖĞ 'a' ÖØ¸´ÁË 2 ´Î£¬ 'b' ÖØ¸´ÁË 3 ´Î¡£
+		æœ€é•¿å­ä¸²ä¸º "ababb" ï¼Œå…¶ä¸­ 'a' é‡å¤äº† 2 æ¬¡ï¼Œ 'b' é‡å¤äº† 3 æ¬¡ã€‚
 		*/
 		int res = 0, i = 0, n = s.size();
 		while (i + k <= n) {
@@ -308,7 +308,7 @@ public:
 			for (int j = i; j < n; ++j) {
 				int t = s[j] - 'a';
 				++m[t];
-				if (m[t] < k) mask |= (1 << t);  // '|=' °´Î»»òºó¸³Öµ; 1 << t ×óÒÆtÎ»
+				if (m[t] < k) mask |= (1 << t);  // '|=' æŒ‰ä½æˆ–åèµ‹å€¼; 1 << t å·¦ç§»tä½
 				else mask &= (~(1 << t));
 				if (mask == 0) {
 					res = max(res, j - i + 1);
@@ -321,12 +321,12 @@ public:
 	}
 	int longestSubstring_2(string s, int k) {
 		/*
-		1¡¢in the first pass I record counts of every character in a hashmap
-		2¡¢in the second pass I locate the first character that appear less than k times in the string. 
+		1ã€in the first pass I record counts of every character in a hashmap
+		2ã€in the second pass I locate the first character that appear less than k times in the string. 
 			this character is definitely not included in the result, and that separates the string into two parts.
-		3¡¢keep doing this recursively and the maximum of the left/right part is the answer.
+		3ã€keep doing this recursively and the maximum of the left/right part is the answer.
 		*/
-		// ³¬Ê±ÁË
+		// è¶…æ—¶äº†
 
 		if (s.size() == 0 || k > s.size())   return 0;
 		if (k == 0)  return s.size();
@@ -377,16 +377,16 @@ public:
 int main2019_4_7_18_39_25()
 {
 	Solution solution;
+	
 
 
-
-	// 3.ÎŞÖØ¸´×Ö·ûµÄ×î³¤×Ó´®-Longest Substring Without Repeating Characters
+	// 3.æ— é‡å¤å­—ç¬¦çš„æœ€é•¿å­ä¸²-Longest Substring Without Repeating Characters
 	/*string s = "pwwkew";
 	int res = solution.lengthOfLongestSubstring_1(s);
 	cout << res << endl;;
 	assert(res == 3);*/
 
-	// 2.Á½ÊıÏà¼Ó-Add Two Numbers
+	// 2.ä¸¤æ•°ç›¸åŠ -Add Two Numbers
 	/*vector<int> arr1 = { 2,4,3 };
 	vector<int> arr2 = { 5,6,4 };
 	ListNode * l1_head = new ListNode(arr1[0]), *l2_head = new ListNode(arr2[0]);
@@ -422,7 +422,7 @@ int main2019_4_7_18_39_25()
 		res = res->next;
 	}*/
 
-	// 1.Á½ÊıÖ®ºÍ-Two Sum
+	// 1.ä¸¤æ•°ä¹‹å’Œ-Two Sum
 	/*vector<int> nums_1 = { 2, 7, 11, 15 };
 	vector<int> res_1 = solution.twoSum_2(nums_1,9);
 	vector<int> case_1 = { 0,1 };

@@ -24,7 +24,10 @@
 还是挺难的 虽然回顾了矩阵链乘 但是这个dp[i][j]含义是不包含i,j的i-j之间的数组获得的最大乘积，
 所以在nums前后添加[1]。没想到，看了别人的分析才推出递推式。贴一个python的版本
 '''
+import pysnooper
 # def maxCoins(self, nums: List[int]) -> int:
+
+@pysnooper.snoop()
 def maxCoins(nums):
     if len(nums) == 0:
         return 0
