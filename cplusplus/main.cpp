@@ -374,10 +374,10 @@ public:
 
 };
 
-int main2019_4_7_18_39_25()
+int main()
 {
 	Solution solution;
-	
+	printf("Hello World!");
 
 
 	// 3.无重复字符的最长子串-Longest Substring Without Repeating Characters
