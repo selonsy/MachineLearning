@@ -1,11 +1,3 @@
-from lib.generate_anchors_fpn import compute_backbone_shapes, generate_pyramid_anchors, generate_track_windows
-from net.fpn import SiamFPN50, SiamFPN101, SiamFPN152
-from IPython import embed
-from lib.generate_anchors import generate_anchors
-from lib.utils import get_exemplar_image, get_instance_image, box_transform_inv
-from lib.custom_transforms import ToTensor
-from net.config import config
-from net.network import SiameseAlexNet
 import torchvision.transforms as transforms
 import time
 import torch.nn.functional as F
@@ -15,10 +7,15 @@ import numpy as np
 import os
 import sys
 sys.path.append(os.getcwd())
-
+from lib.generate_anchors import generate_anchors_fpn, generate_track_windows
+from net.fpn import SiamFPN50, SiamFPN101, SiamFPN152
+from IPython import embed
+from lib.utils import get_exemplar_image, get_instance_image, box_transform_inv
+from lib.custom_transforms import ToTensor
+from net.config import config
+from net.network import SiameseAlexNet
 
 torch.set_num_threads(1)  # otherwise pytorch will take all cpus
-
 
 class SiamRPNTracker_bak:
     def __init__(self, model_path):
@@ -35,9 +32,9 @@ class SiamRPNTracker_bak:
         ])
 
         valid_scope = 2 * config.valid_scope + 1
-        self.anchors = generate_anchors(config.total_stride, config.anchor_base_size, config.anchor_scales,
-                                        config.anchor_ratios,
-                                        valid_scope)
+        # self.anchors = generate_anchors(config.total_stride, config.anchor_base_size, config.anchor_scales,
+        #                                 config.anchor_ratios,
+        #                                 valid_scope)
         self.window = np.tile(np.outer(np.hanning(config.score_size), np.hanning(config.score_size))[None, :],
                               [config.anchor_num, 1, 1]).flatten()
 
@@ -170,12 +167,16 @@ class SiamFPNTracker:
         # self.anchors = generate_anchors(config.total_stride, config.anchor_base_size, config.anchor_scales,
         #                                 config.anchor_ratios,
         #                                 valid_scope)
-        backbone_shapes = config.FEATURE_MAP_SIZES
-        self.anchors = generate_pyramid_anchors(config.FPN_ANCHOR_SCALES,
-                                                config.FPN_ANCHOR_RATIOS,
-                                                backbone_shapes,
-                                                config.BACKBONE_STRIDES,
-                                                config.FPN_ANCHOR_STRIDE)
+        # backbone_shapes = config.FEATURE_MAP_SIZES
+        # self.anchors = generate_pyramid_anchors(config.FPN_ANCHOR_SCALES,
+        #                                         config.FPN_ANCHOR_RATIOS,
+        #                                         backbone_shapes,
+        #                                         config.BACKBONE_STRIDES,
+        #                                         config.FPN_ANCHOR_STRIDE)
+        self.anchors = generate_anchors_fpn(config.BACKBONE_STRIDES,
+                                            config.FPN_ANCHOR_SCALES,
+                                            config.FPN_ANCHOR_RATIOS,
+                                            config.FEATURE_MAP_SIZE)                                            
         # self.window = np.tile(
         #     np.outer(np.hanning(config.score_size), np.hanning(config.score_size))[None, :],[config.anchor_num, 1, 1]).flatten()
         self.windows = generate_track_windows()
@@ -248,6 +249,8 @@ class SiamFPNTracker:
         results_bboxs  = []
         results_scores = []
         for i in range(len(pred_scores)):
+            if i!=1:
+                continue
             pred_score = pred_scores[i] # torch.Size([1, 6, 37, 37])
             pred_regression = pred_regressions[i] # torch.Size([1, 12, 37, 37])
             score_size = config.FEATURE_MAP_SIZE[i] # 37
