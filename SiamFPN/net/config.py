@@ -8,7 +8,7 @@ class Machine_type(Enum):
 
 class Config:
     # selonsy
-    MACHINE_TYPE = Machine_type.Windows         # 机器类型：WINDOWS 1, LINUX 2
+    MACHINE_TYPE = Machine_type.Linux         # 机器类型：WINDOWS 1, LINUX 2
     LAYER_Z_SOCRE_SIZE = np.array([32,16,8,4])  # 模板金字塔特征图大小,依次为p2,p3,p4,p5(P2为第2层,p5为顶层)
     LAYER_X_SOCRE_SIZE = np.array([68,34,17,9]) # 实例金字塔特征图大小,依次为p2,p3,p4,p5
     FEATURE_MAP_SIZE = np.array([37,19,10,6])   # 分层输出特征图大小,依次为p2,p3,p4,p5

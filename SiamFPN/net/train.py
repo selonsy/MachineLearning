@@ -36,7 +36,7 @@ from IPython import embed
 from net.fpn import SiamFPN50,SiamFPN101,SiamFPN152
 
 torch.manual_seed(config.seed)
-os.environ['CUDA_VISIBLE_DEVICES'] = "2,3" # 赋值需要时字符串
+os.environ['CUDA_VISIBLE_DEVICES'] = "1,2,3" # 赋值需要时字符串
 
 def train(data_dir, model_path=None, vis_port=None, init=None):
     # loading meta data
@@ -72,7 +72,7 @@ def train(data_dir, model_path=None, vis_port=None, init=None):
     train_dataset = ImagnetVIDDataset(db_path, train_videos, data_dir, train_z_transforms, train_x_transforms)
     # test __getitem__
     # train_dataset.__getitem__(1)
-    exit(0)
+    # exit(0)
 
     anchors = train_dataset.anchors  # (1805,4) = (19*19*5,4)
     # dic_num = {}
@@ -424,7 +424,12 @@ def train(data_dir, model_path=None, vis_port=None, init=None):
             torch.cuda.empty_cache()
 
 if __name__ == "__main__":
-
+    '''
+    ToDo:
+    1.为什么cls_loss一开始非常大，后面逐渐减小到零点几。
+    2.reg_loss的值几乎就不变。
+    3、
+    '''
     if config.MACHINE_TYPE == Machine_type.Windows: # windows    
         data_dir = r"D:\workspace\MachineLearning\HelloWorld\59version\dataset\ILSVRC_Crops"
         model_path = ""

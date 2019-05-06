@@ -60,11 +60,11 @@ class ImagnetVIDDataset(Dataset):
         # backbone_shapes = compute_backbone_shapes(config, config.IMAGE_SHAPE) 
         # array([[256,256],[128,128],[64,64],[32,32],[16,16]])
         # 上面的特征图太大了,不符合我的模型的输出,采用下面自定义的
-        self.anchors = generate_pyramid_anchors(config.FPN_ANCHOR_SCALES,
-                                                config.FPN_ANCHOR_RATIOS,
-                                                config.FEATURE_MAP_SIZES,
-                                                config.BACKBONE_STRIDES,
-                                                config.FPN_ANCHOR_STRIDE) 
+        # self.anchors = generate_pyramid_anchors(config.FPN_ANCHOR_SCALES,
+        #                                         config.FPN_ANCHOR_RATIOS,
+        #                                         config.FEATURE_MAP_SIZES,
+        #                                         config.BACKBONE_STRIDES,
+        #                                         config.FPN_ANCHOR_STRIDE) 
         # 采用原作者里面的anchor计算方式，不适用FPN里面的计算方式
         self.anchors = generate_anchors_fpn(config.BACKBONE_STRIDES,
                                             config.FPN_ANCHOR_SCALES,
