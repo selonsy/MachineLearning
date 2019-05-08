@@ -77,8 +77,8 @@ def evaluation(_type):
     # ------------ starting evaluation  -----------
     if config.MACHINE_TYPE == Machine_type.Linux:
         data_path = '/home/sjl/dataset/otb/'
-        result_path = '/home/selonsy/workspace/SiamFPN/data/results/result_otb{0}.json'.format(_type)
-        save_path = '/home/selonsy/workspace/SiamFPN/data/results/eval_result_otb{0}.json'.format(_type)
+        result_path = '/home/selonsy/workspace/SiamFPN/data/results/otb_result_otb{0}.json'.format(_type)
+        save_path = '/home/selonsy/workspace/SiamFPN/data/results/otb_eval_result_otb{0}.json'.format(_type)
     else:
         data_path = r'D:\dataset\otb\\' # r'E:\dataset\OTB'
         result_path = r"D:\workspace\MachineLearning\HelloWorld\59version\data\results\result_otb{0}.json".format(_type)    
@@ -188,8 +188,8 @@ if __name__ == '__main__':
     # 临时测试,直接给args赋值
     args.videos = "50" # "50,100,13"
     if config.MACHINE_TYPE == Machine_type.Linux:    
-        args.model_paths = [r'/home/selonsy/workspace/SiamFPN/data/models/siamfpn_50_trainloss_0.5121_validloss_0.4195.pth'] # [r"D:\workspace\MachineLearning\HelloWorld\59version\data\models\siamfpn_50_trainloss_1.1085_validloss_0.9913.pth"] # 
-        args.save_name = "./data/results/result_otb{0}.json".format(args.videos) 
+        args.model_paths = [r'/home/selonsy/workspace/SiamFPN/data/models/otb_siamfpn_46_trainloss_1.2423_validloss_nan.pth'] # 
+        args.save_name = "./data/results/otb_result_otb{0}.json".format(args.videos) 
     else:
         args.model_paths = [r"D:\workspace\MachineLearning\HelloWorld\59version\data\models\siamfpn_50_trainloss_1.1085_validloss_0.9913.pth"]
         args.save_name = r"D:\workspace\MachineLearning\HelloWorld\59version\data\results\result_otb{0}.json".format(args.videos)

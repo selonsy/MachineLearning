@@ -146,8 +146,12 @@ class ImagnetVIDDataset(Dataset):
             exemplar_name = \
                 glob.glob(os.path.join(self.data_dir, video, traj[exemplar_idx] + ".{:02d}.x*.jpg".format(trkid)))[0]
         else:
+            # exemplar_name = \
+            #     glob.glob(os.path.join(self.data_dir, video, traj[exemplar_idx] + ".{}.x*.jpg".format(trkid)))[0]
+            # print(os.path.join(self.data_dir, video, traj[exemplar_idx] + ".{:02d}.x*.jpg".format(trkid)))
+            # print(glob.glob(os.path.join(self.data_dir, video, traj[exemplar_idx] + ".{:02d}.x*.jpg".format(trkid))))
             exemplar_name = \
-                glob.glob(os.path.join(self.data_dir, video, traj[exemplar_idx] + ".{}.x*.jpg".format(trkid)))[0]
+                glob.glob(os.path.join(self.data_dir, video, traj[exemplar_idx] + ".{:02d}.x*.jpg".format(trkid)))[0]
         exemplar_img = self.imread(exemplar_name)
         # exemplar_img = cv2.cvtColor(exemplar_img, cv2.COLOR_BGR2RGB)
         # sample instance
@@ -167,7 +171,8 @@ class ImagnetVIDDataset(Dataset):
         if 'ILSVRC2015' in video:
             instance_name = glob.glob(os.path.join(self.data_dir, video, instance + ".{:02d}.x*.jpg".format(trkid)))[0]
         else:
-            instance_name = glob.glob(os.path.join(self.data_dir, video, instance + ".{}.x*.jpg".format(trkid)))[0]
+            # instance_name = glob.glob(os.path.join(self.data_dir, video, instance + ".{}.x*.jpg".format(trkid)))[0]
+            instance_name = glob.glob(os.path.join(self.data_dir, video, instance + ".{:02d}.x*.jpg".format(trkid)))[0]
 
         instance_img = self.imread(instance_name)
         # instance_img = cv2.cvtColor(instance_img, cv2.COLOR_BGR2RGB)

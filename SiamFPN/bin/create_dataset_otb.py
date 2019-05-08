@@ -91,18 +91,18 @@ def processing(vid_dir, output_dir, num_threads=mp.cpu_count()):
     # 下面的代码无法调试(可以在后面跑的时候打开，显示进度条)
     # if config.MACHINE_TYPE == Machine_type.Linux:
     #     num_threads = 6 # Linux服务器开5个进程     
-    # with Pool(processes=num_threads) as pool: # 多进程并发操作进程池
-    #     for ret in tqdm(pool.imap_unordered(
-    #             functools.partial(worker, output_dir), all_videos), total=len(all_videos)):
-    #         meta_data.append(ret)
+    with Pool(processes=num_threads) as pool: # 多进程并发操作进程池
+        for ret in tqdm(pool.imap_unordered(
+                functools.partial(worker, output_dir), all_videos), total=len(all_videos)):
+            meta_data.append(ret)
 
-    # 改为下面的直接进行(可以调试,方便处理跑到中途挂了的情况)
-    for i,video_dir in enumerate(all_videos):
-        # if i <= 96:
-        #     continue 
-        ret = worker(output_dir,video_dir)
-        # ret = (video_dir.replace('/',"\\").split("\\")[-1],{})
-        meta_data.append(ret)
+    # # 改为下面的直接进行(可以调试,方便处理跑到中途挂了的情况)
+    # for i,video_dir in enumerate(all_videos):
+    #     # if i <= 96:
+    #     #     continue 
+    #     ret = worker(output_dir,video_dir)
+    #     # ret = (video_dir.replace('/',"\\").split("\\")[-1],{})
+    #     meta_data.append(ret)
 
     # save meta data
     pickle.dump(meta_data, open(os.path.join(output_dir, "meta_data.pkl"), 'wb'))

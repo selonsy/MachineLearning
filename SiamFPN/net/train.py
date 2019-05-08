@@ -405,7 +405,7 @@ def train(data_dir, model_path=None, vis_port=None, init=None):
             if not os.path.exists('./data/models/'):
                 os.makedirs("./data/models/")
             
-            save_name = "./data/models/siamfpn_{}_trainloss_{:.4f}_validloss_{:.4f}.pth".format(epoch,train_loss,valid_loss)
+            save_name = "./data/models/otb_siamfpn_{}_trainloss_{:.4f}_validloss_{:.4f}.pth".format(epoch,train_loss,valid_loss)
             new_state_dict = model.state_dict()
             if torch.cuda.device_count() > 1:
                 new_state_dict = OrderedDict()
@@ -434,7 +434,7 @@ if __name__ == "__main__":
         data_dir = r"D:\workspace\MachineLearning\HelloWorld\59version\dataset\ILSVRC_Crops"
         model_path = ""
     else:    
-        data_dir = r"/home/sjl/dataset/ILSVRC2015_Crops"
+        data_dir = r"/home/sjl/dataset/otb_Crops" # r"/home/sjl/dataset/ILSVRC2015_Crops"
         model_path = "" # r"/home/sjl/workspace/HelloWorld/data/models/siamrpn_13_trainloss_1.2968_validloss_1.1963.pth"
     vis_port = None
     init = None
