@@ -13,12 +13,56 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="64fc41d9-2ced-4d7b-93c4-55cd02d61feb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/leetcode.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/leetcode/三元互质子集.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/leetcode/砸金蛋戳气球.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.vscode.bak/c_cpp_properties.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.vscode.bak/launch.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.vscode.bak/settings.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.vscode.bak/tasks.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xuetangzaixian.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/xuetangzaixian.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Python3.6/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Python3.6/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Python3.6/词云/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../Python3.6/词云/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HelloWorld/54version/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HelloWorld/54version/bin/create_dataset.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HelloWorld/54version/bin/create_lmdb.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HelloWorld/54version/bin/demo_siamfc.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HelloWorld/54version/bin/run_SiamRPN.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HelloWorld/54version/bin/show_videos.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HelloWorld/54version/bin/test_OTB.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HelloWorld/54version/bin/train_siamfc.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HelloWorld/54version/siamfc/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HelloWorld/54version/siamfc/alexnet.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HelloWorld/54version/siamfc/config.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HelloWorld/54version/siamfc/custom_transforms.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HelloWorld/54version/siamfc/dataset.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HelloWorld/54version/siamfc/generate_anchors.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HelloWorld/54version/siamfc/loss.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HelloWorld/54version/siamfc/tracker.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HelloWorld/54version/siamfc/train.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HelloWorld/54version/siamfc/utils.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HelloWorld/54version/siamfc/visual.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HelloWorld/HelloWorld.pyproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HelloWorld/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HelloWorld/bin/create_dataset.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HelloWorld/bin/create_lmdb.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HelloWorld/bin/demo_siamfc.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HelloWorld/bin/run_SiamRPN.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HelloWorld/bin/show_videos.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HelloWorld/bin/test_OTB.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HelloWorld/bin/train_siamfc.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HelloWorld/siamfc/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HelloWorld/siamfc/alexnet.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HelloWorld/siamfc/config.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HelloWorld/siamfc/custom_transforms.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HelloWorld/siamfc/dataset.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HelloWorld/siamfc/generate_anchors.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HelloWorld/siamfc/loss.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HelloWorld/siamfc/tracker.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HelloWorld/siamfc/train.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HelloWorld/siamfc/utils.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HelloWorld/siamfc/visual.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leetcode4cwithcplus/leetcode4cwithcplus.vcxproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leetcode4cwithcplus/leetcode4cwithcplus.vcxproj.filters" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leetcode4cwithcplus/砸金蛋戳气球.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../leetcode4cwithcplus/砸金蛋戳气球.cpp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -33,68 +77,58 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="true" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/xuetangzaixian.cpp">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="237">
-              <caret line="165" column="28" selection-start-line="165" selection-start-column="28" selection-end-line="165" selection-end-column="28" />
+            <state relative-caret-position="133">
+              <caret line="7" column="37" selection-start-line="7" selection-start-column="37" selection-end-line="7" selection-end-column="37" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../leetcode4cwithcplus/砸金蛋戳气球.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="361">
+              <caret line="19" column="18" lean-forward="true" selection-end-line="54" selection-end-column="1" />
               <folding>
-                <element signature="e#82#99#0" expanded="true" />
-                <element signature="e#156#713#0" />
-                <element signature="e#715#1206#0" />
-                <element signature="e#1208#2023#0" />
-                <element signature="e#2013#2534#0" />
+                <element signature="e#87#105#0" expanded="true" />
+                <element signature="e#488#733#0" />
+                <element signature="e#749#1092#0" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/leetcode/砸金蛋戳气球.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="95">
+              <caret line="5" column="18" lean-forward="true" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
+              <folding>
+                <element signature="e#471#716#0" />
+                <element signature="e#732#1075#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../leetcode4cwithcplus/三元互质子集.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="190">
+              <caret line="10" lean-forward="true" selection-end-line="92" selection-end-column="1" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/leetcode.cpp">
+        <entry file="file://$PROJECT_DIR$/leetcode/三元互质子集.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="402">
-              <caret line="377" column="22" lean-forward="true" selection-start-line="377" selection-start-column="22" selection-end-line="377" selection-end-column="22" />
+            <state relative-caret-position="887">
+              <caret line="95" column="1" selection-start-line="95" selection-start-column="1" selection-end-line="95" selection-end-column="1" />
               <folding>
-                <element signature="e#371#894#0" />
-                <element signature="e#896#1200#0" />
-                <element signature="e#1203#3043#0" />
-                <element signature="e#3045#3955#0" />
-                <element signature="e#3958#4653#0" />
-                <element signature="e#4655#4967#0" />
-                <element signature="e#5010#5712#0" />
-                <element signature="e#5714#6566#0" />
-                <element signature="e#6568#7163#0" />
-                <element signature="e#7459#8224#0" />
-                <element signature="e#8246#8395#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="7" column="23" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../cplusplus/main.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="684">
-              <caret line="374" column="2" lean-forward="true" selection-end-line="433" selection-end-column="1" />
-              <folding>
-                <element signature="e#371#894#0" />
-                <element signature="e#896#1200#0" />
-                <element signature="e#1203#3043#0" />
-                <element signature="e#3045#3955#0" />
-                <element signature="e#3958#4653#0" />
-                <element signature="e#4655#4967#0" />
-                <element signature="e#5010#5712#0" />
-                <element signature="e#5714#6566#0" />
-                <element signature="e#6568#7163#0" />
+                <element signature="e#125#143#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -112,6 +146,9 @@
         <option value="$PROJECT_DIR$/xuetangzaixian.cpp" />
         <option value="$PROJECT_DIR$/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/leetcode.cpp" />
+        <option value="$PROJECT_DIR$/../leetcode4cwithcplus/砸金蛋戳气球.cpp" />
+        <option value="$PROJECT_DIR$/leetcode/砸金蛋戳气球.cpp" />
+        <option value="$PROJECT_DIR$/leetcode/三元互质子集.cpp" />
       </list>
     </option>
   </component>
@@ -137,6 +174,11 @@
               <item name="CPlusPlus14" type="b2602c69:ProjectViewProjectNode" />
               <item name="CPlusPlus14Clion" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="CPlusPlus14" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CPlusPlus14Clion" type="462c0819:PsiDirectoryNode" />
+              <item name="leetcode" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -161,7 +203,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="CMake Application.leetcode">
+  <component name="RunManager" selected="CMake Application.xuetangzaixian">
     <configuration name="leetcode" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="CPlusPlus14" TARGET_NAME="leetcode" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="CPlusPlus14" RUN_TARGET_NAME="leetcode">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -191,12 +233,12 @@
       <workItem from="1558059354479" duration="4609000" />
       <workItem from="1558079384226" duration="514000" />
       <workItem from="1558080143289" duration="1022000" />
-      <workItem from="1558579853677" duration="5037000" />
+      <workItem from="1558579853677" duration="5595000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14494000" />
+    <option name="totallyTimeSpent" value="15052000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -211,12 +253,12 @@
     <frame x="1358" y="-8" width="1696" height="1066" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.12163814" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.12163814" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.23043944" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.23043944" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.27759916" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -329,13 +371,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="7" column="23" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../cplusplus/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="684">
@@ -354,10 +389,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/../leetcode4cwithcplus/main.cpp">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/leetcode.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="402">
-          <caret line="377" column="22" lean-forward="true" selection-start-line="377" selection-start-column="22" selection-end-line="377" selection-end-column="22" />
+        <state relative-caret-position="152">
+          <caret line="14" column="17" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
           <folding>
             <element signature="e#371#894#0" />
             <element signature="e#896#1200#0" />
@@ -370,6 +408,53 @@
             <element signature="e#6568#7163#0" />
             <element signature="e#7459#8224#0" />
             <element signature="e#8246#8395#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="7" column="37" selection-start-line="7" selection-start-column="37" selection-end-line="7" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../leetcode4cwithcplus/砸金蛋戳气球.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="361">
+          <caret line="19" column="18" lean-forward="true" selection-end-line="54" selection-end-column="1" />
+          <folding>
+            <element signature="e#87#105#0" expanded="true" />
+            <element signature="e#488#733#0" />
+            <element signature="e#749#1092#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/leetcode/砸金蛋戳气球.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="5" column="18" lean-forward="true" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
+          <folding>
+            <element signature="e#471#716#0" />
+            <element signature="e#732#1075#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../leetcode4cwithcplus/三元互质子集.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="10" lean-forward="true" selection-end-line="92" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/leetcode/三元互质子集.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="887">
+          <caret line="95" column="1" selection-start-line="95" selection-start-column="1" selection-end-line="95" selection-end-column="1" />
+          <folding>
+            <element signature="e#125#143#0" expanded="true" />
           </folding>
         </state>
       </provider>
