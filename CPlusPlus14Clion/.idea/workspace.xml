@@ -2,19 +2,23 @@
 <project version="4">
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
     <generated>
-      <config projectName="CPlusPlus14" targetName="CPlusPlus14" />
+      <config projectName="CPlusPlus14" targetName="leetcode" />
+      <config projectName="CPlusPlus14" targetName="xuetangzaixian" />
     </generated>
   </component>
-  <component name="CMakeSettings">
+  <component name="CMakeSettings" AUTO_RELOAD="true">
     <configurations>
       <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" />
     </configurations>
   </component>
   <component name="ChangeListManager">
     <list default="true" id="64fc41d9-2ced-4d7b-93c4-55cd02d61feb" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../Python3.6/Python3.6.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Python3.6/Python3.6.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cplusplus/.vscode/ipch/96b5e6ff3eb67932/MAIN.ipch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cplusplus/.vscode/ipch/f898e7b61d5d0518/1.ipch" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/leetcode.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xuetangzaixian.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/xuetangzaixian.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Python3.6/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Python3.6/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Python3.6/词云/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../Python3.6/词云/.gitignore" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -29,16 +33,68 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="true" current-in-tab="true">
+      <file pinned="true" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/xuetangzaixian.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="418">
-              <caret line="123" column="13" lean-forward="true" selection-start-line="123" selection-start-column="13" selection-end-line="123" selection-end-column="13" />
+            <state relative-caret-position="237">
+              <caret line="165" column="28" selection-start-line="165" selection-start-column="28" selection-end-line="165" selection-end-column="28" />
               <folding>
                 <element signature="e#82#99#0" expanded="true" />
                 <element signature="e#156#713#0" />
                 <element signature="e#715#1206#0" />
-                <element signature="e#1208#1448#0" />
+                <element signature="e#1208#2023#0" />
+                <element signature="e#2013#2534#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/leetcode.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="402">
+              <caret line="377" column="22" lean-forward="true" selection-start-line="377" selection-start-column="22" selection-end-line="377" selection-end-column="22" />
+              <folding>
+                <element signature="e#371#894#0" />
+                <element signature="e#896#1200#0" />
+                <element signature="e#1203#3043#0" />
+                <element signature="e#3045#3955#0" />
+                <element signature="e#3958#4653#0" />
+                <element signature="e#4655#4967#0" />
+                <element signature="e#5010#5712#0" />
+                <element signature="e#5714#6566#0" />
+                <element signature="e#6568#7163#0" />
+                <element signature="e#7459#8224#0" />
+                <element signature="e#8246#8395#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="133">
+              <caret line="7" column="23" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../cplusplus/main.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="684">
+              <caret line="374" column="2" lean-forward="true" selection-end-line="433" selection-end-column="1" />
+              <folding>
+                <element signature="e#371#894#0" />
+                <element signature="e#896#1200#0" />
+                <element signature="e#1203#3043#0" />
+                <element signature="e#3045#3955#0" />
+                <element signature="e#3958#4653#0" />
+                <element signature="e#4655#4967#0" />
+                <element signature="e#5010#5712#0" />
+                <element signature="e#5714#6566#0" />
+                <element signature="e#6568#7163#0" />
               </folding>
             </state>
           </provider>
@@ -54,21 +110,26 @@
       <list>
         <option value="$PROJECT_DIR$/main.cpp" />
         <option value="$PROJECT_DIR$/xuetangzaixian.cpp" />
+        <option value="$PROJECT_DIR$/CMakeLists.txt" />
+        <option value="$PROJECT_DIR$/leetcode.cpp" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="1550" />
     <option name="y" value="-16" />
     <option name="width" value="1279" />
     <option name="height" value="728" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -80,7 +141,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -101,12 +161,21 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
-    <configuration name="CPlusPlus14" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="CPlusPlus14" TARGET_NAME="CPlusPlus14" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="CPlusPlus14" RUN_TARGET_NAME="CPlusPlus14">
+  <component name="RunManager" selected="CMake Application.leetcode">
+    <configuration name="leetcode" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="CPlusPlus14" TARGET_NAME="leetcode" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="CPlusPlus14" RUN_TARGET_NAME="leetcode">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
+    <configuration name="xuetangzaixian" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="CPlusPlus14" TARGET_NAME="xuetangzaixian" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="CPlusPlus14" RUN_TARGET_NAME="xuetangzaixian">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="CMake Application.leetcode" />
+      <item itemvalue="CMake Application.xuetangzaixian" />
+    </list>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -120,11 +189,14 @@
       <updated>1557996922463</updated>
       <workItem from="1557996927598" duration="3312000" />
       <workItem from="1558059354479" duration="4609000" />
+      <workItem from="1558079384226" duration="514000" />
+      <workItem from="1558080143289" duration="1022000" />
+      <workItem from="1558579853677" duration="5037000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7921000" />
+    <option name="totallyTimeSpent" value="14494000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -136,25 +208,25 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1358" y="-8" width="1874" height="1096" extended-state="6" />
+    <frame x="1358" y="-8" width="1696" height="1066" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16923925" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.12163814" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.23076923" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.27858627" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.23043944" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.27759916" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32952183" />
       <window_info anchor="bottom" id="Database Changes" order="7" />
-      <window_info anchor="bottom" id="Messages" order="8" weight="0.32952183" />
-      <window_info anchor="bottom" id="Terminal" order="9" weight="0.32952183" />
+      <window_info anchor="bottom" id="Messages" order="8" weight="0.3290461" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.3290461" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="11" weight="0.32952183" />
-      <window_info anchor="bottom" id="CMake" order="12" weight="0.32952183" />
+      <window_info anchor="bottom" id="Version Control" order="11" weight="0.3290461" />
+      <window_info anchor="bottom" id="CMake" order="12" weight="0.3290461" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -169,16 +241,21 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/xuetangzaixian.cpp</url>
-          <line>66</line>
-          <option name="timeStamp" value="4" />
+          <line>140</line>
+          <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/xuetangzaixian.cpp</url>
-          <line>63</line>
-          <option name="timeStamp" value="5" />
+          <line>145</line>
+          <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <watches-manager>
+      <configuration name="CMakeRunConfiguration">
+        <watch expression="j" />
+      </configuration>
+    </watches-manager>
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="watch">
@@ -188,27 +265,111 @@
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
     </expressions>
+    <expressions id="setValue">
+      <expression>
+        <expression-string>1</expression-string>
+        <language-id>ObjectiveC</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
-      <provider selected="true" editor-type-id="text-editor" />
+    <entry file="file://D:/Devenv/mingw/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/string">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="38" column="19" lean-forward="true" selection-start-line="38" selection-start-column="19" selection-end-line="38" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/Devenv/mingw/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/cmath">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3192" />
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="95">
-          <caret line="5" column="1" lean-forward="true" selection-start-line="5" selection-start-column="1" selection-end-line="5" selection-end-column="1" />
+          <caret line="5" column="1" selection-start-line="5" selection-start-column="1" selection-end-line="5" selection-end-column="1" />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/../cplusplus/1.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-114">
+          <caret line="1" column="12" lean-forward="true" selection-start-line="1" selection-start-column="12" selection-end-line="1" selection-end-column="12" />
+          <folding>
+            <element signature="e#33#49#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../cplusplus/2.cpp">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../cplusplus/3.cpp">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../cplusplus/4.cpp">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../cplusplus/xuetangzaixian.cpp">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/xuetangzaixian.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="123" column="13" lean-forward="true" selection-start-line="123" selection-start-column="13" selection-end-line="123" selection-end-column="13" />
+        <state relative-caret-position="237">
+          <caret line="165" column="28" selection-start-line="165" selection-start-column="28" selection-end-line="165" selection-end-column="28" />
           <folding>
             <element signature="e#82#99#0" expanded="true" />
             <element signature="e#156#713#0" />
             <element signature="e#715#1206#0" />
-            <element signature="e#1208#1448#0" />
+            <element signature="e#1208#2023#0" />
+            <element signature="e#2013#2534#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="7" column="23" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../cplusplus/main.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="684">
+          <caret line="374" column="2" lean-forward="true" selection-end-line="433" selection-end-column="1" />
+          <folding>
+            <element signature="e#371#894#0" />
+            <element signature="e#896#1200#0" />
+            <element signature="e#1203#3043#0" />
+            <element signature="e#3045#3955#0" />
+            <element signature="e#3958#4653#0" />
+            <element signature="e#4655#4967#0" />
+            <element signature="e#5010#5712#0" />
+            <element signature="e#5714#6566#0" />
+            <element signature="e#6568#7163#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/leetcode.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="402">
+          <caret line="377" column="22" lean-forward="true" selection-start-line="377" selection-start-column="22" selection-end-line="377" selection-end-column="22" />
+          <folding>
+            <element signature="e#371#894#0" />
+            <element signature="e#896#1200#0" />
+            <element signature="e#1203#3043#0" />
+            <element signature="e#3045#3955#0" />
+            <element signature="e#3958#4653#0" />
+            <element signature="e#4655#4967#0" />
+            <element signature="e#5010#5712#0" />
+            <element signature="e#5714#6566#0" />
+            <element signature="e#6568#7163#0" />
+            <element signature="e#7459#8224#0" />
+            <element signature="e#8246#8395#0" />
           </folding>
         </state>
       </provider>
