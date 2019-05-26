@@ -6,6 +6,7 @@
 #include<climits>
 #include<string>
 #include<cmath>
+#include<vector>
 
 using namespace std;
 
@@ -116,10 +117,12 @@ void coding_c_2_3() {
     }
 }
 
-
+void fun(vector<int> a){}
 int main() {
 //    cout<<"Hello World!"<<endl;
-    coding_c_2_3();
+//    coding_c_2_3();
 //    system("pause");
+//    vector<int> vec;
+//    fun(vec);
     return 0;
 }

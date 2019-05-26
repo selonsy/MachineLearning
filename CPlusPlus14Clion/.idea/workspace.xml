@@ -12,9 +12,49 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="64fc41d9-2ced-4d7b-93c4-55cd02d61feb" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../Python3.6/Python3.6.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Python3.6/Python3.6.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cplusplus/.vscode/ipch/96b5e6ff3eb67932/MAIN.ipch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cplusplus/.vscode/ipch/f898e7b61d5d0518/1.ipch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xuetangzaixian.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/xuetangzaixian.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Python3.6/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Python3.6/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SiamFPN/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SiamFPN/bin/check_data.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SiamFPN/bin/create_dataset.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SiamFPN/bin/create_dataset_otb.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SiamFPN/bin/create_dataset_ytbid.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SiamFPN/bin/create_lmdb.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SiamFPN/bin/demo_siamfc.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SiamFPN/bin/leave_ori.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SiamFPN/bin/rectify_id.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SiamFPN/bin/show_videos.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SiamFPN/bin/test_OTB.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SiamFPN/bin/test_kitti.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SiamFPN/bin/test_read_speed.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SiamFPN/bin/test_read_speed_lmdb.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SiamFPN/bin/train_siamrpn.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SiamFPN/cmd.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SiamFPN/data/results/eval_result_otb100.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SiamFPN/data/results/eval_result_otb50.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SiamFPN/data/results/eval_result_otb50_0506.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SiamFPN/data/results/result_otb100.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SiamFPN/data/results/result_otb50.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SiamFPN/data/results/result_otb50_0506.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SiamFPN/eval_result.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SiamFPN/lib/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SiamFPN/lib/custom_transforms.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SiamFPN/lib/generate_anchors.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SiamFPN/lib/loss.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SiamFPN/lib/utils.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SiamFPN/lib/visual.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SiamFPN/net/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SiamFPN/net/config.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SiamFPN/net/dataset.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SiamFPN/net/fpn.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SiamFPN/net/network.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SiamFPN/net/run_SiamFPN.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SiamFPN/net/tracker.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SiamFPN/net/train.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SiamFPN/requirements.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SiamFPN/requirements_pip36.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SiamFPN/test.py" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -32,13 +72,13 @@
       <file pinned="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/xuetangzaixian.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="418">
-              <caret line="123" column="13" lean-forward="true" selection-start-line="123" selection-start-column="13" selection-end-line="123" selection-end-column="13" />
+            <state relative-caret-position="475">
+              <caret line="126" column="13" lean-forward="true" selection-start-line="126" selection-start-column="13" selection-end-line="126" selection-end-column="13" />
               <folding>
                 <element signature="e#82#99#0" expanded="true" />
                 <element signature="e#156#713#0" />
                 <element signature="e#715#1206#0" />
-                <element signature="e#1208#1448#0" />
+                <element signature="e#1208#1947#0" />
               </folding>
             </state>
           </provider>
@@ -57,7 +97,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="1550" />
     <option name="y" value="-16" />
     <option name="width" value="1279" />
@@ -119,12 +159,13 @@
       <option name="presentableId" value="Default" />
       <updated>1557996922463</updated>
       <workItem from="1557996927598" duration="3312000" />
-      <workItem from="1558059354479" duration="4609000" />
+      <workItem from="1558059354479" duration="5200000" />
+      <workItem from="1558521039531" duration="1525000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7921000" />
+    <option name="totallyTimeSpent" value="10037000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -139,12 +180,12 @@
     <frame x="1358" y="-8" width="1874" height="1096" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16923925" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.115766264" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.23076923" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.23076923" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.27858627" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -169,12 +210,12 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/xuetangzaixian.cpp</url>
-          <line>66</line>
+          <line>67</line>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/xuetangzaixian.cpp</url>
-          <line>63</line>
+          <line>64</line>
           <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
@@ -202,13 +243,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/xuetangzaixian.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="123" column="13" lean-forward="true" selection-start-line="123" selection-start-column="13" selection-end-line="123" selection-end-column="13" />
+        <state relative-caret-position="475">
+          <caret line="126" column="13" lean-forward="true" selection-start-line="126" selection-start-column="13" selection-end-line="126" selection-end-column="13" />
           <folding>
             <element signature="e#82#99#0" expanded="true" />
             <element signature="e#156#713#0" />
             <element signature="e#715#1206#0" />
-            <element signature="e#1208#1448#0" />
+            <element signature="e#1208#1947#0" />
           </folding>
         </state>
       </provider>
