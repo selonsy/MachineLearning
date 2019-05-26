@@ -1,6 +1,13 @@
 #include <iostream>
+
 using namespace std;
-int main2019_5_16_17_07_43() {
-    std::cout << "Hello, World!" << endl;
+
+class A {
+public:
+    virtual void fun();
+};
+
+int main() {
+    cout << sizeof(A) << endl;
     return 0;
 }
