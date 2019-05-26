@@ -3,4 +3,8 @@ project(CPlusPlus14)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(CPlusPlus14 main.cpp xuetangzaixian.cpp)
+add_executable(test main.cpp)
+
+add_executable(xuetangzaixian xuetangzaixian.cpp)
+
+add_executable(leetcode leetcode.cpp)
